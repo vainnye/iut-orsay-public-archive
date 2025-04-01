@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>R4.a10 - Javascript/DOM - 01</title>
+		<link rel="stylesheet" href="../css/amphi.css">
+		<script src="../js/amphi.js"></script>
+	</head>
+	<body>
+	
+		<nav>
+			<ul id="nav_liste">
+			</ul>
+			<template id="nav_li_sec">
+				<li class="section"></li>
+			</template>
+			<template id="nav_li_part">
+				<li><a href=""></a></li>
+			</template>
+		</nav>
+				
+		<main>
+			<section>
+				<article 
+						class="titre" 
+						data-title="R4a10">
+					<div>
+						<h1>
+							Ressource 4.a10
+							<br>
+							Javascript / DOM
+							<br>
+							Cours 1
+						</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_01_01" 
+						data-title="orga">
+					<h2>Organisation du cours</h2>
+					<div>
+						<p>
+						</p>
+						<ul>
+							<li>
+								<p>
+									<strong>
+										La qualité de ce support
+										dépend de votre prise de notes
+										pendant l'amphi
+									</strong>
+								</p>
+							</li>
+							<li>
+								<p>
+									Ceci est une ressource : 
+									<a href="https://cours.iut-orsay.fr/course/view.php?id=212">
+										R4a10 (moodle)
+									</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									8 semaines : 
+									4 amphis (1h),
+									8 tps (2h)
+								</p>
+							</li>
+							<li>
+								<p>
+									Evaluation :
+								</p>
+									<ul dir="ltr">
+										<li>
+											<p>
+												Contrôle Continu sur 3 pts
+											</p>
+										</li>
+										<li>
+											<p>
+												Examen 17 pts
+											</p>
+												<ol>
+													<li>
+														<p>
+															Qcm sur papier, 5 pts
+														</p>
+													</li>
+													<li>
+														<p>
+															Trois exercices sur machine, 
+															4 pts chacun
+														</p>
+													</li>
+												</ol>												
+										</li>
+									</ul>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_02" 
+						data-title="biblio">
+					<h2>Références bibliographiques utiles</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Classique
+									<br>
+									<a href="https://www.manning.com/books/secrets-of-the-javascript-ninja-second-edition">
+										Secrets of the JavaScript Ninja.2nd Ed, John Resig, Bear Bibeault, Josip Maras, 2016, Manning
+									</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									Plus succinct
+									<br>
+									<a href="https://www.routledge.com/JavaScript-Syntax-and-Practices/Tomar-Dangi/p/book/9780367641429">
+										JavaScript Syntax and Practices,  Ravi Tomar, Sarishma Dangi, 2021, CRC Press
+									</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									Crash course
+									<br>
+									<a href="https://learnxinyminutes.com/docs/javascript/">
+										https://learnxinyminutes.com/docs/javascript/
+									</a>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_03" 
+						data-title="contexte">
+					<h2>Contexte du cours</h2>
+					<div>
+						<p>
+							<code>Javascript</code> :
+						</p>
+						<ul>
+							<li>
+								<p>
+									Impératif
+								</p>
+							</li>
+							<li>
+								<p>
+									Interprété
+								</p>
+							</li>
+							<li>
+								<p>
+									Faiblement typé
+								</p>
+							</li>
+							<li>
+								<p>
+Poids rétrocompatibilité / 
+<a href="https://www.proposals.es/specifications">
+ECMA Script
+</a>
+								</p>
+							</li>
+							<li>
+								<p>
+Programmation évènementielle :
+<br>
+Associer du code (fonctions, appelées <em>callback</em>)
+<br>
+à des évènements (issus de l'<em>environnement</em>)
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article>
+					<h2>Contexte du cours (suite)</h2>
+					<div>
+						<p>
+<code>Javascript</code> <strong>dans le navigateur</strong> :
+						</p>
+						<ul>
+							<li>
+								<p>
+Exécuté côté client
+								</p>
+							</li>
+							<li>
+								<p>
+Manipuler le <code>DOM</code> (et le <code>CSS</code>)
+								</p>
+							</li>
+							<li>
+								<p>
+<em>Bac à sable</em> (pas accès au disques,&hellip;)
+								</p>
+							</li>
+						</ul>
+						<p>
+							Kit de survie : 
+						</p>
+						<ul>
+							<li>
+								<p>
+<code>console.log( __string_ou_objet__ );</code>
+								</p>
+							</li>
+							<li>
+								<p>
+test online <a href="https://jsfiddle.net/">jsfiddle</a>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article
+						id="partie_01_04" 
+						data-title="syntaxe C">
+					<h2>Syntaxe de la famille <code>C</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+types primitifs : <code>bigint</code>, <code>boolean</code>,
+<code>number</code>, <code>string</code>, &hellip;
+								</p>
+							</li>
+							<li>
+								<p>
+déclaration variable
+<br>
+<code>let __var__ = __exp_ou_val__ ;</code>
+<br>
+<code>var __var__ = __exp_ou_val__ ;</code> //&larr; à éviter
+								</p>
+							</li>
+							<li>
+								<p>
+déclaration fonction
+<br>
+<code>function __f__( __args__ ){ __corps__ }</code>
+								</p>
+							</li>
+							<li>
+								<p>
+execution fonction
+<br>
+<code>f( __params__ );</code>
+								</p>
+							</li>
+							<li>
+								<p>
+<em>POO</em>, par ex. :
+<code>Number.parseInt("3.14159");</code>
+								</p>
+							</li>
+							<li>
+								<p>
+Remarque : 
+les <code>string</code> sont des objets, d'où
+<br>
+<code>"toto".replaceAll("o","i");</code>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>				
+				<article 
+						id="partie_01_05" 
+						data-title="squelette">
+					<h2>Squelette d'une page avec du javascript</h2>
+					<div>
+						<ol>
+							<li>
+								<p>
+Document <code>html</code> avec 
+<code>&lt;link&gt;</code>&rarr;<code>css</code> 
+et <code>&lt;script&gt;</code>&rarr;<code>javascript</code>
+								</p>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+   &lt;head&gt;
+      &lt;meta charset="utf-8"&gt;
+      &lt;title&gt; ____ &lt;/title&gt;
+      &lt;link rel="stylesheet" href="____.css"&gt;
+      &lt;script src="____.js"&gt;&lt;/script&gt;
+   &lt;/head&gt;
+   &lt;body&gt; 
+      ____
+   &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+							</li>
+						</ol>
+					</div>
+				</article>				
+				<article>
+					<h2>Squelette d'une page avec du javascript (suite)</h2>
+					<div>
+						<ol start="2">
+							<li>
+								<p>
+Feuille(s) de style <code>css</code>
+								</p>
+<pre>
+@charset "utf-8";
+*{
+   margin  : 0;
+   padding : 0;
+}
+header{ .....
+</pre>
+								<p>
+Rappel : utilisez 
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@import">
+	@import
+</a>
+								</p>
+							</li>
+							<li>
+								<p>
+Fichier(s) de code <code>javascript</code>
+								</p>
+<pre>
+"use strict"; // &larr; meilleurs message d'erreurs
+function .....
+</pre>
+							</li>
+						</ol>
+					</div>
+				</article>
+
+
+			</section>
+			<section>
+			
+				<article 
+						class="titre" 
+						data-title="DOM">
+					<div>
+						<h1>Manipulation du <code>DOM</code></h1>
+					</div>
+				</article>
+				
+				<article 
+						id="partie_02_01" 
+						data-title="arbre">
+					<h2>DOM : Structure arborescente</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+document <code>html</code> &harr; arbre <code>DOM</code> 
+(contenu de <code>body</code>)
+								</p>
+							</li>
+							<li>
+								<p>
+noeud de l'arbre &harr; balise du document
+								</p>
+							</li>
+							<li>
+								<p>
+sous-arbre &harr; élément (contenu d'une balise)
+								</p>
+							</li>
+							<li>
+								<p>
+attributs, valeurs, styles css, &hellip; 
+<br>
+&rarr; propriétés accessibles à partir des noeuds
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_02_02" 
+						data-title="manip.">
+					<h2>Manipuler les éléments</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+Accéder à un élément existant, deux alternatives :
+<br>
+____.getElementById( __id__ )
+<br>
+____.querySelector( __sel_css__ )
+								</p>
+							</li>
+							<li>
+								<p>
+Créer un élément :
+<br>
+cas général : document.createElement( __nom_balise__ ) 
+<br>
+cas contenu textuel : document.createTextNode( __string__ )
+								</p>
+							</li>
+							<li>
+								<p>
+Rattacher un élément (créé) à l'arbre (<code>DOM</code>) :
+<br>
+__el_parent__.appendChild( __el_fils_a_ajouter__ )
+								</p>
+								<p>
+Remarque : construisez tout le sous-arbre 
+avant de l'ajouter au <code>DOM</code> 
+(&rArr;<code>repaint</code>)
+								</p>
+							</li>
+							<li>
+								<p>
+Retirer un élément de l'arbre, deux alternatives (non destructives) :
+<br>
+__el__.remove()
+<br>
+__el_parent__.removeChild( __el__ )
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_02_03" 
+						data-title="modif.">
+					<h2>Modifier un élément</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+Contenu, une string accessible en lecture/écriture :
+<br>
+.innerText 
+<br> 
+.innerHTML // &rArr; évaluation
+								</p>
+							</li>
+							<li>
+								<p>
+Attributs d'une balise :
+<br>
+(en <code>html</code>) <code>__att__="__val__"</code>
+<br>
+(en <code>css</code>)
+<code>[__att__]</code>, <code>[__att__="__val__"]</code>, &hellip;
+								</p>
+								<p>
+&rarr; en <code>javascript</code>, trois méthodes :<br>
+<code>.getAttribute()</code>
+<code>.setAttribute()</code>
+<code>.removeAttribute()</code>
+								</p>
+							</li>
+							<li>
+								<p>
+Classes et Propriétés <code>css</code> :
+<br>
+<code>__el__.classList</code> +
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList"> 
+	méthodes
+</a>
+<br>
+<code>__el__.style.__encoded_prop__</code> // &larr; accès lect./ecrit.
+<br>
+(&#9888; <em>noms</em> traduits en <em>identifiants</em>)
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article>
+					<h2>Modifier un élément (suite)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+Attributs <em>custom</em> :
+<br>
+(en <code>html</code>) <code>data-__qqch__="__val__"</code>
+<br>
+(en <code>css</code>) <code>[data-__qqch__]</code>,&hellip;
+								</p>
+								<p>
+&rarr; en <code>javascript</code>, groupés en un objet :
+<br>
+<code>.dataset.__qqch__</code> // &larr; accès lect./ecrit.
+								</p>
+							</li>
+							<li>
+								<p>
+Cas des <code>&lt;input&gt;</code> :
+<br>
+&rarr; accès direct via <code>.value</code>
+								</p>
+							</li>
+							<li>
+								<p>
+Validité d'un <code>&lt;input&gt;</code> :
+<br>
+&rarr;
+<code>.setCustomValidity()</code>
+<code>.reportValidity()</code>
+<br>
+(et définir les <code>css</code> correspondant 
+<code>:valid</code> / <code>:invalid</code>)
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				
+			</section>
+			<section>
+			
+				<article 
+						class="titre" 
+						data-title="Evenements">
+					<div>
+						<h1>Evénements</h1>
+					</div>
+				</article>
+				
+				<article 
+						id="partie_03_01" 
+						data-title="réagir">
+					<h2><em>Ecouter</em> un évènement pour y réagir</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+<em>Déclarer</em> une association <em>ev.&harr;react.</em> 
+dans le <code>html</code>, exemples :
+<br>
+<code>&lt;button onclick="____"&gt;</code>
+<br>
+<code>&lt;input onkeyup="____"/&gt;</code>
+								</p>
+							</li>
+							<li>
+								<p>
+<em>Programmer</em> une association en <code>javascript</code> :
+<br>
+<code>__el__.addEventListener( 'click', __f__	)</code>
+<br>
+<code>__el__.addEventListener( 'mousemove', __f__ )</code>
+<br>
+&hellip;
+								</p>
+							</li>
+							<li>
+								<p>
+&#9888; évenement <em>initial</em> : "le <code>DOM</code> est <em>prèt</em>"
+<br>
+<code>document.addEventListener( 'DOMContentLoaded', __f__ )</code>
+<br>
+<code>__el__.addEventListener( 'DOMContentLoaded', __f__ )</code>
+								</p>
+								<p>
+(à quoi bon agir avant ? &hellip;)
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				
+				<article 
+						id="partie_03_02" 
+						data-title="l'event">
+					<h2>Informations associée à l'évènement</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">
+	<code>Event</code>
+</a> informations décrivant les circonstances :
+<br>
+quel bouton, quelle touche, quel élément, 
+quelle position, &hellip;
+<br>
+<em>(&#9888; consultez cette doc pour votre tp)</em>
+								</p>
+							</li>
+							<li>
+								<p>
+Obtenir cet objet lors d'une déclaration en <code>html</code> :
+<br>
+<code>&lt;button onclick="f(event)"&gt;</code>
+								</p>
+							</li>
+							<li>
+								<p>
+Obtenir cet objet lors d'une association en <code>javascript</code> :
+<br>
+aucun changement de syntaxe (ce sera le premier paramètre reçu)
+								</p>
+							</li>
+							<li>
+								<p>
+Cas particulier : élément <code>DOM</code> concerné par l'événement
+<br>
+(en <code>html</code> et <code>js</code>) 
+<code>event.target</code> //classique
+<br>
+(alternative en <code>html</code> seulement)
+<code>&lt;button onclick="f(this)"&gt;</code>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				
+			</section>
+
+			<!-- section>
+			
+				<article 
+						class="titre" 
+						data-title="XXX">
+					<div>
+						<h1></h1>
+					</div>
+				</article>
+				
+				<article 
+						id="partie_0x_0x" 
+						data-title="xxx">
+					<h2>XXX</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+								</p>
+							</li>
+							<li>
+								<p>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				
+			</section -->
+			
+		</main>
+		<script> load() </script>		
+  </body>
+</html>

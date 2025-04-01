@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../../css/tp.css" />
+		<title>R4A10 - TP 2</title>
+		<script src="./scripts/index.js"></script> 
+	</head>
+	<body>
+		<header>
+			<h1>R4A10 - Javascript / DOM - TP 2</h1>
+		</header>
+		<aside>
+			<p>
+Dans ce TP nous allons réaliser de multiples manipulations sur le 
+<code>dom</code> : création, suppression, remplacement, ou
+édition d'éléments <code>html</code>.
+Les tableaux sont un bon élément pour ce genre d'exercice car 
+ils possèdent une structure suffisement riche et régulière, 
+mais pas trop complexe
+			</p>
+			<p>
+Utilisons cette version de <a href="./tableau.zip"><code>tableau.html</code></a> 
+pour replacez la précédente (elle référence un fichier <code>tableau.css</code> 
+et un fichier <code>tableau.js</code> que vous pourrez remplir pendant ce tp)
+			</p>
+		</aside>
+		<main>
+			<ol>
+				<!-- Exercice -->
+				<li id="ex1"> Mise en jambe
+					<ol>
+						<li>
+							<p>
+Une fois le tableau construit par le navigateur, marquez toute les notes en 
+dessous de 10
+							</p>
+							<img src="ex1.1.png">
+						</li>
+						<li>
+							<p>
+De même, calculez les moyennes, par colonne, puis en regroupant les colonnes 
+associées
+							</p>
+							<img src="ex1.2.png">
+						</li>
+					</ol>
+				</li>
+				<!-- Exercice -->
+				<li id="ex2"> Manipulation structure <code>dom</code>
+					<p>
+Nous allons manipuler la structure d'un tableau pour transformer 
+sa présentation : d'une classique, adaptée à un écran d'ordinateur,
+vers une autre <em>plus fine</em>, adaptée à un écran de téléphone.
+Avant cela, nous avons un peu simplifier le tableau (attention, 
+cette simplification réduit le travail de la callback qui 
+calcule les moyennes, et peu impacter vos précédents sélecteurs)
+					</p>
+					<img src="./ex2.desktop.png" />
+					<p>
+Notre point de départ est maintenant un tableau 2D classique :
+<code>thead</code> et <code>tfoot</code> n'ont plus qu'une ligne chacun,
+et <code>tbody</code> est rectangulaire
+					</p>
+					<p>
+La présentation <em>smartphone</em> que nous allons créer se fait sur
+<strong>deux colonnes</strong> seulement, de façon à tenir sur un écran
+de faible largeur. La première colonne répète périodiquement les noms
+de colonnes du tableau d'origine (les disciplines), pendant que la 
+seconde colonne affiche les lignes du tableau d'origine (les notes
+des magiciens) les unes après les autres.
+					</p>
+					<img src="./ex2.smartphone.png" />
+					<p>					
+Pour aider la lecture, l'alternance de niveau d'ombre rajouté dans la 
+seconde présentation correspond aux changements de ligne dans le 
+tableau d'origine (utilisez par exemple <code>filter: invert(0.1);</code>)
+					</p>
+					<p>
+Pour l'instant nous laissons de coté les noms des magiciens contenus 
+dans la première colonne du tableau d'origine, ainsi que les moyennes 
+indiquées  dans <code>tfoot</code>. Une partie optionnelle vous invitera
+à les inclure dans le traitement.
+					</p>
+					<ol>
+						<li id="ex2_1">
+							<p>
+Sous le tableau, rajoutez un bouton pour permettre l'invocation de la 
+fonction <code>table_to_mobile</code> et un autre pour 
+<code>table_to_desktop</code>
+							</p>
+							<img src="./ex2.1.png" />
+							<p>
+Avant de procéder à la transformation du tableau, nous allons commencer 
+par extraire l'information qu'il contient. Nous stockerons cette information 
+dans une variable qui jouera pour nous le rôle du <em>modèle</em>.
+En clair, nous voulons obtenir quelquechose qui ressemble à ceci :
+							</p>
+<pre>
+	{
+	  "colonnes":[
+		"Autodiscipline",
+		"Elementalisme",
+		"Naturalisme",
+		"Divination",
+		"Prètrise",
+		"Altération",
+		"Conscience",
+		"Guerrier",
+		"Artisant"
+	  ],
+	  "lignes":[
+		[ "8", "5", "5", "7","12","14", "6","18","11"],
+		[ "5","16", "9", "8","12", "5", "7","10","18"],
+		["10", "6","15", "7","14","11","17","15","14"],
+		["12","11","15", "7","14","11","17", "5", "5"],
+		["13","14","12","12", "7","14", "9", "9","18"],
+		[ "5","13","18", "5","17","14","18","14","15"],
+		["18","14","12","18","15","12","15", "7","11"],
+		["13","15","16", "8","15", "6","15","17","15"],
+		[ "5","18","15","14","10","16", "8","17", "8"],
+		["16", "9", "5","10", "5","10","18","10", "8"],
+		["11","17","14","16","12","13","17", "8", "9"],
+		["17","15","14","17","16","15", "7", "7","15"]
+	  ]
+	}</pre>
+							<p>
+Pour cela vous pouvez :
+							</p>
+							<ol>
+								<li>
+									<p>
+Définir une variable <code>contenu</code>, et l'initialiser avec un 
+<code>objet</code> vide : <code>{}</code>
+									</p>
+								</li>
+								<li>
+									<p>
+Définir un sélécteur qui visera les cases de <code>thead</code> contenant
+des noms de <em>disciplines magiques</em>
+									</p>
+								</li>
+								<li>
+									<p>
+Initialiser un attribut <code>contenu.colonnes</code> avec une liste vide
+									</p>
+								</li>
+								<li>
+									<p>
+Utiliser le classique <code>querySelectorAll</code>, couplé à 
+<code>forEach</code>, afin de parcourir les cases visées
+									</p>
+								</li>
+								<li>
+									<p>
+Extraire les <code>.innerText</code> au fur et à mesure, pour les ajouter
+à la liste <code>.colonnes</code>
+									</p>
+									<p>
+Comme toujours, <code>console.log</code> est là pour vous aider
+									</p>
+								</li>
+								<li>
+									<p>
+Définir un attribut <code>.lignes</code> (qui sera une liste de listes ;
+une par ligne de <code>tbody</code>)
+									</p>
+								</li>
+								<li>
+									<p>
+Définir un sélecteur pour les lignes du <code>tbody</code>, et itérer dessus
+									</p>
+								</li>
+								<li>
+									<p>
+Lors du traitement d'une ligne: utiliser la technique qui a permi de créer 
+<code>.colonnes</code>, mais cette fois pour extraire les <em>notes</em>,
+puis ajouter la liste ainsi obtenue à la liste de listes <code>.lignes</code>
+									</p>
+								</li>
+							</ol>
+						</li>
+						<li>
+							<p>
+Avant de construire la présentation	<em>smartphone</em>, par prudence, 
+nous allons <em>vider</em> les cases qui pourraient être le fait d'une
+précédente execution
+							</p>
+							<ol>
+								<li>
+									<p>
+Attrapez le noeud correspondant à la balise <code>table</code>, puis itérez 
+la suppression de son premier fils (<code>.removeChild</code>) tant 
+qu'il y a un premier fils à supprimer (testez par exemple s'il existe encore
+un <code>.firstChild</code>)
+									</p>
+								</li>
+								<li>
+									<p>
+Reconstruisez ensuite le <code>thead</code> en exploitant les fonctions 
+disponibles :
+<br>
+<code>.createTextNode( _chaine_a_afficher_ )</code>
+<br>	
+<code>.createElement( _tag_voulu_ )</code>
+<br>
+<code>.appendChild( _chaine_a_afficher_ )</code>
+									</p>
+									<p>
+Faites attention à l'ordre : contruction des <code>éléments</code> dabord,
+puis ajout au <code>dom</code>
+									</p>
+								</li>
+								<li>
+									<p>
+Pour tester votre fonction, définissez dès le départ quelques cases inutiles 
+dans le tableau
+									</p>
+									<img src="./ex2.2.png" />
+								</li>
+							</ol>
+						</li>
+						<li>
+							<p>
+Procédons maintenant à la transformation. L'algorithme doit :
+							</p>
+							<ol>
+								<li>
+									<p>
+Parcourir <code>contenu.lignes</code>
+									</p>
+								</li>
+								<li>
+									<p>
+Pour chaque liste rencontrée, il doit parcourir <code>contenu.colonnes</code>
+									</p>
+								</li>
+								<li>
+									<p>
+Dans cette boucle imbriquée, pour chaque paire <em>(discipline,note)</em>,
+il doit créer une ligne de <strong>2</strong> cases dans le tableau 
+<em>smartphone</em>. Cette création se fait à nouveau avec les mêmes 
+fonctions (
+<code>createTextNode</code>,
+<code>createElement</code>, et
+<code>appendChild</code>
+)
+									</p>
+								</li>
+								<li>
+									<p>
+Remarque : à un moment ou un autre de ce processus, vous avez du recréer 
+<code>tbody</code>, l'attacher au <code>table</code>, et lui attacher 
+les <code>tr</code>
+									</p>
+								</li>
+							</ol>
+						</li>
+						<li>
+							<p>
+Pour l'instant, il est impossible de définir la <em>vraie</em> réciproque 
+<code>table_to_desktop</code> car il manque des informations :
+les noms des magiciens, et les moyennes. Ce n'est pas grave, nous allons 
+faire une réciproque partielle, sans ces informations
+							</p>
+							<p>
+Procédez de façon analogue à la première transformation :
+<br>
+(remarque : des boucles <em>classique</em> peuvent s'avérer plus utiles que 
+des <code>querySelectorAll.forEach</code> pour cet exercice)
+							</p>
+							<ol>
+								<li>
+									<p>
+Récupérez les données à partir du tableau pour <em>smartphone</em> :
+pour cela, on supposera que l'on sait par avance qu'il y a 9 
+<em>disciplines magiques</em> (mais sans supposer que l'on connait le 
+nombre de magiciens)
+									</p>
+									<p>
+Tout élément a un attribut <code>.children</code> sur lequel on peut itérer 
+(boucle <code>for</code>) pour parcourir ses fils. Ici, on veut seulement 
+les <code>NB_DISPLINES</code> premières lignes de <code>tbody</code> 
+dans un premier temps
+									</p>
+									<p>
+Dans un second temps, on veut toutes les lignes de <code>tbody</code>.
+Lors de ce parcours complet, on tient compte du fait que tous les 
+<code>NB_DISPLINES</code> lignes, on change de magicien (donc de liste
+dans <code>contenu.lignes</code>)
+									</p>
+								</li>
+								<li>
+									<p>
+Videz le tableau pour <em>desktop</em>, et reconstruiser son <code>thead</code>
+(avec donc uniquement les colonnes  des <em>disciplines</em>)
+									</p>
+								</li>
+								<li>
+									<p>
+Grace au contenu extrait, recontruisez le <code>tbody</code> manquant.
+Cette fois-ci c'est simple : c'est une matrice rectangulaire totalement
+régulière dont les cases sont décrites dans <code>contenu.lignes</code>
+									</p>
+								</li>
+							</ol>
+							<img src="ex2.4.png">
+							<p>
+Comme anticipé, on ne retrouve pas exactement le tableau original. 
+Mais après la première perte d'information, le processus redevient involutif. 
+Si votre code est propre, il doit être aisé de le modifier pour qu'il 
+n'y ait qu'un seul <code>table</code> dans le document <code>html</code>.
+Faites le nécéssaire.
+							</p>
+						</li>
+						<li> (optionel)
+							<p>
+Cherchons à présent un moyen de perdre moins d'information. En particulier, 
+nous voudrions conserver les noms mentionés dans la première colonne. 
+Pour cela, il nous faut concevoir une forme <em>régulière</em> pour la mise
+en page <em>smartphone</em> qui permette de les faire apparaître, puis de 
+les extraire. Par exemple :
+							</p>
+							<img src="ex2.5a.png">
+							<p>
+Ici, chaque nom occupe une ligne dans <code>tbody</code>. Cette ligne n'a 
+qu'une seule case <code>th</code>, avec un <code>colspan="2"</code> 
+(et un petit peu de css là dessus).
+Pour créer une telle vue, il faudra donc en premier lieu extraire les noms, 
+puis les insérer périodiquement
+							</p>
+							<p>
+Dans la fonction <em>réciproque</em> on peut à présent récupérer les noms.
+On sait qu'ils sont dans les lignes dont l'unique case répond au selecteur 
+<code>th[colspan="2"]</code> (attention, ce n'est peut être pas nécessaire 
+d'utiliser <em>toute</em> cette information)
+							</p>
+							<img src="ex2.5b.png">
+						</li>
+					</ol>
+				</li>
+				<!-- Exercice -->
+				<li id="ex3"> Manipulation structure <code>dom</code> (2)
+					<p>
+Nous voulons rajouter une fonctionnalité de tri par discipline à notre tableau.
+Nous permettrons un tri par ordre ascendant ou descendant.
+					</p>
+					<ol>
+						<li>
+							<p>
+Mettez en place la structure <code>html</code> et le <code>css</code>, 
+afin d'avoir un <code>thead</code> semblable à celui-ci :
+							</p>
+							<img src="./ex3.1.png" />
+							<p>
+Chaque flèche sert à choisir la colonne <strong>et</strong> la direction du tri
+à effectuer. Donnez la classe <code>asc</code> aux flèches vers le bas, 
+et la classe <code>desc</code> aux autres
+							</p>
+							<p>
+Remarque : on ne se soucira pas de l'interaction entre cet exercice et 
+le précédent
+							</p>
+						</li>
+						<li id="ex3_2">
+							<p>
+Si vous avez ajouté à la main un attribut <code>onclick</code> pour chaque 
+flèche, ce n'était pas habile. Lors de l'événement <code>DOMContentLoaded</code>, 
+nous pouvons associer une callback au <code>click</code> grâce à
+<code>.addEventListener</code>. Nous appellerons cette callback 
+<code>trier</code>.
+							</p>
+							<p>
+Codez cette approche, en utilisant par exemple les sélecteurs 
+<code>table thead .asc</code> et <code>table thead .desc</code>,
+combinés avec <code>.querySelectorAll</code>
+							</p>
+						</li>
+						<li id="ex3_3">
+							<p>
+Il nous reste à coder la fonction <code>trier</code>. Elle doit :
+							</p>
+							<ol>
+								<li>
+									<p>
+Initialiser une variable <code>el_table</code> avec le tableau
+(par exemple avec  <code>.getElementById</code>, pour varier les plaisirs)
+									</p>
+								</li>
+								<li>
+									<p>
+A partir de celui-ci, récupérer dans une variable <code>lignes</code>,
+toutes les lignes du corps (<code>el_table.querySelectorAll(...)</code>).
+et pour chaque ligne, mémoriser le contenu de chaque case
+									</p>
+								</li>
+								<li>
+									<p>
+Déterminer quelle colonne et quelle direction de tri ont été choisies : 
+									</p>
+									<ul>
+										<li>
+											<p>
+Pour la direction de tri, consultez par exemple la présence ou non de la classe 
+<code>asc</code> avec <code>.classList.contains</code>
+											</p>
+										</li>
+										<li>
+											<p>
+Pour l'indice de la colonne :
+											</p>
+											<ol>
+												<li>
+													<p>
+Démarrez avec l'élément cible du clic (<code>ev.target</code>)
+													</p>
+												</li>
+												<li>
+													<p>
+<em>Remontez</em> dans le <code>dom</code> en utilisant <code>.parentNode</code>,
+pour aller chercher le <code>td</code> qui contient la flèche, puis 
+pour aller chercher le <code>tr</code> qui contient ce <code>td</code>
+													</p>
+													<img src="./ex3.3c.png" />
+												</li>
+												<li>
+													<p>
+Itérez sur les <code>.children</code> du <code>tr</code>, en comptant,
+jusqu'à retrouver <em>le</em> <code>td</code> correct.
+On a ainsi l'indice de la colonne à trier
+													</p>
+												</li>
+											</ol>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<p>
+Trier les données extraites à l'étape <code>b.</code>
+									</p>
+									<ol>
+										<li>
+											<p>
+La variable <code>lignes</code> est un <code>array</code> (contenant des lignes).
+Cet array dispose d'une méthode <code>.sort</code>
+											</p>
+										</li>
+										<li>
+											<p>
+Il faut expliquer à <code>.sort</code> comment comparer deux lignes de 
+<code>lignes</code>. Pour cela, il faut lui fournir une callback qui :
+											</p>
+											<p>
+Reçoit deux lignes, et répond -1 si la première va avant la seconde 
+(i.e. <em>est plus petite</em>) ; +1 si elle va après ; 0 si c'est indifférent
+											</p>
+											<p>
+Dans notre cas, si c'est la colonne d'indice <code>col_idx</code> qui a été 
+choisie pour  trier le tableau, et si les lignes reçues par la callback sont
+<code>l_a</code> et <code>l_b</code>, il faut alors tester la valeur
+<code>l_a[col_idx]</code> contre la valeur <code>l_b[col_idx]</code>
+pour savoir si on veut répondre +1, 0, ou -1
+											</p>
+											<p>
+Attention : selon que le tri voulu soit ascendant ou descendant, cela inverse 
+à quel moment il faut répondre <code>+1</code> ou <code>-1</code>
+											</p>
+										</li>
+									</ol>
+								</li>
+								<li>
+									<p>
+Enfin, on reparcourt le tableau en remplaçant le contenu de chaque case
+par ce que nous indique le résultat du tri (i.e. la variable <code>lignes</code>)
+									</p>
+								</li>
+								<img src="ex3.3e.png">
+								<li>
+									<p>
+Remarquez que l'on n'a pas mis à jour le marquage des notes en dessous de 
+la moyenne ; mais cela avait été annoncé <em>hors sujet</em>.
+Vous pouvez cependant chercher à le rectifier sur votre temps libre.
+									</p>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+			</ol>
+		</main>
+	</body>
+</html>

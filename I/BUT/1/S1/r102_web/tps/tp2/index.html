@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../../css/tp.css" />
+		<title>R1.02 - HTML / CSS - TP 2</title>
+    </head>
+	<body>
+
+		<header>
+			<h1>R1.02 - HTML / CSS - TP 2</h1>
+		</header>
+
+		<aside>
+			<p>
+				Dans ce TP vous allez créer votre première feuille de
+				style CSS. Elle ne s'occupe pour l'instant que 
+				des aspects basiques	de la présentation : 
+				les fonts, les tailles, les couleurs, et quelques positionnements.
+			</p>
+		</aside>
+
+		<main>
+			<ol>
+
+				<!-- Exercice -->
+				<li> Mise en place
+					<ol> 
+
+						<li> Historisation
+							<ol>
+								<li>
+									<p>
+									Dans l'explorateur de fichiers de 
+									windows, recopiez le répertoire
+									créé lors du tp précédent,
+									puis renommer le <code>tp2</code>.
+									</p>
+								</li>
+								<li>
+									<p>
+									Vérifiez bien que ce nouveau répertoire
+									contient une copie de votre fichier
+									<code>index.html</code>, ainsi que de l'image
+									que vous avez utilisée au tp1.
+									</p>
+								</li>
+							</ol>
+						</li>
+
+						<li> Création du sous-répertoire et du fichier CSS
+							<ol>
+								<li>
+									<p>
+									Dans le répertoire <code>tp2</code>,
+									créez un répertoire <code>styles</code>.
+									Dans celui-ci, 
+									ajoutez un fichier <code>index.css</code>,
+									avec la même méthode de création et de renommage
+									que pour <code>index.html</code>.
+									</p>
+								</li>
+								<li>
+									<p>
+									Si ce n'est pas déjà fait, associez les fichiers 
+									<code>.css</code> avec <em>Notepad++</em> 
+									(via le menu contextuel et <em>Propriétés</em>, 
+									comme vu précédemment)
+									</p>
+								</li>
+							</ol>
+						</li>
+
+						<li> Intégration du css
+							<ol>
+								<li>
+									<p>
+									Ouvrez le fichier css et placez en 
+									première ligne, la déclaration de 
+									l'encodage&nbsp;: <code>@charset "utf-8";</code>
+									</p>
+									
+								</li>
+								<li>
+									<p>
+									Ouvrez le fichier html et ajoutez 
+									aux fils de l'élément <code>head</code>,
+									le lien vers le fichier css&nbsp;:<br/>
+									<code>&lt;link rel="stylesheet" href="./styles/index.css" /&gt;</code>
+									</p>
+								</li>
+							</ol>
+						</li>
+
+						<li> Test et Validation
+							<ol>
+								<li>
+									<p>
+									Pour tester la mise en place, 
+									ajouter une règle très visible dans le fichier css, 
+									comme par exemple&nbsp;: <code>*{color:red;}</code>
+									</p>
+								</li>
+								<li>
+									<p>
+									Vérifiez
+									<a href="https://www.freeformatter.com/html-formatter.html#before-output">
+										 l'indentation
+									</a> 
+									du fichier html
+									</p>
+								</li>
+								<li>
+									<p>
+									Validez
+									<a href="https://validator.w3.org/#validate_by_upload">
+										le document html
+									</a>
+									</p>
+								</li>
+								<li>
+
+									<p>
+									Validez 
+									<a href="https://jigsaw.w3.org/css-validator/#validate_by_upload">
+										la feuille css
+									</a>
+									</p>
+								</li>
+								<li>
+									<p>
+									Visualisez
+									</p>
+								</li>
+							</ol>	
+						</li>
+
+					</ol>
+				</li>
+
+				<!-- Exercice -->
+				<li> Formatage basique
+					<p>
+					(avant toute chose, enlevez ce vilain rouge)
+					</p>
+
+					<ol>
+					
+						<li> Place Nette
+							<ol>
+								<li>
+									<p>
+									En toute première règle, utilisez la 
+									règle générique pour annuler les 
+									choix d'espacements par défaut du navigateur.
+									</p>
+								</li>
+							</ol>
+						</li>
+						
+						<li> Entête
+							<ol>
+								<li>
+									<p>
+									Détachez le bloc <code>header</code> en lui
+									donnant une marge (dans les quatre 
+									directions)
+									[1 seule règle]
+									</p>
+									<p>
+									Donnez une couleur de fond à ce bloc 
+									[1 seule règle]
+									</p>
+								</li>
+								<li>
+									<p>
+									Centrez les écritures des fils du
+									bloc <code>header</code> 
+									[1 seule règle]
+									</p>
+								</li>
+								<li>
+									<p>
+									Agrandissez nettement la première ligne, 
+									et elle seulement
+									[1 règle avec sélecteur composé]
+									</p>
+									<p>
+									Agrandissez un peu moins la seconde ligne, 
+									et elle seulement
+									[1 règle avec sélecteur composé]
+									</p>
+								</li>
+							</ol>	
+						</li>
+						
+						<li> Encadré
+							<ol>
+								<li>
+									<p>
+									Encadrez le bloc <code>aside</code>
+									avec une bordure (noire) ;
+									séparez un peu son contenu du 
+									bord ; séparez-le aussi du reste
+									[1 règle ; 2 propriétés]
+									</p>
+								</li>
+								<li>
+									<p>
+									Suprimez l'élément <code>img</code> dans le fichier
+									<em>html</em>. A la place, dans le fichier 
+									<em>css</em>, utilisez l'image comme fond 
+									de l'élément <code>aside</code>. 
+									</p>
+									<p>
+									Faites en sorte que l'image n'apparaisse 
+									qu'en un seul exemplaire,
+									qui couvre tout le fond, 
+									éventuellement sans que toute l'image ne soit visible.
+									[1 règle (existante) ; 3 propriétés]
+									</p>
+								</li>
+								<li>
+									<p>
+									Le texte n'est plus lisible. Changez sa couleur,
+									et éventuellement sa taille. Remarquez qu'en ajoutant
+									un ombrage<em>(shadow)</em> contrastant et 
+									légèrement flouté, on améliore encore la lisibilité.
+									[1 sélecteur composé ; 3 propriétés]
+									</p>
+								</li>								
+							</ol>	
+						</li>
+						
+						<li> Contenu Principal
+							<ol>
+								<li>
+									<p>
+									Agrandissez les titres de premier niveau, 
+									et soulignez-les. 
+									Détachez les un peu du bord gauche
+									[1 règle (2 possibilités de spécificité) ; 
+									 3 propriétés]
+									</p>
+								</li>
+								<li>
+									<p>
+									Détachez un peu les articles les uns 
+									des autres
+									[1 règle (plusieurs spécificités possibles) ; 
+									 1 propriété "racourci"]
+									</p>
+								</li>
+								<li>
+									<p>
+									Agrandissez les titres de second niveau, 
+									mais moins que ce de premier niveau,
+									et soulignez-les. 
+									[1 règle (plusieurs spécificités possibles) ;  
+									 2 propriétés]
+									</p>
+								</li>								
+								<li>
+									<p>
+									Détachez un peu les paragraphes les uns 
+									des autres, et indentez la première ligne
+									de chacun.
+									[1 règle (plusieurs spécificités possibles) ; 
+									 2 propriétés]
+									</p>
+								</li>
+
+							</ol>	
+						</li>
+						
+						<li> Pied de page
+							<ol>
+								<li>
+									<p>
+									Donnez une couleur de fond au pied de page
+									</p>
+								</li>
+								<li>
+									<p>
+									Alignez le texte à droite, et centrez l'adresse
+									</p>
+								</li>
+								<li>
+									<p>
+									Ecartez les contenus du pied de page du bord,
+									tout en maintenant l'effet "bandeau" (i.e.
+									la couleur de fond du pied de page couvre
+									toute la largeur de la page)
+									</p>
+								</li>								
+							</ol>	
+						</li>
+						
+					</ol>
+
+				</li>
+
+				<li> Validez votre fichier css (voir lien ci-dessus)
+				</li>
+
+				<!-- Exercice -->
+				<!-- li> exo
+					<ol> 
+						< !-- Question -- >
+						<li> quest
+							<ol>
+								< !-- Item -- >
+								<li> item
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+								</li>
+								< !-- Item -- >
+								<li> item
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+								</li>
+							</ol>
+						</li>
+						< !-- Question -- >
+						<li> quest
+							<ol>
+								< !-- Item -- >
+								<li> item
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+								</li>
+								< !-- Item -- >
+								<li> item
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li -->
+
+			</ol>
+		</main>
+
+	</body>
+</html>

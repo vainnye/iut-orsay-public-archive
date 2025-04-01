@@ -2,11 +2,35 @@
 
 ## Visée et objectif de cette archive
 
+Bienvenue sur l'archive publique des enseignements de l'IUT d'Orsay. 
+
+Nous ne sommes pas affiliés à l'UIT d'Orsay, ce projet nait d'une initiative étudiante.
+
+Nous n'avons pas encore trouvé de nom pour cette archive, mais si vous avez des idées pensez à nous les partager. 
+
 ## Structure de fichiers
+
+### les fichiers types
+
+> [ 💡 ASTUCE ]
+> 
+> Si vous ne connaissez pas les fichiers `.md` : pour faire simple, ce sont des fichiers texte, **ouvrez les dans l'application bloc note**
+
+> `README.md` (README = lisez moi !)
+> 
+> c'est le fichier que vous êtes en train de lire, il présente de façon générale de cette archive
+
+> `SRC.md` (SRC = source)
+> 
+> ce fichier peut être créé dans certains dossiers (ex: cours, TP, DS, etc...) pour préciser la provenance de ce qu'il contient (ex: moodle, mails, un lien ver un site web)
+> 
+> cela permet de mieux tracer, retrouver et mettre à jour les informations de l'archive
+
+### les dossiers
 
 > ABREV = abréviation arbitraire et accessible du nom de la matière, (ou nom court de moins de max 5 lettres si pas d'abréviation)
 
-```textile
+```txt
 .
 ├── C/
 │   ├── BUT/
@@ -37,7 +61,9 @@
 │   │   │   ├── S3/
 │   │   │   └── S4/
 │   │   │       ├── r402_ABREV/
-│   │   │       └── sae1_256_ABREV/ ⇒ (sae1 = n° de sae, 256 = compétences touchées)
+│   │   │       └── sae1_ABREV/ ⇒ (sae1 = n° de sae)
+│   │   │           ├── 2024.25_ABREV/ ⇒ dossier du projet sur l'année 2024-2025
+│   │   │           └── 2025.26_ABREV/ ⇒ dossier du projet sur l'année 2025-2026
 │   │   └── ...
 │   ├── DUT/
 │   └── LP/
@@ -47,4 +73,4 @@
     └── LP/
 ```
 
-source : [Tree](https://tree.nathanfriend.com/?s=(%27options!(%27fancy!true~fullPath!false~trailingSlash!false~rootDot!true)~sXce!(%27sXce!%27CzKHIz*17*27YS37YS4Q_i_nom-cXt8autrNinfoWimportantesb_i_Stage-S4FJF_i_G%C3%A9n%C3%A9ralFJF_i_Prise-de-notesFZ9*cO8un%20CXWqui%20nNcorrespond%20paW%C3%A0%20unNFRessXceFbc_PPPFZ9*r401OQ*nom%20complet%20dNla%20mati%C3%A8re.txtH9Yprof8tout%20cNqui%20a%20%C3%A9tkdonnkpar%20leWprofsZ99cXsQYtpQ9tp01Q9tp02_not%C3%A9QYexamQ9dsQ9ccQ*eleveQY_anomyneQYvjacqu37*2app7YS37YS4Qr402OQsae1_256O8sae1wn%C2%B0%20dNsaeJ256wcomp%C3%A9tenceWtouch%C3%A9esZY...H*KHMPzK%27)~version!%271%27)*%20%207%2FH*8%2F%20%E2%87%92%20%7B9Y*F%5C%27H%5CnJ%2C%20KDUT7LP%2FNe%20O_ABREVQ79Ws%20XourY**Z%7DHbJex%3A%20Fk%C3%A9%20w%20%3D%20z7BUT7%01zwkbZYXWQONKJHF987*)
+source : [Tree](https://tree.nathanfriend.com/?s=(%27options!(%27fancy!true~fullPath!false~trailingSlash!false~rootDot!true)~sZce!(%27sZce!%27C7BUT7OHI7BUT7*17*2Y_i_nom-cZtzautrNinfobimportantes%23_i_Stage-S4JQJ_i_G%C3%A9XralJQJ_i_Prise-de-notesJwF*cKzun%20CZbqui%20nNcorrespond%20pab%C3%A0%20unNJRessZceJ%23c_PPPJwF*r401K7F*nom%20completkNla%20mati%C3%A8re.txtHWprofztout%20cNqui%20a%20%C3%A9t%C3%A9konX%20par%20lebprofswFFcZs7Wtp7FFtp017FFtp02_not%C3%A97Wexam7FFds7FFcc7F*eleve7W_anomyne7Wvjacqu37*2appYr402K7Fsae1Kzsae1%20%3D%20n%C2%B0kNsaewW2024.2594-2025HW2025.2695-2026H**...H*OHMP7BUT7O%27)~version!%271%27)*%20%207%2FH*8%2F%20%E2%87%92%209K8dossierku%20projet%20sur%20l%22anXN202W*H%5CnJ%5C%27K_ABREVNe%20ODUT7LP%2FQ%2C%20WF**Xn%C3%A9Y7**S37**S47FZourbs%20k%20dw%7DHz8%7B%23Qex%3A%20J%01%23zwkbZYXWQONKJHF987*)

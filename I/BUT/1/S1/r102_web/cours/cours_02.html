@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>R1.02 - HTML/CSS - 02</title>
+		<link rel="stylesheet" href="../css/amphi.css">
+		<script src="../js/amphi.js"></script>
+	</head>
+	<body>
+	
+		<nav>
+			<ul id="nav_liste">
+				<!-- li class="section">Section</li>
+				<li><a href="#partie_01_01">Partie</a></li>
+				<li><a href="#partie_01_02">Partie</a></li>
+				<li class="sec">Section</li>
+				<li><a href="#partie_02_01">Partie</a></li -->
+			</ul>
+			<template id="nav_li_sec">
+				<li class="section"></li>
+			</template>
+			<template id="nav_li_part">
+				<li><a href=""></a></li>
+			</template>
+		</nav>
+				
+		<main>
+			<section>
+				<article
+						class="titre" 
+						data-title=""
+						>
+					<div>
+						<h1>
+							Ressource 1.02
+							<br>
+							Développement d’interface web
+							<br>
+							Cours 2
+						</h1>
+					</div>
+				</article>
+				<article 
+						class="titre" 
+						data-title="intro">
+					<div>
+						<h1>
+							Introduction au CSS
+						</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_01_01" 
+						data-title="separation">
+					<h2>Séparation du contenu et de la présentation</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Avant l'utilisation de CSS, 
+									le document html contenait :
+								</p>
+								<ul>
+									<li>
+										<p>
+											Les informations techniques 
+											(dans l'élément <code>head</code>)
+										</p>
+									</li>
+									<li>
+										<p>
+											Les informations destinées 
+											au lecteur 
+											(dans l'élément <code>body</code>)
+										</p>
+									</li>
+									<li>
+										<p>
+											La mise en page 
+											(bricolée comme on pouvait&hellip;)
+										</p>
+									</li>
+								</ul>
+ 							</li>
+							<li>
+								<p>
+									La norme html5 et l'implémentation 
+									de css, modifient le paradigme
+								</p>
+								<ul>
+									<li>
+										<p>
+											Les contenus destinés à 
+											l'utilisateur final 
+											doivent être structurés
+											de façon sémantique
+										</p>
+									</li>
+									<li>
+										<p>
+											La mise en page doit être 
+											située dans des fichiers à part, 
+											et réalisée en CSS 
+											<br>
+											(éventuellement complétée 
+											par des scripts)
+										</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_02" 
+						data-title="principes">
+					<h2>Cascading Style Sheets : Principes</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									En CSS, un choix de mise en page 
+									est exprimé sous forme d'une <em>règle</em>
+								</p>
+							</li>
+							<li>
+								<p>
+									Chaque choix est une <em>déclaration</em>
+									qui associe deux choses :
+								</p>
+								<ul>
+									<li>
+										<p>
+											 Une <em>propriété</em> 
+											 (par exemple la forme des lettres)
+										</p>
+									</li>
+									<li>
+										<p>
+											Une <em>valeur</em> 
+											(par exemple la police arial)
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									N'étant pas directement placée
+									sur l'élément visé, mais 
+									dans un autre fichier
+									<br>
+									Chaque règle a un <em>sélecteur</em>
+									dont le rôle est de décrire l'élément visé
+								</p>
+							</li>
+							<li>
+								<p>
+									Un saut de généralisation se produit 
+									alors car
+									<br>
+									Un même sélecteur peut permettre 
+									de viser plusieurs éléments
+								</p>
+							</li>
+							<li>
+								<p>
+									C'est en fait indispensable, sinon, 
+									il faudrait par exemple pour chaque 
+									élément paragraphe (tag p)
+									recommencer à chaque fois toute 
+									la description de la mise en page
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article>
+					<h2>Cascading Style Sheets : Principes (suite)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Les sélecteurs permettent 
+									de tenir compte (en partie)
+									<br>
+									de la place de l'élément 
+									dans le DOM
+								</p>
+							</li>
+							<li>
+								<p>
+									On pourra par exemple distinguer entre :
+								</p>
+								<ul>
+									<li>
+										<p>
+											Les liens qui servent à la navigation
+											<br>
+											&rarr;											
+											Ce sont des fils du noeud <code>nav</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											Les liens qui apparaissent dans 
+											des paragraphes de texte
+											<br>
+											&rarr;											
+											Ce sont des fils de noeuds <code>p</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											Les autres 
+											(s'il y en a d'autres, bien sûr)
+										</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_03" 
+						data-title="technicites">
+					<h2>Remarques techniques</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Dans l'élément <code>head</code>
+									on ajoute la balise <code>link</code> suivante :
+									<br>
+									<code>&lt;link rel="stylesheet" href="<em>./styles/index.css</em>" /&gt;</code>
+									<br>
+									<em>Le chemin d'accès est relatif
+									au répertoire contenant le document html</em>
+								</p>
+							</li>
+							<li>
+								<p>
+									La problématique de l'encodage persiste
+									car on change de resource (fichier)
+									<br>
+									Avant la première règle, indiquez 
+									l'encodage :
+									<br>
+									<code class="texte_vert">@charset "utf-8";</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Pour faciliter la maintenance et
+									la réutilisation,
+									on utilise généralement plusieurs fichiers 
+									css, chacun regroupant les règles 
+									selon l'aspect qu'elles gèrent :
+									la nav, les sections, le footer, &hellip;
+								</p>
+							</li>
+							<li>
+								<p>
+									On peut soit utiliser
+									plusieurs éléments <code>link</code>,
+									soit un fichier css principal, 
+									qui à son tour <em>importe</em>
+									les différentes parties, comme par exemple :
+									<br>
+									<code class="texte_vert">@import url("<em>nav.css</em>"); </code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Cette seconde technique contribuera
+									aussi à gérer les aspect <em>responsive</em>
+								</p>
+							</li>
+							
+						</ul>
+					</div>
+				</article>
+			</section>
+			<section>
+				<article 
+						class="titre" 
+						data-title="syntaxe">
+					<div>
+						<h1>
+							Syntaxe CSS
+						</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_02_01" 
+						data-title="regles">
+					<h2>Syntaxe d'une règle css</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									La syntaxe attendue pour 
+									une règle est la suivante :
+									<br>
+									<code>
+									</code>
+								</p>
+							</li>
+						</ul>
+<pre>    _selecteur_ <span class="texte_vert">{</span> _propriete_ <span class="texte_vert">:</span> _valeur_ <span class="texte_vert">; }</span></pre>
+						<ul>
+							<li>
+								<p>
+									Pour faciliter le travail on peut 
+									regrouper plusieurs déclarations
+									correspondantes à un même sélecteur
+								</p>
+							</li>
+							<li>
+								<p>
+									On peut aussi grouper 
+									des déclarations utiles pour 
+									plusieurs sélecteurs
+								</p>
+							</li>
+							<li>
+								<p>
+									On peut obtient la forme générale 
+									suivante (remarquez la syntaxe 
+									des commentaires et la possibilité 
+									de passer à la ligne) :
+								</p>
+							</li>
+						</ul>
+<pre>
+      _selecteur_ <span class="texte_vert">,</span>
+       <span class="texte_vert">/*</span> ... <span class="texte_vert">*/</span>
+      _selecteur_ <span class="texte_vert">{</span>
+          _propriete_ <span class="texte_vert">:</span> _valeur_ <span class="texte_vert">;</span>
+          <span class="texte_vert">/*</span> ... <span class="texte_vert">*/</span>
+          _propriete_ <span class="texte_vert">:</span> _valeur_ <span class="texte_vert">;</span>
+      <span class="texte_vert">}</span>
+</pre>
+					</div>
+				</article>
+				<article 
+						id="partie_02_02" 
+						data-title="proprietes">
+					<h2>Propriétés basiques</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Le nom d'une propriété tente de nous 
+									aider à deviner 
+									<br>
+									mais la 
+									documentation sera toujours la référence
+								</p>
+							</li>
+							<li>
+								<p>
+									Les mots composant le nom sont en minuscules
+									et collés par des tirets
+								</p>
+							</li>
+							<li>
+								<p>
+									les valeurs peuvent avoir différentes 
+									syntaxes et unités, selon ce 
+									qu'elles désignent (des distances,
+									des couleurs, des urls, &hellip;)
+								</p>
+							</li>
+							<li>
+								<p>
+									Ci-après quelques exemples parmi les
+									plus classiques 
+									<br>
+									(Consultez toujours la documentation : 
+									&rarr;"mdn + ~nom~propriété~")
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article>
+					<h2>Propriétés basiques (suite)</h2>
+					<div>
+						<table class="big">
+							<tr>
+								<td>
+									<code>font-family</code>
+								</td>
+								<td>
+									une ou plusieurs polices 
+									(par préférence, selon dispo.)
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>color</code>
+								</td>
+								<td>
+									couleur <em>pour l'écriture</em>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>text-decoration</code>
+								</td>
+								<td>
+									souligné, italique, &hellip;
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>text-indent</code>
+								</td>
+								<td>
+									Décalage pour la première ligne 
+									d'un paragraphe,
+									en positif ou négatif
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>font-size</code>
+								</td>
+								<td>
+									Taille écriture ; 
+									beaucoup d'unités : 
+									fixes et relatives
+									<br>
+									(prédilection : <code>rem</code>)
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>text-align</code>
+								</td>
+								<td>
+									Attention : ne marche
+									pas toujours comme on espère 
+									(c.f. doc)
+								</td>
+							</tr>
+						</table>
+					</div>
+				</article>
+				<article>
+					<h2>Propriétés basiques (suite)</h2>
+					<div>
+						<table class="big">
+							<tr>
+								<td>
+									<code>text-shadow</code>
+								</td>
+								<td>
+									ombrages (multiples syntaxes de valeurs)
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>margin</code>
+								</td>
+								<td>
+									espacements autour de la bordure du rectangle 
+									(clockwise === <em>-top -right -bottom -left</em>)
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>border</code>
+								</td>
+								<td>
+									bordure du rectangle
+									(=== -width -style -color)
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>padding</code>
+								</td>
+								<td>
+									 espacements dans la bordure du rectangle 
+									 <br>
+									 (clockwise aussi)
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>background-color</code>
+								</td>
+								<td>
+									couleur de fond de l'élément
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>background-image</code>
+								</td>
+								<td>
+									tapissage au "papier peint"
+									(c.f. doc)
+								</td>
+							</tr>
+						</table>
+					</div>
+				</article>
+				<article 
+						id="partie_02_03" 
+						data-title="unites">
+					<h2>Unités de taille</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									CSS offre beaucoup/trop d'<a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units">unités</a>
+									de taille :
+								</p>
+								<ul>
+									<li>
+										<p>
+											Unités absolues : 
+											(devraient marcher pour les imprimantes)
+											<br>
+											<code>cm, <code>mm</code>, 
+											<code>Q</code>(1/40<code>cm</code>), 
+											<code>in</code>(===2.56<code>cm</code>), 
+											<code>pc</code>(===1/6<code>in</code>), 
+											<code>pt</code>(1/72<</code>code>in</code>) 
+										</p>
+									</li>
+									<li>
+										<p>
+											Unité <em>trompeuse</em> :
+											<br>
+											<code>px</code> est une unité absolue 
+											=1/96<code>in</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											Unités relatives :
+										</p>
+										<ul>
+											<li>
+												<p>
+													<code>%</code> : 
+													pourcentage relatif à la 
+													valeur au niveau du parent 
+													(<em>effet récursif</em>)
+												</p>
+											</li>
+											<li>
+												<p>
+													<code>em</code>, <code>ex</code> : 
+													taille relative à la font utilisée 
+													(<em>effet récursif</em>)
+												</p>
+											</li>
+											<li>
+												<p><strong>
+													<code>rem</code> : 
+													taille relative à la font 
+													utilisée à la racine 
+													du document
+												</strong></p>
+											</li>
+											<li>
+												<p>
+													<code>vw</code>, <code>vh</code> : 
+													pourcentage du <em>viewport</em>
+													(<code>width</code> ou 
+													 <code>height</code>)
+												</p>
+											</li>
+											<li>
+												<p>
+													<code>vmin</code>, <code>vmax</code> : 
+													pourcentage du <em>viewport</em>
+													(non orienté)
+												</p>
+											</li>
+										</ul>
+
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>				
+			</section>
+			<section>
+				<article 
+						class="titre" 
+						data-title="sélecteurs">
+					<div>
+						<h1>Sélecteurs</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_03_01" 
+						data-title="universel">
+					<h2>Sélecteur universel</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Vous savez pu constater que, même sans css, 
+									il y a déjà une base de style
+									<br>
+									par exemple, titres, paragraphes, et 
+									liens diffèrent
+								</p>
+							</li>
+							<li>
+								<p>
+									Ces choix sont faits par le
+									navigateur, et <em>chaque</em>
+									navigateur ayant les siens
+									<br>
+									<span class="souligne">
+									On ne peut pas dépendre du navigateur 
+									choisi
+									</span>
+								</p>
+							</li>
+							<li>
+								<p>
+									Le sélecteur universel <code class="texte_vert">*</code>
+									permet d'affecter tous les éléments du document
+								</p>
+							</li>
+							<li>
+								<p>
+									On peut ainsi faire place nette avant de débuter
+									<br>
+									On annule les choix du navigateur 
+									qui pourraient nous gêner :
+									<br>
+									<code>* { margin : 0; padding : 0; }</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									On peut aussi l'utiliser pour choisir 
+									une font de base pour tout le document,
+									ou tout autre choix global de ce genre
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_03_02" 
+						data-title="terminaux">
+					<h2>Sélecteurs terminaux</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									On désire par exemple styler 
+									<em>tous</em> les paragraphes d'un coup
+									<br>
+									On voudrait un sélecteur 
+									correspondant au tag de balise visé
+								</p>
+							</li>
+							<li>
+								<p>
+									CSS généralise cette approche
+									en proposant quatre mode
+									de sélection
+								</p>
+								<ul>
+									<li>
+										<p>
+											<strong>Universel</strong> : 
+											<code>*</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											<strong>Par tag</strong> : 
+											selon le <code>tag</code> de balise
+										</p>
+									</li>
+									<li>
+										<p>
+											<strong>Par identifiant</strong> : 
+											selon la valeur de l'attribut 
+											<code>id</code> d'un élément
+											(supposée unique)
+										</p>
+									</li>
+									<li>
+										<p>
+											<strong>Par classe</strong> : 
+											selon la valeur de l'attribut 
+											<code>class</code> d'un élément 
+											(non unique)
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									On peut donc parler 
+								</p>
+								<ul>
+									<li>
+										<p>
+											de <em>tout le monde</em>
+										</p>
+									</li>
+									<li>
+										<p>
+											des <em>paragraphes</em>
+										</p>
+									</li>
+									<li>
+										<p>
+											de <em><strong>lui</strong></em>
+										</p>
+									</li>
+									<li>
+										<p>
+											des <em>comme ça</em>
+										</p>
+									</li>
+								</ul>								
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article>
+					<h2>Sélecteurs terminaux (suite)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Nous appellerons sélecteurs terminaux
+									ceux composés d'un seul <em>mot</em>
+								</p>
+							</li>
+							<li>
+								<p>
+									Nous avons anticipé le premier cas :
+									&nbsp;&nbsp;
+									<code><span class="texte_vert">* {</span> /*...*/ <span class="texte_vert">}</span></code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Par tag, tous les éléments portant ce tag sont 
+									alors affectés
+									<br>
+									On écrira : 
+									&nbsp;&nbsp;
+									<code><span class="texte_vert">p {</span> /*...*/ <span class="texte_vert">}</span></code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Par id, <em class="souligne">le rédacteur</em>
+									doit donner un attribut <code>id</code>
+									avec une <em class="souligne">valeur unique</em>
+									<br>
+									Par exemple, si on a <em class="souligne">marqué</em>
+									&nbsp;&nbsp;
+									<code>&lt;p id="mon_p"&gt; ... &lt;/p&gt;</code>
+									<br>
+									La règle sera : 
+									&nbsp;&nbsp;
+									<code><span class="texte_vert">#mon_p {</span> /*...*/ <span class="texte_vert">}</span></code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Par classe, <em class="souligne">le rédacteur</em>
+									doit donner un attribut <code>class</code>
+									avec une <em class="souligne">valeur commune</em>
+									(par ex. <em>les_trucs</em>)
+									à tous les éléments qui l'intéressent
+									<br>
+									La règle sera : 
+									&nbsp;&nbsp;
+									<code><span class="texte_vert">.les_trucs {</span> /*...*/ <span class="texte_vert">}</span></code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Remarque : par classe, tous les éléments 
+									visés n'ont pas forcément le même tag
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_03_03" 
+						data-title="composes">
+					<h2>Sélecteurs composés</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									On désire distinguer entre les liens de 
+									navigation et ceux des paragraphes
+								</p>
+							</li>
+							<li>
+								<p>
+									On peut penser à définir une classe 
+									pour chacun (voir ceux de 
+									navigation uniquement, 
+									les moins nombreux a priori)
+								</p>
+							</li>
+							<li>
+								<p>
+									Pourtant la distinction est déjà là, 
+									dans la structure d'emboitement 
+									des éléments
+								</p>
+							</li>
+							<li>
+								<p>
+									De plus on risque d'oublier d'ajouter
+									la classe pour chaque nouveau lien
+								</p>
+							</li>
+							<li>
+								<p>
+									CSS permet de définir des sélecteurs 
+									tenant compte de la structure d'arbre
+								</p>
+							</li>
+							<li>
+								<p>
+									&rarr; Nous pouvons écrire 
+									une suite de sélecteurs terminaux
+									<br>
+									Elle correspond à 
+									<em>une suite de jalons</em>
+									<br>
+									Qu'il faut <em>trouver</em> 
+									<br>
+									Le <em>long</em> du chemin 
+									allant de la racine 
+									<br>
+									à l'élément <em>ciblé</em>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article>
+					<h2>Sélecteurs composés (suite)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Plus précisement :
+								</p>
+								<ul>
+									<li>
+										<p>
+											Le dernier sélecteur de la suite 
+											correspond à l'élément ciblé 
+											par la règle
+										</p>
+									</li>
+									<li>
+										<p>
+											les autres sélecteurs doivent tous
+											cibler des éléments
+											apparaissant dans cet ordre,
+											<br>
+											le long du chemin allant de la racine
+											jusqu'à l'élément ciblé
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									Remarques
+								</p>
+								<ol>
+									<li>
+										<p>
+											Chaque sélecteur doit
+											cibler un élément distinct
+										</p>
+									</li>
+									<li>
+										<p>
+											Sur le chemin, on 
+											peut <em>passer</em> des éléments,
+											<br>
+											tant que chaque sélecteur trouve 
+											<em>une</em> cible
+										</p>
+									</li>
+									<li>
+										<p>
+											La racine n'est donc 
+											pas obligatoirement ciblée
+										</p>
+									</li>
+									<li>
+										<p>
+											La règle s'applique <em>uniquement</em> 
+											à l'élément ciblé par le dernier 
+											sélecteur
+										</p>
+									</li>
+								</ol>
+							</li>
+							<li>
+								<p>
+									Ainsi, pour revenir à notre exemple d'origine,
+									<br>
+									<code class="texte_vert">nav a</code> 
+									&nbsp;&nbsp;&nbsp;
+									vise les liens de navigation
+									<br>
+									<code class="texte_vert">p a</code> 
+									&nbsp;&nbsp;&nbsp;
+									vise les liens des paragraphes
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+
+				<article 
+						id="partie_03_04" 
+						data-title="#check#">
+					<h2>Sélecteurs : Aviez-vous compris ça ?</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Quelques affirmations pour tester 
+									votre compréhension
+								</p>
+								<ul>
+									<li>
+										<p>
+											"Chaque règle vise un élément
+											(dernier sélecteur)"
+											<br>
+											&rarr; la sémantique 
+											d'<strong>un</strong> sélecteur, 
+											<em>même composé</em>,
+											ne vise qu'<strong>un</strong> élément 
+										</p>
+									</li>
+									<li>
+										<p>
+											"Chaque règle peut sélectionner 
+											plusieurs éléments"
+											<br>
+											&rarr; On <em>réutilise</em> la règle 
+											jusqu'à trouver <strong>tous</strong>
+											les éléments <em>atteignables</em>
+										</p>
+									</li>
+									<li>
+										<p>
+											"Les <em>sauts</em> dans les chemins
+											peuvent être de différentes tailles"
+											<br>
+											&rarr; on peut sauter n'importe quel 
+											nombre d'éléments
+											<br>
+											&rarr; et ce <strong>même</strong>
+											en réutilisant plusieurs fois
+											la <em>même</em> règle
+										</p>
+									</li>
+									<li>
+										<p>
+											"Les sélecteurs terminaux sont des
+											sélecteurs composés"
+											<br>
+											&rarr; absolument,&hellip;
+											on a juste
+											<em>tout</em> sauté le long du 
+											chemin
+										</p>
+									</li>
+									<li>
+										<p>
+											"Chaque sélection peut passer par 
+											différents chemins"
+											<br>
+											&rarr; vous le saviez déjà,
+											puisque &hellip;
+											<br>
+											les sélecteurs terminaux
+											sont des sélecteurs composés, 
+											et que &hellip;
+											<br>
+											la <em>réutilisation</em>
+											du sélecteur <code>p</code>
+											va trouver <em>tous</em>
+											les paragraphes
+										</p>
+									</li>
+									<li>
+										<p>
+											"La racine est le point de départ du 
+											chemin, mais pas forcément le 
+											premier <em>ancrage</em>"
+										</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_03_05" 
+						data-title="conflits">
+					<h2>Résolution des conflits</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Le sélecteur universel va souvent 
+									entrer en conflit avec les autres
+								</p>
+							</li>
+							<li>
+								<p>
+									Tous les types de sélection en fait
+									peuvent entrer en conflit
+									<br>
+									Imaginez un paragraphe portant 
+									les attributs 
+									<code>id</code> et <code>class</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									La résolution se fait par règles 
+									de priorité
+								</p>
+							</li>
+							<li>
+								<p>
+									La <strong>pire</strong> des résolutions
+									intervient quand aucune autre 
+									n'a suffi
+									<br>
+									Dans ce cas la dernière affectation rencontrée
+									sera appliquée
+									<br>
+									(affectation par <em>écrasement</em>)
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_03_06" 
+						data-title=" specificite">
+					<h2>Résolution des conflits : par spécificité</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									La <em>bonne</em> règle de 
+									résolution est la 
+									<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">spécificité</a> : 
+									<br>
+									<strong>plus</strong> on fait d'effort pour 
+									définir le sélecteur,
+									<br>
+									<strong>plus</strong> celui-ci est jugé 
+									prioritaire
+								</p>
+							</li>
+							<li>
+								<p>
+									Ainsi, pour les sélecteurs terminaux :
+								</p>
+								<ol>
+									<li>
+										<p>
+											La sélection par <class>id</class> 
+											(et sa valeur <em>unique</em>)
+											gagne la priorité
+										</p>
+									</li>
+									<li>
+										<p>
+											La sélection par <code>class</code> 
+											vient ensuite
+											(elle a aussi requis un ajout)
+										</p>
+									</li>
+									<li>
+										<p>
+											Le ciblage par <code>tag</code>
+											suit (il n'a rien fallu ajouter)
+										</p>
+									</li>
+									<li>
+										<p>
+											Enfin, le sélecteur universel 
+											est dernier (le ciblage le plus <em>flou</em>)
+										</p>
+									</li>
+								</ol>
+							</li>
+							<li>
+								<p>
+									Et on élargit aux sélecteurs composés
+								</p>
+								<ol>
+									<li>
+										<p>
+											Celui ayant le plus nombre de 
+											terminaux par <code>id</code> gagne	
+										</p>
+									</li>
+									<li>
+										<p>
+											Sinon, celui ayant le plus nombre de 
+											terminaux par <code>class</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											Sinon, celui ayant le plus nombre de 
+											terminaux par <code>tag</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											Sinon, la dernière affectation rencontrée
+										</p>
+									</li>
+								</ol>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_03_07" 
+						data-title="term++">
+					<h2>Raffinement des sélecteurs terminaux</h2>
+					<div>
+					<ul><ul>
+						<li>
+							<p>
+								Conjonction de conditions :
+							</p>
+							<ul>
+								<li>
+									<p>
+										Par concaténation, 
+										<em>sans espaces</em>,
+										on construit un sélecteur 
+										qui exige plusieurs 
+										conditions
+									</p>
+								</li>
+								<li>
+									<p>
+										Par exemple : 
+										&nbsp;&nbsp;
+										<code class="texte_vert">p.joli</code>
+										&nbsp;
+										cible les paragraphes 
+										ayant en plus la classe 
+										<em>joli</em>
+									</p>
+								</li>
+								<li>
+									<p>
+										Pour la spécificité, ce sélecteur
+										compte +1 pour <code>class</code>
+										et +1 pour <code>tag</code>
+									</p>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<p>
+								Sélection sur valeur 
+								d'<a href="https://developer.mozilla.org/fr/docs/Web/CSS/Attribute_selectors">attributs</a>
+								(autres que <code>id</code> 
+								et <code>class</code>) :
+							</p>
+							<ul>
+								<li>
+									<p>
+										<code>[<em>_att_</em>="<em>_val_</em>"]</code>
+										définit un nouveau terminal 
+										dont la condition est :
+										<br>
+										<em>l'élément doit 
+										porter l'attribut <code>_att_</code>
+										avec la valeur <code>_val_</code></em>
+									</p>
+								</li>
+								<li>
+									<p>
+										On utilise ensuite ce nouveau terminal
+										comme on utilisait les autres
+										<br>
+										Y compris pour des conjonctions
+									</p>
+								</li>
+								<li>
+									<p>
+										Une variante sans valeur est acceptable
+										<br>
+										l'attribut doit être porté, 
+										peu importe la valeur associée
+									</p>
+								</li>
+								<li>
+									<p>
+										Plusieurs variantes d'opérateurs
+										peuvent remplacer le signe égal
+										(
+										<code>^=</code> &nbsp;
+										<code>$=</code> &nbsp;
+										<code>*=</code> &nbsp;
+										<code>~=</code> &nbsp;
+										&hellip;
+										)
+										<br>
+										Cela permet de traiter la valeur
+										comme une string 
+										(préfixe, suffixe, contient, liste, &hellip;)
+									</p>
+								</li>
+								<li>
+									<p>
+										Pour la spécificité, ce sélecteur
+										compte +1 pour <code>class</code>
+									</p>
+								</li>
+							</ul>
+						</li>
+					</ul></ul>
+					</div>
+				</article>
+				<article>
+					<h2>Raffinement des sélecteurs terminaux (suite)</h2>
+					<div>
+					<ul><ul>
+						<li>
+							<p>
+								Les <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-classes">pseudo classes</a> 
+								sont des suffixes sur selecteur terminal
+								<br>
+								qui rajoutent une condition sur l'<em>état</em> de l'élément
+								; 
+								par exemple :
+							</p>
+							<ul>
+								<li>
+									<p>
+										<code>:hover</code> : élément survolé par la souris
+									</p>
+								</li>
+								<li>
+									<p>
+										<code>:first-child</code> : premier parmis les fils (DOM)
+									</p>
+								</li>
+								<li>
+									<p>
+										<code>:nth-child</code> : 
+										variété de règles de calcul 
+										sur le numéro du fils
+									</p>
+								</li>
+							</ul>							
+						</li>
+						<li>
+							<p>
+								Les <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-éléments">pseudo éléments</a> :
+								sont des suffixes sur selecteur terminal
+								<br>
+								qui selection une sous partie 
+								de l'élément
+								; 
+								par exemple :
+							</p>
+							<ul>
+								<li>
+									<p>
+										<code>::before</code> : 
+										<em>crée</em> une place
+										juste avant l'élément
+									</p>
+								</li>
+								<li>
+									<p>
+										<code>::after</code>
+										<em>crée</em> une place
+										juste après l'élément
+									</p>
+								</li>
+								<li>
+									<p>
+										<code>::first-letter</code>
+										désigne la première lettre
+										du premier mot d'un flot
+									</p>
+								</li>
+							</ul>							
+						</li>
+					</ul></ul>
+					<p>
+						Remarque : pour l'interaction des pseudo classes et pseudo éléments
+						avec la règle de spécificité, il faut consulter 
+						la documentation au cas par cas
+					</p>
+					</div>
+				</article>
+				<article 
+						id="partie_03_08" 
+						data-title="compo++">
+					<h2>Raffinement des sélecteurs composés</h2>
+					<div>
+						<ul><ul>
+							<li>
+								<p>
+									Descendant direct (<em>direct descendant</em>)
+									<br>
+									<code class="texte_vert">_sel_1_ &gt; _sel_2_</code>
+									<br>
+									Interdit tout <em>saut</em> d'élément 
+									entre ceux visés par 
+									<code>_sel_1_</code> et <code>_sel_2_</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Frères (<em>siblings</em>)
+									<br>
+									<code class="texte_vert">_sel_1_ ~ _sel_2_</code>
+									<br>
+									<code>_sel_1_</code> et <code>_sel_2_</code>
+									doivent apparaitre dans cet ordre 
+									<br>
+									comme fils <em>directs</em> 
+									d'un <em>même</em> noeud
+									<br>
+									<strong>La recherche <em>descendante</em> est 
+									momentanément interrompue
+									<br>
+									&rarr; on cherche deux voisins, sur 
+									le <em>même</em> niveau</strong>
+								</p>
+							</li>
+							<li>
+								<p>
+									Frères adjacents (<em>adjacents siblings</em>)
+									<br>
+									<code class="texte_vert">_sel_1_ + _sel_2_</code>
+									<br>
+									Cas particulier où les deux frères 
+									doivent être cote à cote 
+									<br>
+									(similaire à <code>&gt;</code> : interdit tout <em>saut</em>)
+								</p>
+							</li>
+							<li>
+								<p>
+									Spécificité : 
+									aucun changement dans le calcul (pour les trois)
+								</p>
+							</li>
+						</ul></ul>
+					</div>
+				</article>
+			</section>
+
+
+			<!-- section>
+			
+				<article 
+						class="titre" 
+						data-title="XXX">
+					<div>
+						<h1></h1>
+					</div>
+				</article>
+				
+				<article 
+						id="partie_0x_0x" 
+						data-title="xxx">
+					<h2>XXX</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+								</p>
+							</li>
+							<li>
+								<p>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				
+			</section -->
+			
+		</main>
+		<script> load() </script>		
+  </body>
+</html>

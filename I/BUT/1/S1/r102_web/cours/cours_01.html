@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>R1.02 - HTML/CSS - 01</title>
+		<link rel="stylesheet" href="../css/amphi.css">
+		<script src="../js/amphi.js"></script>
+	</head>
+	<body>
+	
+		<nav>
+			<ul id="nav_liste">
+				<!-- li class="section">Section</li>
+				<li><a href="#partie_01_01">Partie</a></li>
+				<li><a href="#partie_01_02">Partie</a></li>
+				<li class="sec">Section</li>
+				<li><a href="#partie_02_01">Partie</a></li -->
+			</ul>
+			<template id="nav_li_sec">
+				<li class="section"></li>
+			</template>
+			<template id="nav_li_part">
+				<li><a href=""></a></li>
+			</template>
+		</nav>
+				
+		<main>
+			<section>
+				<article 
+						class="titre" 
+						data-title="Welcome">
+					<div>
+						<h1>
+							Ressource 1.02
+							<br>
+							Développement d’interface web
+							<br>
+							Cours 1
+						</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_01_01" 
+						data-title="rappels">
+					<h2>Vous avez déjà tout vu</h2>
+					<div>
+						<p>
+							D'après les documents officiels et 
+							les resources disponibles :
+						</p>
+						<ul>
+							<li>
+								<p>
+									<a href="https://eduscol.education.fr/document/23494/download">
+										Programme de sciences numériques et 
+										technologie de seconde générale 
+										et technologique
+									</a> (education.fr/)
+								</p>
+							</li>
+							<li>
+								<p>
+									<a href="https://eduscol.education.fr/document/23509/download">
+										Sciences numériques et technologie : 2nd
+									</a> (education.fr/)
+								</p>
+							</li>
+							<li>
+								<p>
+									<a href="https://pixees.fr/informatiquelycee/sec/s2.html">
+										Informatique au Lycée
+									</a>
+									(par exemple, parmi les milliers disponibles)
+								</p>
+							</li>
+						</ul>
+						<p>
+							Vous avez déjà tout vu en seconde générale,
+							pendant le cours
+							<br>
+							"Sciences Numériques et Technologie"
+						</p>
+						<p class="to_right plus_petit">
+							&hellip; on va juste essayer de s'assurer 
+							que tout est au clair
+						</p>
+					</div>
+				</article>
+				<article 
+						id="partie_01_02" 
+						data-title="references">
+					<h2>Références</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									<strong>La</strong> norme est définie par le W3C : 
+									&nbsp;&nbsp;
+									<a href="https://www.w3.org/html/">
+										html
+									</a>
+									&nbsp;&nbsp;
+									<a href="https://www.w3.org/Style/CSS/specs.en.html">
+										css
+									</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									La documentation est disponible chez MDN :
+									&nbsp;&nbsp;
+									<a href="https://developer.mozilla.org/en-US/docs/Web/HTML">
+										html
+									</a>
+									&nbsp;&nbsp;
+									<a href="https://developer.mozilla.org/en-US/docs/Web/CSS">
+										css
+									</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									Des tutoriels simples et basiques sont 
+									disponibles partout. 
+									<br>
+									Ceux de w3school ont été abondamment relus :
+									&nbsp;&nbsp;
+									<a href="https://www.w3schools.com/html/default.asp">
+										html
+									</a>
+									&nbsp;&nbsp;
+									<a href="https://www.w3schools.com/css/default.asp">
+										css
+									</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									Une source d'articles CSS recommandable
+									(<em>à mon goût</em>) :
+									<a href="https://css-tricks.com/">
+										css tricks
+									</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									Un source d'aide technique fiable 
+									(usuellement) :
+									<a href="https://stackoverflow.com/">
+										stackoverflow
+									</a>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+			</section>
+			<section>
+				<article 
+						class="titre" 
+						data-title="Contexte">
+					<div>
+						<h1>
+							Contexte du cours
+						</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_02_01"
+						data-title="la base">
+					<h2>Un document html</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									<strong>
+										Un document html est une suite de caractères
+									</strong>
+								</p>
+							</li>
+							<li>
+								<p>
+									Ce document est fourni soit :
+								</p>
+								<ul>
+									<li>
+										<p>
+											par l'ordinateur sur lequel 
+											on se trouve (dit <em>local</em>), 
+											<br>
+											par exemple à partir 
+											d'un fichier sur le disque dur
+										</p>
+									</li>
+									<li>
+										<p>
+											par un autre ordinateur sur le réseau
+											(dit <em>serveur</em>),	
+											<br>
+											où le document	est sauvegardé
+										</p>
+									</li>
+									<li>
+										<p>
+											comme résultat de l'exécution 
+											d'un programme
+											<br>
+											sur l'ordinateur local ou sur un serveur
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									Le navigateur qui consulte le document 
+								</p>
+								<ol>
+									<li>
+										<p>
+											<em>interprète</em> la <em>syntaxe</em>
+											du document
+											selon la <em>sémantique</em> HTML
+										</p>
+									</li>
+									<li>
+										<p>
+											produit un affichage
+											(avec lequel on peut interagir)
+										</p>
+									</li>
+								</<ol>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article>
+					<h2>Un document html (suite)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Ces interactions provoqueront un ou 
+									plusieurs des effets suivants :
+								</p>
+								<ul>
+									<li>
+										<p>
+											des modifications sur l'affichage
+										</p>
+									</li>
+									<li>
+										<p>
+											un envoi d'informations (vers le serveur)
+										</p>
+									</li>
+									<li>
+										<p>
+											un retour d'information,
+											sous la forme d'un autre document html
+											<br>
+											(à son tour interprété 
+											puis affiché par le navigateur)
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									Premiers buts de ce cours :
+								</p>
+								<ul>
+									<li>
+										<p>
+											apprendre la syntaxe 
+											et la sémantique HTML
+										</p>
+									</li>
+									<li>
+										<p>
+											pour produire des documents  
+										</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_02_02" 
+						data-title="encodage">
+					<h2>Encodage des caractères</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Un caractère est
+									une suite de 0 et 1 
+									dans la machine
+								</p>
+							</li>
+							<li>
+								<p>
+									Plusieurs manières de construire 
+									cette suite sont possibles 
+									<br>
+									&rarr; encodages
+								</p>
+							</li>
+							<li>
+								<p>
+									Le plus prudent est d'annoncer 
+									au navigateur
+									l'encodage choisi
+								</p>
+							</li>
+							<li>
+								<p>
+									Si on nous laisse libres de choisir, 
+									on prendra le plus courant : <code>utf-8</code>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_02_03" 
+						data-title="stockage">
+					<h2>Stockage du document</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Parmi les possibilités 
+									<a href="#partie_02_01">évoquées</a>, 
+									nous choisirons la plus simple:
+									nos documents sont sauvegardés 
+									sur le disque dur de notre machine, 
+									dans un fichier
+								</p>
+							</li>
+							<li>
+								<p>
+									Lorsque vous changez de machine, 
+									vous devez récupérer l'original du fichier :
+								</p>
+								<ul>
+									<li>
+										<p>
+											à l'IUT, il y a un disque partagé 
+											par toutes les machines (Z:).
+											Sauvegardez sur celui-ci,
+											et vous aurez accès à votre fichier
+											dans toutes les salles de TP.
+										</p>
+									</li>
+									<li>
+										<p>
+											Pour travailler chez vous, il vous 
+											faudra récupérer une copie du fichier :
+											par clé usb, par email, ou par le cloud.
+											Il vous faudra ensuite récupérer 
+											la version modifiée sur les machines 
+											de l'IUT, par les mêmes moyens.
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									Nous ne génèrerons pas de document 
+									à partir d'un programme. 
+									Cela correspondrait par exemple à 
+									un document qui affiche l'heure :
+									Celui-ci devrait être mis à jour lors 
+									de chaque consultation. Un programme
+									serait le bienvenu pour accomplir 
+									cette tâche.
+									Cependant ce cours ne traite
+									pas ce type de cas.
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_02_04" 
+						data-title="navigateur">
+					<h2>Navigateur utilisé pour visualiser les documents</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Pour être prudent, nous devrions visualiser
+									les documents que nous produisons avec 
+									beaucoup de navigateurs différents, 
+									car aucun ne respecte
+									toute la norme w3c.
+									Dans votre contexte professionnel,
+									ceci sera une nécessité absolue
+								</p>
+							</li>
+							<li>
+								<p>
+									Cependant pour le R102 nous n'utiliserons
+									qu'un seul navigateur, qui respecte une 
+									assez bonne partie de la sémantique : 
+									la dernière version stable de 
+									<code>Firefox</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Vous êtes libres de tester sur d'autres 
+									produits et/ou avec des versions
+									plus anciennes, 
+									pour observer les différences
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+			</section>
+			<section>
+				<article 
+						class="titre" 
+						data-title="HTML">
+					<div>
+						<h1>
+							Composition d'un document HTML
+						</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_03_01"
+						data-title="annonce">
+					<h2>Document html : l'annonce</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Un document html est introduit par 
+									les caractères :
+									<br>
+									<code>&lt;!DOCTYPE html&gt;</code>
+									&nbsp;&nbsp;&nbsp;
+									<span class="plus_petit">
+										On devine ce que cela 
+										signifie, à raison
+									</span>
+								</p>
+							</li>
+							<li>
+								<p>
+									Lorsque ce préfixe est manquant, 
+									les navigateurs corrigent d'eux-mêmes 
+									<br>
+									Ils font des suppositions
+									et s'arrêtent/crashent si ça ne marche pas
+								</p>
+							</li>
+							<li>
+								<p>
+									Remarque : ce préfixe fait partie de la 
+									norme xml. Il indique le DTD à utiliser. 
+								</p>
+							</li>
+							<li>
+								<p>
+									Le contenu du document est placé entre 
+									<em>parenthèses</em>, comme on 
+									place une opération mathématique entre
+									parenthèses pour la mettre en relief :
+									<br>
+									par exemple, 
+									<code>(2*3)</code>
+									au lieu de <code>2*3</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Dans la syntaxe html, 
+									<br>
+									La parenthèse ouvrante 
+									n'est pas <code>(</code> mais
+									<code>&lt;html&gt;</code>
+									<br>
+									La parenthèse fermante est 
+									<code>&lt;/html&gt;</code>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_03_02"
+						data-title="head/body">
+					<h2>
+						Les deux parties du document : 
+						<code>head</code> et <code>body</code>
+					</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									L'entête est la première partie 
+									du document, 
+									en anglais <code>head</code>
+								</p>
+								<ul>
+									<li>
+										<p>
+											Elle contient des informations 
+											générales ou techniques
+											sur le document
+										</p>
+									</li>
+									<li>
+										<p>
+											C'est là que l'on indique 
+											l'encodage choisi pour 
+											les caractères
+										</p>
+									</li>
+									<li>
+										<p>
+											On y mentionne aussi 
+											un titre,
+											et la langue utilisée
+										</p>
+									</li>
+									<li>
+										<p>
+											On y placera les liens 
+											vers le css et les scripts
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									Le corps est la seconde partie 
+									du document, 
+									en anglais <code>body</code>
+								</p>
+								<ul>
+									<li>
+										<p>
+											Elle contient l'information 
+											que le document présente à l'utilisateur final
+										</p>
+									</li>
+									<li>
+										<p>
+											C'est uniquement cette partie
+											qui sert à calculer l'affichage
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									Le document html ne contient 
+									que ces deux parties
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_03_03" 
+						data-title="parenthesage">
+					<h2>Un système de parenthésage</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Chaque partie est mise dans sa propre 
+									paire de 
+									<a href="#partie_03_01">parenthèses</a>
+									<br>
+									En maths on écrirait 
+									&nbsp;&nbsp;
+									<code>((1+1)*(12/4))</code>
+									<br>
+									En html, on écrit
+								</p>
+<pre> &lt;html&gt;  <span class="texte_bleu">&lt;head&gt;</span><span class="plus_petit">..annonce..</span><span class="texte_bleu">&lt;/head&gt;</span>  <span class="texte_vert">&lt;body&gt;</span><span class="plus_petit">..corps..</span><span class="texte_vert">&lt;/body&gt;</span>  &lt;/html&gt;</pre>
+							</li>
+							<li>
+								<p>
+									Ces parenthèses sont appelées 
+									<strong>balises</strong>
+									<br>
+									Les noms qu'elles contiennent
+									sont appelés <strong>tags</strong>
+								</p>
+							</li>
+							<li>
+								<p>
+									La syntaxe HTML nous autorise 
+									à aligner par indentation
+								</p>
+<pre>&lt;html&gt;
+    <span class="texte_bleu">&lt;head&gt;</span>
+        <span class="plus_petit">..annonce..</span>
+    <span class="texte_bleu">&lt;/head&gt;</span>
+    <span class="texte_vert">&lt;body&gt;</span>
+        <span class="plus_petit">..corps..</span>
+    <span class="texte_vert">&lt;/body&gt;</span>
+&lt;/html&gt;</pre>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article>
+					<h2>Un système de parenthésage (suite)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Techniquement,
+									dans un document html,
+									<em>un espace</em>, 
+									ou <em>plusieurs espaces</em>, 
+									ou <em>une tabulation</em>, 
+									ou <em>plusieurs tabulations</em>,
+									ou <em>un saut de ligne</em>, 
+									ou <em>plusieurs sauts de ligne</em>
+									(i.e. des <em>whitespaces</em>),
+									<br>
+									cela revient à <strong>un seul espace</strong>
+									lors du calcul de l'affichage
+								</p>
+							</li>
+							<li>
+								<p>
+									Cela nous permet d'indenter librement
+								</p>
+								<ul>
+									<li>
+										<p>
+											Mais passer à la ligne dans le document 
+											html ne signifiera donc pas passer
+											à la ligne lors du rendu dans le 
+											navigateur
+										</p>
+									</li>
+									<li>
+										<p>
+											De même augmenter la séparation entre 
+											deux mots en rajoutant des espaces 
+											n'aura pas d'effet sur l'affichage
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									Remarque : 
+									Pour les tags, majuscules et minuscules 
+									comptent	pareil
+									<br>
+									Je vous conseille de n'utiliser que
+									des minuscules, pour éviter de laisser 
+									croire à des distinctions qui 
+									n'existent pas
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_03_04" 
+						data-title="attributs">
+					<h2>
+						Attributs : 
+						Des informations supplémentaires pour les balises
+					</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Revenons au problème de l'encodage
+								</p>
+								<ul>
+									<li>
+										<p>
+											C'est une information à placer 
+											dans <code>head</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											On la place dans sa propre balise 
+											(<em>paire de parenthèses</em>)
+										</p>
+									</li>
+									<li>
+										<p>
+											Le tag de balise correspondant est : 
+											<code>meta</code>
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									On s'attendrait à la syntaxe (<em>écriture</em>)
+									<code>&lt;meta&gt;utf-8&lt;/meta&gt;</code>
+								</p>
+								<ul>
+									<li>
+										<p>
+											Ce n'est pas le choix qui a été fait :
+											<br>
+											Le tag <code>meta</code> n'est pas 
+											seulement utilisé pour l'encodage ;
+											il peut par exemple servir 
+											à indiquer qui est l'auteur de la page 
+											(<a href="https://www.w3schools.com/tags/tag_meta.asp">
+												autres utilisations
+											</a>)
+										</p>
+									</li>
+									<li>
+										<p>
+											Pour distinguer ces utilisations, 
+											la balise (i.e. <em>la parenthèse</em>)
+											peut contenir des informations
+											supplémentaires : 
+											<strong>des attributs</strong>
+										</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article>
+					<h2>Attributs (suite)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Principe :
+								</p>
+								<ul>
+									<li>
+										<p>
+											On place les attributs dans 
+											la balise ouvrante (seulement)
+										</p>
+									</li>
+									<li>
+										<p>
+											La syntaxe correspondante est : 
+											<code>nom="valeur"</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											Dans notre cas : 
+											<code>&lt;meta charset="utf-8"&gt;</code>
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									Formellement : 
+								</p>
+								<ul>
+									<li>
+										<p>
+											L'identifiant (le <em>nom</em>)
+											d'un attribut est une suite 
+											de caractères, sans whitespace
+										</p>
+									</li>
+									<li>
+										<p>
+											Le signe égal ne doit pas 
+											être décollé, ni de l'identifiant,
+											ni de la valeur
+										</p>
+									</li>
+									<li>
+										<p>
+											La valeur est la suite de caractères 
+											comprise entre des guillemets doubles
+										</p>
+									</li>
+									<li>
+										<p>
+											Elle ne peut donc pas contenir de 
+											guillemets doubles
+										</p>
+									</li>
+									<li>
+										<p>
+											<a href="https://www.w3.org/TR/2012/WD-html-markup-20120329/syntax.html#syntax-attributes">
+												plus de détails
+											</a>
+										</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_03_05" 
+						data-title="unaires">
+					<h2>Balises unaires : parenthèses sans contenu</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Le traitement de l'encodage montre
+									des balises sans contenu : 
+									<br>
+									L'intérieur des parenthèses est vide
+									<br>
+									Toute l'information est dans 
+									le tag et l'attribut
+								</p>
+							</li>
+							<li>
+								<p>
+									La syntaxe html définit les balises unaires :
+									<br>
+									Celles qui n'ont pas de contenu, 
+									<br>
+									et donc pas besoin de balise fermante
+								</p>
+							</li>
+							<li>
+								<p>
+									<span class="alerte">Attention :</span>
+									Selon les versions de html et de xml, 
+									il faut distinguer 
+									explicitement ou non 
+									les balises unaires
+									en utilisant la syntaxe dite 
+									auto-fermante :
+									<br>
+									<code>&lt;meta charset="utf-8"
+									<span class="texte_vert">/</span>&gt;</code> 
+								</p>
+							</li>
+							<li>
+								<p>
+									Personnellement, je préfère utiliser 
+									cette syntaxe explicite
+									<br>
+									Mais ce n'est pas le cas de l'actuel
+									validateur du w3c
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_03_06" 
+						data-title="head">
+					<h2>Eléments courants de <code>head</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Vocabulaire : une paire de balises
+									et tout son contenu
+									est appelée un <em>élément</em>
+								</p>
+							</li>
+							<li>
+								<p>
+									Dans l'élément <code>head</code>,
+									Les tags les plus courants
+									sont les suivants :
+								</p>
+								<ul>
+									<li>
+										<p>
+											<code>&lt;title&gt;</code> :
+											titre du document
+											<br>
+											Non affiché dans la fenêtre principale
+											<br>
+											Les navigateurs l'utilisent
+											souvent pour l'onglet
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>&lt;meta&gt;</code> :
+											variété d'informations techniques
+											(dont encodage et langue)
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>&lt;style&gt;</code> :
+											lien vers un fichier css 
+											(mise en page)
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>&lt;link&gt;</code> :
+											lien vers un fichier, 
+											usuellement de script
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>&lt;script&gt;</code> :
+											code de script directement 
+											inclus dans le document html 
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									Consultez les tutoriels pour 
+									des survols et la documentation
+									pour les détails
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+			</section>
+			<section>
+				<article 
+						class="titre" 
+						data-title="Body">
+					<div>
+						<h1>Le corps du document html</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_04_01" 
+						data-title="imbrication">
+					<h2>Imbrication hiérarchique des éléments</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Le <strong>parenthésage 
+									imbriqué</strong>
+									des balises construit 
+									<br>
+									une hiérarchie par inclusion 
+									entre les éléments du document
+								</p>
+							</li>
+							<li>
+								<p>
+									A la base, on a les informations 
+									présentées à l'utilisateur final
+									<br>
+									(comme les nombres sont la base 
+									des <a href="#partie_03_01">
+									expressions mathématiques</a>)
+								</p>
+							</li>
+							<li>
+								<p>
+									Les imbrications des balises
+									doivent ajouter du sens
+									aux briques de base
+									<br>
+									(comme les opérations et 
+									parenthèses 
+									dans les calculs mathématiques)
+								</p>
+							</li>
+							<li>
+								<p>
+									La sémantique ajoutée 
+									<br>
+									Peut être uniquement perceptible
+									par un humain 
+									<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;
+									<em>(par exemple la disposition 
+									des informations sur la page)</em>
+									<br>
+									Ou bien elle peut être 
+									explicitement mentionnée
+									<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;
+									<em>(par l'utilisation de tags	précis)</em>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_04_02" 
+						data-title="info base">
+					<h2>Informations de base</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Les tags les plus courants
+									pour les informations de base 
+									 sont :
+								</p>
+								<ul>
+									<li>
+										<p>
+											<code>&lt;a&gt;</code> :
+											 un lien
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>&lt;img&gt;</code> :
+											 une image
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>&lt;p&gt;</code> :
+											 paragraphe de texte
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>&lt;ul&gt;</code> :
+											 une liste (dont chaque élément 
+											 sera parenthésé par 
+											 des balises <code>li</code>)
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>&lt;ol&gt;</code> :
+											 une liste numérotée
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>&lt;h1&gt;</code>&hellip; 
+											<code>&lt;h6&gt;</code> :
+											Titre principal, 
+											titre de sous-partie, 
+											&hellip;
+											(<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements#avoid_using_multiple_h1_elements_on_one_page">
+												voir ceci
+											</a>)
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_04_03" 
+						data-title="div/span">
+					<h2>
+						<code>div</code> et <code>span</code> :
+						Regroupements non sémantiques
+					</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Avant html5, on pouvait
+									découper le contenu
+									en blocs et/ou en rubans
+								</p>
+							</li>
+							<li>
+								<p>
+									Les deux tags archétypes correspondants
+									existent toujours :
+								</p>
+								<ul>
+									<li>
+										<p>
+											<code>div</code> 
+											<br>
+											Défini un nouveau rectangle 
+											qui encadre	son contenu.
+											<br>
+											Occupe toute la largeur disponible,
+											et la hauteur nécessaire
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>span</code> : 
+											<br>
+											Employé pour sélectionner un 
+											morceau au sein d'un flot
+											<br> &nbsp;&nbsp;&nbsp;
+											<em>par exemple pour surligner 
+											un bout d'un paragraphe</em>
+											<br>
+											N'impose pas de nouveau rectangle
+											<br> &nbsp;&nbsp;&nbsp;
+											(i.e. ne casse pas le flot d'écriture)
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									Ces deux outils sont à la base de 
+									l'organisation spaciale
+									<br>
+									(i.e la disposition des contenus de base)
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_04_04" 
+						data-title="semantique">
+					<h2>Groupements et hiérarchie sémantiques (principe)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									<code>div</code> et <code>span</code>
+									laissent à la mise en page
+									la responsabilité de faire 
+									apparaître clairement pourquoi 
+									on a voulu <strong>ce</strong>
+									découpage de blocs
+								</p>
+							</li>
+							<li>
+								<p>
+									Il faudra aussi espérer que 
+									le lecteur l'interprète
+									comme l'auteur l'a imaginé
+								</p>
+							</li>
+							<li>
+								<p>
+									Une machine (un moteur de recherche 
+									par exemple) n'y arrivera pas
+								</p>
+							</li>
+							<li>
+								<p>
+									html5 rajoute des tags dits 
+									<em>sémantiques</em> pour expliciter 
+									la structure du contenu
+								</p>
+							</li>
+							<li>
+								<p>
+									Leur rôle est de faire apparaître
+									sans ambiguïté le sens que l'auteur 
+									veut donner à chaque 
+									partie du document
+								</p>
+							</li>
+							<li>
+								<p>
+									Les tags introduits proviennent 
+									des rôles les plus communément 
+									rencontrés dans les documents Web
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_04_05" 
+						data-title="tags sem.">
+					<h2>Groupements et hiérarchie sémantiques (tags)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Structuration du contenu principal 
+									(<em>tags binaires</em>)
+								</p>
+<pre>
+    header (!!!attention : pas head)
+    main
+        section
+            article
+            article
+            ...
+        section
+        ...
+    footer
+</pre>
+							</li>
+							<li>
+								<p>
+									Autres éléments très fréquents
+									(<em>tags binaires</em>)
+								</p>
+								<ul>
+									<li>
+										<p>
+											<code>nav</code> : 
+											liens 
+											permettant de naviguer dans la page 
+											et/ou le site
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>address</code> :
+											coordonnées 
+											d'une personne, entreprise &hellip;
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>aside</code> : 
+											informations 
+											complémentaires par rapport 
+											au sujet principal (<code>main</code>)
+										</p>
+									</li>
+								</ul>
+
+	 
+	 
+							</li>
+
+						</ul>
+					</div>
+				</article>
+			</section>
+			<section>
+				<article 
+						class="titre" 
+						data-title="Modele">
+					<div>
+						<h1>
+							Modèle d'un document html
+						</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_05_01" 
+						data-title="resume">
+					<h2>Résumons</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Un document html est une suite de 
+									caractères
+									<br>
+									annoncée par <code>&lt;!DOCTYPE html&gt;</code>
+									<br>
+									contenue dans une paire 
+									de balises <code>&lt;html&gt;</code>
+									<code>&lt;/html&gt;</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									L'élément <code>html</code> est composé
+									de deux sous-éléments : 
+									<code>head</code> et <code>body</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									<code>head</code> contient
+									une suite d'éléments 
+									décrivant l'information 
+									technique
+								</p>
+							</li>
+							<li>
+								<p>
+									<code>body</code> contient l'information 
+									à destination de l'utilisateur final
+									<br>
+									hiérarchisée en premier lieu par les 
+									balises sémantiques 
+								</p>
+							</li>
+							<li>
+								<p>
+									En plus du contenu (<em>content</em>)
+									qu'elles parenthèsent,
+									certaines balises peuvent porter 
+									des informations supplémentaires,
+									grâce aux attributs
+								</p>
+							</li>
+							<li>
+								<p>
+									La documentation indique quels attributs
+									sont autorisés pour quels tags
+									<br>
+									et ce que le navigateur en fera
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_05_02" 
+						data-title="analogie">
+					<h2>DOM (analogie)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Pour le navigateur, les imbrications
+									des parenthèses définissent  
+									le <code>DOM</code>
+								</p>
+							</li>
+						</ul>					
+						<p class="centre bordure" >
+							<span class="plus_petit souligne" >parenthèses</span>
+							&nbsp;&nbsp;&nbsp;
+							<span class="bigger_square_bracket texte_bleu">[</span> (3 + 4) x <span class="texte_vert">[</span> 5 / (3 - 1) + 4 <span class="texte_vert">]</span> <span class="bigger_square_bracket texte_bleu">]</span>
+						</p>
+						<p class="plus_petit centre bordure">
+							<span class="plus_petit souligne" >balises</span>
+							&nbsp;&nbsp;&nbsp;
+							<span class="texte_bleu texte_gras">&lt;tout&gt;</span>
+								&nbsp;&nbsp;
+								<span class="texte_gras">&lt;peu&gt;</span> 
+									3 + 4 
+								<span class="texte_gras">&lt;/peu&gt;</span>
+								&nbsp;&nbsp;
+								x 
+								&nbsp;&nbsp;
+								<span class="texte_vert texte_gras">&lt;grand&gt;</span> 
+									5 / 
+									<span class="texte_gras">&lt;peu&gt;</span>
+										3 - 1 
+									<span class="texte_gras">&lt;/peu&gt;</span> 
+									+ 4 
+								<span class="texte_vert texte_gras">&lt;/grand&gt;</span> 
+								&nbsp;&nbsp;
+							<span class="texte_bleu texte_gras">&lt;/tout&gt;</span>
+						</p>
+						<p class="centre bordure" >
+							<span class="plus_petit souligne" >DOM (arbre)</span>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<img style="vertical-align: middle;" src="./expression_arborescente.svg"/>
+						</p>
+					</div>
+				</article>
+				<article 
+						id="partie_05_03" 
+						data-title="dom">
+					<h2>DOM : Document Object Model</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									<!-- Pour le dom, le prefixe 
+									<code>&lt;!DOCTYPE html&gt;</code>
+									est ignoré
+									<br -->
+									Le point de départ est la balise 
+									<code>html</code>.
+									On l'appelle la <em>racine</em>
+									de l'arbre
+								</p>
+							</li>
+							<li>
+								<p>
+									<code>head</code> et <code>body</code>
+									sont ses deux <em>fils</em>
+									(on parle des 
+									<em>noeuds</em> <code>html</code>, 
+									<code>head</code>, <code>body</code>, 
+									&hellip;)
+								</p>
+							</li>
+							<li>
+								<p>
+									<em>Récursivement</em>, 
+									le dom contient les fils des fils, 
+									puis les fils des fils des fils &hellip;
+								</p>
+								<ul>
+									<li>
+										<p>
+											pour <code>head</code>,
+											il s'agit d'une série de noeuds, 
+											dont un <code>title</code>
+											et plusieurs <code>meta</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											pour <code>body</code>, 
+											le premier fils serait
+											un noeud <code>header</code>,
+											suivit de <code>main</code>,
+											puis de <code>footer</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											Un noeud <code>nav</code>
+											s'intercalera probablement
+											entre <code>header</code> et 
+											<code>main</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>main</code> à son tour 
+											aura des fils <code>section</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											Les <code>section</code>
+											auront des fils titre 
+											(<code>h1</code> &hellip;)
+											et 
+											<code>article</code>,
+											<strong>ou à nouveau 
+											<code>section</code></strong>
+										</p>
+									</li>
+									<li>
+										<p>
+											Les <code>article</code>
+											auront eux le <em>vrai</em>
+											contenu
+											(<code>p</code>, 
+											<code>img</code>, 
+											&hellip;)
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									Remarque : Dans le dom, les attributs sont intégrés 
+									aux noeuds
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_05_04" 
+						data-title="exemple">
+					<h2>DOM (exemple)</h2>
+					<div>
+						<img 
+							class="image_filling"
+							src="./dom.svg"/>
+					</div>
+				</article>
+			</section>
+
+
+			<!-- section>
+			
+				<article 
+						class="titre" 
+						data-title="XXX">
+					<div>
+						<h1></h1>
+					</div>
+				</article>
+				
+				<article 
+						id="partie_0x_0x" 
+						data-title="xxx">
+					<h2>XXX</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+								</p>
+							</li>
+							<li>
+								<p>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				
+			</section -->
+			
+		</main>
+		<script> load() </script>		
+  </body>
+</html>

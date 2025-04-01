@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>R1.02 - HTML/CSS - 04</title>
+		<link rel="stylesheet" href="../css/amphi.css">
+		<script src="../js/amphi.js"></script>
+	</head>
+	<body>
+	
+		<nav>
+			<ul id="nav_liste">
+				<!-- li class="section">Section</li>
+				<li><a href="#partie_01_01">Partie</a></li>
+				<li><a href="#partie_01_02">Partie</a></li>
+				<li class="sec">Section</li>
+				<li><a href="#partie_02_01">Partie</a></li -->
+			</ul>
+			<template id="nav_li_sec">
+				<li class="section"></li>
+			</template>
+			<template id="nav_li_part">
+				<li><a href=""></a></li>
+			</template>
+		</nav>
+				
+		<main>
+			<section>
+				<article
+						class="titre" 
+						data-title=""
+						>
+					<div>
+						<h1>
+							Ressource 1.02
+							<br>
+							Développement d’interface web
+							<br>
+							Cours 4
+						</h1>
+					</div>
+				</article>
+				<article 
+						class="titre" 
+						data-title="Placement">
+					<div>
+						<h1>
+							Placement des Eléments
+						</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_01_01" 
+						data-title="intro">
+					<h2>Introduction</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Le placement n'est pas un problème simple
+								</p>
+ 							</li>
+							<li>
+								<p>
+									En CSS, tout élément a une boîte qui l'englobe
+									<br>
+									Chaque élément n'est pas une boîte,
+									mais en remontant le DOM, 
+									une boîte le contient
+									&rarr; <em>box model</em>
+								</p>
+ 							</li>
+							<li>
+								<p>
+									La plus grande boîte contient l'élément 
+									<code>html</code>
+									<br>
+									Elle s'étend sur toute la largeur disponible, 
+									et la hauteur nécessaire
+								</p>
+ 							</li>
+							<li>
+								<p>
+									A l'intérieur le placement débute 
+									en haut à gauche
+									<br>
+									Le <em>flot</em> des éléments 
+									vient la remplir
+									(&rarrc; écriture d'une suite 
+									de mots)
+								</p>
+ 							</li>
+							<li>
+								<p>
+									Les sous-blocs correspondent
+									à des sous-boîtes. Approximativement :
+								</p>
+								<ol>
+									<li>
+										<p>
+											Un saut de ligne 
+											(que la ligne courante soit ou non pleine)
+										</p>
+									</li>
+									<li>
+										<p>
+											Création d'une boîte imbriquée
+											(pleine largeur)
+										</p>
+									</li>
+									<li>
+										<p>
+											Remplissage <em>récursif</em>
+											(selon élément ; 
+											i.e. selon sous-arbre du DOM)
+										</p>
+									</li>
+								</ol>
+ 							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_02" 
+						data-title="boîte(s)">
+					<h2>Squelette d'une boîte</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Une boîte est composée de 
+									4 morceaux :
+								</p>
+								<ul>
+									<li>
+										<p>
+											<code>content-box</code> :
+											affiche le contenu de l'élément 
+											(sous arbre DOM)
+											<br>
+											 en css, sa taille est fixée par 
+											 <code>width</code> et <code>height</code> 
+											 par défaut,
+											 <br>
+											 ou par <code>inline-size</code> 
+											 et <code>block-size</code>
+											 avec <code>writing-mode</code> 
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>padding-box</code> :
+											espacement autour du <code>content</code>
+											<br>
+											en css, sa taille est gérée par 
+											<code>padding</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>border-box</code> : 
+											bordure autour du <code>padding</code>
+											<br>
+											en css, son aspect et sa taille 
+											sont gérés par <code>border</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>margin-box</code> : 
+											espacement autour de <code>border</code>
+											un "vide" autour de la bordure 
+											<br>
+											en css, sa taille est gérée par 
+											<code>margin</code>
+										</p>
+									</li>
+								</ul>
+ 							</li>
+							<li>
+								<p>
+									<a href="./cours_04_00_box_model.png">schéma</a> 
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_03" 
+						data-title="taille">
+					<h2>Quelle taille fait ma boîte ?</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Pour calculer la taille, 
+									il faut tenir compte de 
+									toutes les composantes
+								</p>
+ 							</li>
+							<li>
+								<p>
+									MAIS les unités des composantes 
+									ne sont pas forcément les mêmes
+									<br>
+									Par exemple <code>width:25%;</code>
+									et <code>border:2px solid black;</code>
+								</p>
+ 							</li>
+							<li>
+								<p>
+									CSS nous offre la fonction 
+									<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc">calc()</a> 
+									qui sait gérer ces mélanges
+								</p>
+ 							</li>
+							<li>
+								<p>
+									MAIS, les arrondis des navigateurs 
+									vont poser problème
+								</p>
+ 							</li>
+							<li>
+								<p>
+									En utilisant 
+									<code><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing">box-sizing</a>:border-box;</code>
+									le calcul de <code>width</code>
+									et <code>height</code>
+									inclut le <code>padding</code> 
+									et le <code>border</code>
+								</p>
+ 							</li>
+							<li>
+								<p>
+									Malheureusement, <code>margin</code>
+									et <code>padding</code> 
+									peuvent "disparaitre" !
+								</p>
+								<ul>
+									<li>
+										<p>
+											pour padding, dans le cas inline 
+											il ne compte pas toujours 
+											(cf outer display)
+										</p>
+									</li>
+									<li>
+										<p>
+											pour les margin, 
+											il y a le mécanisme de 
+											<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing">collapse</a>
+										</p>
+									</li>
+								</ul>
+ 							</li>
+							<li>
+								<p>
+									Là, on finit par atteindre la limite de la patience 
+									des web developpers....
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_04" 
+						data-title="outer display">
+					<h2>Relation avec les boîtes autour : <em>outer</em> <code>display</code></h2>
+					<div>
+						<ul><ul>
+									<li>
+										<p>
+											<code>block</code>
+											(<code>div</code>, 
+											<code>h1</code>, 
+											<code>p</code> 
+											&hellip; 
+											<a href="./cours_04_ex00.html">[[exemple 00]]</a>
+											)
+										</p>
+										<ul>
+											<li>
+												<p>
+													la boîte est un rectangle
+												</p>
+											</li>
+											<li>
+												<p>
+													la boîte débute 
+													sur une nouvelle ligne
+												</p>
+											</li>
+											<li>
+												<p>
+													on peut modifier sa longueur 
+													et sa largeur 
+													(par défaut, pleine largeur)
+												</p>
+											</li>
+											<!-- li>
+												<p>
+													<code>padding</code> 
+													et <code>margin</code> 
+													sont des distances mesurées 
+													à partir de la boîte
+												</p>
+											</li -->
+										</ul>	
+									</li>
+									<li>
+										<p>
+											<code>inline</code>
+											(<code>span</code>, 
+											<code>a</code>, 
+											<code>em</code>,
+											<code>strong</code>											
+											&hellip; 
+											<a href="./cours_04_ex01.html">[[exemple 01]]</a>
+											)
+										</p>
+										<ul>
+											<li>
+												<p>
+													la boîte est un <em>ruban</em>
+												</p>
+											</li>
+											<li>
+												<p>
+													<em>pas de nouvelle ligne</em>
+												</p>
+											</li>
+											<li>
+												<p>
+													on <em>ne peut pas</em> modifier 
+													sa longueur ou sa largeur
+												</p>
+											</li>
+											<li>
+												<p>
+													(<code>top</code>
+													et <code>bottom</code>)
+													(<code>padding</code> 
+													et <code>margin</code>)
+													<em>n'affectent pas</em>
+													les autres <code>inline</code>
+												</p>
+											</li>
+											<li>
+												<p>
+													(<code>left</code>
+													et <code>right</code>)
+													(<code>padding</code> 
+													et <code>margin</code>)
+													<em>affectent</em>
+													les autres <code>inline</code>
+												</p>
+											</li>
+										</ul>	
+									</li>
+									<li>
+										<p>
+											<code>inline-block</code>
+											(définir à la main dans le CSS
+											<a href="./cours_04_ex01.html">[[exemple 01]]</a>
+											)
+										</p>
+										<ul>
+											<li>
+												<p>
+													la boîte est un rectangle
+												</p>
+											</li>
+											<li>
+												<p>
+													<em>pas de une nouvelle ligne</em>
+												</p>
+											</li>
+											<li>
+												<p>
+													on peut modifier 
+													sa longueur ou sa largeur
+													(par défaut, largeur contenu)
+												</p>
+											</li>
+											<!-- li>
+												<p>
+													<code>padding</code> 
+													et <code>margin</code> 
+													sont des distances 
+													mesurées à partir de la boîte
+												</p>
+											</li -->
+										</ul>	
+									</li>
+						</ul></ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_05" 
+						data-title="inner display">
+					<h2>Disposition des boîtes internes : <em>inner</em> <code>display</code></h2>
+					<div>
+						<ul><ul>
+									<li>
+										<p>
+											<code>normal flow</code>
+											(par défaut)
+										</p>
+										<ul>
+											<li>
+												<p>
+													Les boîtes internes 
+													respectent leur <em>outer</em>
+													<code>display</code>
+												</p>
+											</li>
+										</ul>	
+									</li>
+									<li>
+										<p>
+											<code>flex</code>
+											(définir à la main dans le CSS)
+										</p>
+										<ul>
+											<li>
+												<p>
+													 amélioration de la mise 
+													 en page <em>flot</em>
+													 <br>
+													 les boîtes se
+													 placent les unes à 
+													 ma suite des autres
+												</p>
+											</li>
+										</ul>	
+									</li>
+									<li>
+										<p>
+											<code>grid</code>
+											(définir à la main dans le CSS)
+										</p>
+										<ul>
+											<li>
+												<p>
+													 amélioration de la mise 
+													 en page <em>tableau</em>
+													 <br>
+													 les boîtes sont
+													 disposées sur une grille
+												</p>
+											</li>
+										</ul>	
+									</li>
+						</ul></ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_06" 
+						data-title="float">
+					<h2>Sortie du flux : <code>float</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									La propriété 
+									<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float">float</a>
+									modifie
+									le comportement d'une boîte
+									<br>
+									par rapport à ses voisins
+									(à <em>sibling</em> plus précisement)
+									<br>
+									On obtient une sorte d'<a href="./cours_04_01_encart.png">encart</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									Une boîte peut être placée
+									en <code>float:right</code>
+									ou <code>float:left</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Elle est alors <em>sortie du flot</em>
+									de ses siblings
+									<br>
+									et tassée <em>prioritairement</em>
+									à droite ou à gauche
+									(dans la boîte parent)
+								</p>
+							</li>
+							<li>
+								<p>
+									Le reste du contenu est ensuite 
+									placé selon le calcul de flot
+									<br>
+									pour remplir la place vacante
+									(dans la boîte parent)
+								</p>
+							</li>
+							<li>
+								<p>
+									<a href="./cours_04_ex02.html">[[exemple 02]]</a>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_07" 
+						data-title="position">
+					<h2>Positionnement arbitraire d'une boîte</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									La propriété css 
+									<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"><code>position</code></a>
+									permet de sortir de la 
+									logique de flot
+								</p>
+								<ul>
+									<li>
+										<p>
+											<code>static</code> : 
+											ne modifie pas le positionnement
+											<br>
+											Cependant l'élément devient 
+											<em class="souligne">positionned</em>
+											<br>
+											(Il pourra servir 
+											de référent aux positionnements 
+											emboités)
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>relative</code> : 
+											permet de décaler l'élément, 
+											par rapport à la position
+											par défaut
+											<br>
+											Le décalage est défini via 
+											les propriétés 
+											<code>left</code>, <code>right</code>, 
+											<code>top</code> et <code>bottom</code>
+											<br>
+											Un <em>trou</em> est laissé
+											à sa position par défaut
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>absolute</code> : 
+											L'élément est retiré du flot, 
+											sans laisser de trou
+											<br>
+											Il est placé relativement à 
+											son premier parent 
+											<em class="souligne">positionned</em>
+											(via <code>left</code>, &hellip;)
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>fixed</code> : 
+											Comme <code>absolute</code>, 
+											<strong>et</strong> 
+											non affecté par le <em>scrolling</em>
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>sticky</code> : 
+											Initialement, l'élément 
+											a sa position par défaut
+											<br>
+											Lors du <em>scrolling</em>, 
+											les quatres propriétés 
+											<code>left</code>, &hellip; 
+											<br>
+											sont utiliées comme
+											bornes sur la position
+											atteignable
+										</p>
+									</li>
+								</ul>
+ 							</li>
+							<li>
+								<p>
+									Les quatre dernières valeurs
+									empilement sur le <code>z-index</code>,
+									<br>
+									plaçant l'élément <em>au-dessus</em>
+									de son flot d'origine
+									&nbsp;&nbsp;
+									<a href="./cours_04_ex03.html">[[exemple 03]]</a>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+			</section>
+			<section>
+				<article 
+						class="titre" 
+						data-title="Flexbox">
+					<div>
+						<h1>
+							Flexbox
+						</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_02_01" 
+						data-title="survol">
+					<h2>Flexbox : amélioration de placement par flot</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									La <code>flexbox</code> est un <em>inner</em> 
+									<code>display</code> 
+									qui porte la déclaration 
+									<code class="texte_vert">display:flex;</code>
+									<br>
+									Cette boîte sert de 
+									<em>conteneur</em> 
+									(<code>flex container</code>)
+									<br>
+									pour organiser d'autres boîtes
+									(<code>flex item</code>)
+								</p>
+							</li>
+							<li>
+								<p>
+									C'est une boîte dans laquelle 
+									ses fils directs sont placés
+									selon un <em>flot</em>
+									<br>
+									Son rôle est d'améliorer la gestion :
+								</p>
+								<ul>
+									<li>
+										<p>
+											de la taille des fils
+											(<code>grow</code>,
+											<code>shrink</code>, 
+											<code>stretch</code>)
+										</p>
+									</li>
+									<li>
+										<p>
+											des espacements
+											(<code>justify-content</code>, 
+											<code>align-items</code>, 
+											<code>gaps</code>)
+										</p>
+									</li>
+									<li>
+										<p>
+											du passage à la ligne
+											(<code>flex-wrap</code>)
+										</p>
+									</li>
+									<li>
+										<p>
+											de la direction du flot
+											(float-direction)
+										</p>
+									</li>
+								</ul>
+ 							</li>
+							<li>
+								<p>
+									Elle introduit un saut conceptuel
+									car l'ordre d'affichage des fils
+									<br>
+									n'est plus nécessairement
+									celui du DOM
+									(propriété <code>order</code>)
+								</p>
+ 							</li>
+							<li>
+								<p>
+									Consultez le 
+									<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">tutoriel</a> 
+									est proposé par <em>css-tricks</em>
+									et le <a href="./cours_04_csstricks-flexbox-poster.png">poster</a> l'accompagnant
+								</p>
+ 							</li>
+						</ul>
+					</div>
+				</article>
+			</section>
+			<section>
+				<article 
+						class="titre" 
+						data-title="Grid">
+					<div>
+						<h1>
+							Grid
+						</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_03_01" 
+						data-title="survol">
+					<h2>Grid : amélioration du placement par tableau</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Le <code>grid</code> est aussi un <em>inner</em> 
+									<code>display</code> 
+									déclaré par 
+									<code class="texte_vert">display:grid;</code>
+									<br>
+									Donc on a un 
+									<em>conteneur</em> 
+									qui organise d'autres boîtes
+									<br>
+									Il améliore le placement en <em>tableau</em>
+								</p>
+							</li>
+							<li>
+								<p>
+									Son rôle est d'améliorer la gestion
+									<br>
+									de la taille des fils
+									<br>
+									des espacements
+								</p>
+ 							</li>
+							<li>
+								<p>
+									En premier décrit la matrice des cases
+									<br>
+									Puis chaque fils directs est placé
+									dans une case
+									<br>
+									ou un rectangle (c.f.
+									<code>colspan</code> / <code>rowspan</code>)
+								</p>
+							</li>
+							<li>
+								<p>
+									<code>grid</code> et <code>flexbox</code>,
+									décorrèlent donc affichage et 
+									ordre dans le DOM
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article>
+					<h2>Grid : amélioration du placement par tableau(suite)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									La définition du tableau (ou grille)
+									peut se faire en explicitant
+								</p>
+								<ul>
+									<li>
+										<p>
+											la forme de chaque ligne 
+											(nb/taille de cases), 
+											qui se répétera
+										</p>
+									</li>
+									<li>
+										<p>
+											la forme de chaque colonne (idem), 
+											qui se répétera
+										</p>
+									</li>
+									<li>
+										<p>
+											les deux, qui combineront leurs propriétés
+										</p>
+									</li>
+									<li>
+										<p>
+											et, éventuellement, en ajoutant 
+											un nommage des zones 
+											(cases ou rectangles)
+										</p>
+									</li>
+								</ul>
+ 							</li>
+							<li>
+								<p>
+									Si les zones sont nommées
+									&rarr;
+									Les fils sont placés 
+									en indiquant la zone
+								</p>
+ 							</li>
+							<li>
+								<p>
+									Sinon, la définition de la grille 
+									<br>
+									induit la définition de 
+									<em>traits de séparation</em>
+									des lignes/colonnes
+								</p>
+ 							</li>
+							<li>
+								<p>
+									Les fils sont alors placés en décrivant
+									la zone qu'ils doivent remplir
+									<br>
+									grâce aux <em>traits</em>
+									qui la délimitent
+								</p>
+ 							</li>
+							<!--li>
+								<p>
+									(il faudra prendre garde à bien décrire
+									une case ou un rectangle licite)
+								</p>
+ 							</li-->
+							<li>
+								<p>
+									Consultez le 
+									<a href="https://css-tricks.com/snippets/css/complete-guide-grid/">tutoriel</a> 
+									est proposé par <em>css-tricks</em>
+									et le <a href="./cours_04_csstricks-grid-poster.png">poster</a> l'accompagnant
+								</p>
+ 							</li>
+						</ul>
+					</div>
+				</article>
+			</section>
+			<section>
+				<article 
+						class="titre" 
+						data-title="Responsive">
+					<div>
+						<h1>
+							Responsive design
+						</h1>
+					</div>
+				</article>
+
+				<article 
+						id="partie_04_01" 
+						data-title="intro">
+					<h2><em>Responsive</em> : Que veut-on ?</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Le Oxford dictionnary définit 
+									<br>
+									<em>Responsive : reacting quickly and positively</em>
+								</p>
+ 							</li>
+							<li>
+								<p>
+									Les clients l'interprètent comme 
+									<br>
+									<em>Qui va bien, pour tout le monde, tout le temps</em>
+								</p>
+ 							</li>
+							<li>
+								<p>
+									Bref.. le premier des critères 
+									est d'avoir un document
+									qui s'affiche correctement 
+									en fonction de la taille d'écran disponible
+								</p>
+ 							</li>
+							<li>
+								<p>
+									C'est déjà très ambitieux, 
+									et on se limitera le plus souvent 
+									à 3, voire 4 formats :
+									<br>
+									téléphone, tablette, ordi, télé
+								</p>
+ 							</li>
+							<li>
+								<p>
+									Comme on ne sait même pas 
+									les détecter à coup sûr,
+									on procèdera usuellement
+									par un découpage en intervalles 
+									selon la largeur de l'écran
+								</p>
+ 							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_04_02" 
+						data-title="outils">
+					<h2>Responsive, avec nos outils de mise en page</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									<code>flexbox</code> et <code>grid</code>
+									gérant mieux tailles et positionnements
+									<br>
+									on tentera de se reposer sur eux, 
+									autant que possible
+								</p>
+							</li>
+							<li>
+								<p>
+									La directive 
+									<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries"><code>@media</code></a>
+									permet de tester la largeur d'écran disponible
+									<br>
+									pour choisir quelle version du css activer.
+									Par exemple :
+								</p>
+							</li>
+						</ul>
+						<table class="moit_moit">
+							<tr>
+								<td>
+<pre>
+<span class="texte_vert">@media (max-width: 600px) {</span>
+  p{ font-size : 2rem; }
+  /* … */
+<span class="texte_vert">}</span>
+</pre>									
+								</td>	
+								<td>
+<pre>
+<span class="texte_vert">@media (min-width: 601px) 
+  and (max-width: 1200px) {</span>
+    p{ font-size : 1.2rem; }
+    /* … */
+<span class="texte_vert">}</span>
+</pre>									
+								</td>	
+							</tr>										
+							<tr>
+								<td>
+<pre>
+<span class="texte_vert">@media (min-width: 1201px) 
+  and (max-width: 2000px) {</span>
+    p{ font-size : 1rem; }
+    /* … */
+<span class="texte_vert">}</span>
+</pre>									
+								</td>	
+								<td>
+<pre>
+<span class="texte_vert">@media (min-width: 2001px) {</span>
+  p{ font-size : 1.5rem; }
+  /* … */
+<span class="texte_vert">}</span>
+</pre>									
+								</td>	
+							</tr>
+						</table>
+					</div>
+				</article>
+				<article 
+						id="partie_04_03" 
+						data-title="astuce">
+					<h2>Responsive, avec nos outils de css</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Une technique pratique consiste 
+									à combiner 
+									<br>
+									l'importation 
+									de feuille css (<code>@import</code>)
+									<br>
+									et les media query (<code>@media</code>)
+								</p>
+								<ol>
+									<li>
+										<p>
+											On traite la mise en page 
+											correspondant aux différentes
+											conditions 
+											<br>
+											dans différents fichiers 
+											(par ex mobile.css tablette.css, &hellip;)
+										</p>
+									</li>
+									<li>
+										<p>
+											On introduit un fichier intermédiaire 
+											(par exemple style.css)
+											<br>
+											seule feuille de style liée 
+											dans le document html
+										</p>
+									</li>
+									<li>
+										<p>
+											Dans ce fichier css, juste après
+											l'encodage, 
+											<br>
+											on gère les
+											importations effectives
+											avec par mediaquery
+										</p>
+									</li>
+								</ol>
+								<p>
+									Par exemple :
+								</p>
+							</li>
+						</ul>
+<pre class="plus_petit">
+        <span class="texte_vert">@charset "utf-8";
+        @import url("</span>./mobile.css<span class="texte_vert">")   (max-width:</span> 600px<span class="texte_vert">);
+        @import url("</span>./tablette.css<span class="texte_vert">") (min-width:</span> 601px<span class="texte_vert">) and (max-width:</span> 1200px<span class="texte_vert">);</span>
+        ...
+        /*remarquez la syntaxe simplifiée, sans @media */
+</pre>
+					</div>
+				</article>
+			</section>
+
+
+
+
+			<!-- section>
+				
+				<article 
+						class="titre" 
+						data-title="intro">
+					<div>
+						<h1>
+							Intro
+						</h1>
+					</div>
+				</article>
+
+				<article 
+						id="partie_01_01" 
+						data-title="...">
+					<h2></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+								</p>
+								<ul>
+									<li>
+										<p>
+										</p>
+									</li>
+									<li>
+										<p>
+										</p>
+									</li>
+									<li>
+										<p>
+										</p>
+									</li>
+								</ul>
+ 							</li>
+							<li>
+								<p>
+								</p>
+								<ul>
+									<li>
+										<p>
+										</p>
+									</li>
+									<li>
+										<p>
+										</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>
+
+				<article 
+						id="partie_01_02" 
+						data-title="...">
+					<h2>...</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+								</p>
+							</li>
+							<li>
+								<p>
+								</p>
+							</li>
+							<li>
+								<p>
+								</p>
+							</li>
+							<li>
+								<p>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				
+			</section -->
+			
+		</main>
+		<script> load() </script>		
+  </body>
+</html>

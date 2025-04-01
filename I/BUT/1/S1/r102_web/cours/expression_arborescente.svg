@@ -1,0 +1,28 @@
+<svg width="640" height="350" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_1" y="30" x="239" stroke-width="0" stroke="#000" fill="#0000ff">&lt;tout&gt;</text>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_2" y="131" x="32" stroke-width="0" stroke="#000" fill="#000000">&lt;peu&gt;</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_3" y="131.125" x="268" stroke-width="0" stroke="#000" fill="#000000">x</text>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_4" y="130.95" x="440" stroke-width="0" stroke="#000" fill="#008000">&lt;grand&gt;</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_5" y="223.5" x="33.59167" stroke-width="0" stroke="#000" fill="#000000">3  +  4</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_6" y="223.5" x="350" stroke-width="0" stroke="#000" fill="#000000">5  /</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_7" y="223.5" x="568" stroke-width="0" stroke="#000" fill="#000000">+  4</text>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_8" y="223.375" x="452" stroke-width="0" stroke="#000" fill="#000000">&lt;peu&gt;</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="24" id="svg_9" y="319" x="460" stroke-width="0" stroke="#000" fill="#000000">3  -  1</text>
+  <ellipse ry="23" rx="23" id="svg_10" cy="128" cx="274" stroke-width="4" stroke="#000" fill="none"/>
+  <ellipse ry="22.5" rx="50" id="svg_11" cy="217" cx="63" stroke-width="4" stroke="#000" fill="none"/>
+  <ellipse ry="21.5" rx="31" id="svg_12" cy="215.5" cx="365" stroke-width="4" stroke="#000" fill="none"/>
+  <ellipse ry="22" rx="53.5" id="svg_13" cy="312" cx="488" stroke-width="4" stroke="#000" fill="none"/>
+  <ellipse ry="24" rx="35.5" id="svg_14" cy="217" cx="591.5" stroke-width="4" stroke="#000" fill="none"/>
+  <line stroke-width="4" id="svg_15" y2="108" x2="77" y1="39" x1="252" stroke="#000" fill="none"/>
+  <line stroke-width="4" id="svg_16" y2="190" x2="63" y1="142" x1="64" stroke="#000" fill="none"/>
+  <line stroke-width="4" id="svg_17" y2="100" x2="275" y1="41" x1="276" stroke="#000" fill="none"/>
+  <line stroke-width="4" id="svg_18" y2="198" x2="488" y1="144" x1="488" stroke="#000" fill="none"/>
+  <line stroke-width="4" id="svg_19" y2="284" x2="488" y1="234" x1="488" stroke="#000" fill="none"/>
+  <line stroke-width="4" id="svg_21" y2="189" x2="370" y1="142" x1="466" stroke="#000" fill="none"/>
+  <line id="svg_23" y2="111" x2="478" y1="41" x1="296" stroke-width="4" stroke="#000" fill="none"/>
+  <line id="svg_24" y2="185" x2="585" y1="141" x1="506" stroke-width="4" stroke="#000" fill="none"/>
+ </g>
+</svg>

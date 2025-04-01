@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>R4.a10 - Javascript/DOM - 02</title>
+		<link rel="stylesheet" href="../css/amphi.css">
+		<script src="../js/amphi.js"></script>
+	</head>
+	<body>
+	
+		<nav>
+			<ul id="nav_liste">
+			</ul>
+			<template id="nav_li_sec">
+				<li class="section"></li>
+			</template>
+			<template id="nav_li_part">
+				<li><a href=""></a></li>
+			</template>
+		</nav>
+				
+		<main>
+			<section>
+				<article 
+						class="titre" 
+						data-title="R4a10 - 2">
+					<div>
+						<h1>
+							Ressource 4.a10
+							<br>
+							Javascript / DOM
+							<br>
+							Cours 2
+						</h1>
+					</div>
+				</article>
+				<article 
+						class="titre" 
+						data-title="bases js">
+					<div>
+						<h1>
+							Bases du langage
+						</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_01_01" 
+						data-title="types">
+					<h2>Types primitifs</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+Boolean 
+&nbsp;&nbsp;&trie;&nbsp;&nbsp;
+deux constantes
+&nbsp;&nbsp;
+<code>true</code>
+et
+<code>false</code>
+<br>
+&#9888; 
+<a href="https://developer.mozilla.org/en-US/docs/Glossary/Falsy">
+<em>falsy</em>
+</a>
+et
+<a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy">
+<em>truthy</em>
+</a>
+								</p>
+							</li>
+							<li>
+								<p>
+Number
+&nbsp;&nbsp;&trie;&nbsp;&nbsp;
+implémentation 
+&nbsp;&nbsp;
+un <code>double</code>
+<br>
+plus quelques constantes :
+<br>
+<code>Infinity</code>,
+<code>-Infinity</code>,
+<code>NaN</code>,
+<code>Number.MAX_VALUE</code>,
+<code>Number.MIN_VALUE</code>
+<br>
+&#9888; 
+overflow sur 
+&nbsp;&nbsp;
++/- min/max
+&nbsp;&nbsp;
+&rarrc; 
+&nbsp;&nbsp;
++/- <code>Infinity</code>
+&nbsp;&nbsp;
+<strong><u>ou bien</u></strong>
+&nbsp;&nbsp;
+0
+<br>
+&#9888; 
+division par 
+&nbsp;&nbsp;
++/- 0 
+&nbsp;&nbsp;
+&rarrc; 
+&nbsp;&nbsp;
++/- <code>Infinity</code>
+&nbsp;&nbsp;
+(au lieu de <code>NaN</code>)
+								</p>
+							</li>
+							<li>
+								<p>
+BigInt (une classe)
+&nbsp;&nbsp;&trie;&nbsp;&nbsp;
+entiers,
+<em>sans limite de taille</em>
+								</p>
+							</li>
+							<li>
+								<p>
+String (une classe)
+&nbsp;&nbsp;&trie;&nbsp;&nbsp;
+plein de méthodes utiles,
+mais &#9888; 
+retro-compatibility hazards :
+								</p>
+<pre>
+console.log( 2 + "0.5"); &rarrc; "20.5"
+console.log( 2 * "0.5"); &rarrc; 1
+</pre>								
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article>
+					<h2>Types primitifs (suite)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+Undefined
+&nbsp;&nbsp;&trie;&nbsp;&nbsp;
+une unique constante 
+&nbsp;&nbsp;
+<code>undefined</code>
+&nbsp;&nbsp;
+(<em>absence of a value</em>)
+								</p>
+							</li>
+							<li>
+								<p>
+Null 
+&nbsp;&nbsp;&trie;&nbsp;&nbsp;
+une unique constante 
+&nbsp;&nbsp;
+<code>null</code>
+&nbsp;&nbsp;
+(<em>absence of an object</em>)
+<br>
+&#9888; 
+<a href="https://developer.mozilla.org/en-US/docs/Glossary/Nullish">
+<em>nullish</em>
+</a>
+&nbsp;&nbsp;
+(&rArr; <em>undefinedish</em>)
+								</p>
+							</li>
+							<li>
+								<p>
+Symbol :
+(hors sujet pour ce cours)
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_02" 
+						data-title="string templ.">
+					<h2>String template</h2>
+					<div>
+						<p>
+							Une facilité pout formater 
+							des chaînes de caractères
+						</p>
+						<ul>
+							<li>
+								<p>
+									Une <code>string template</code>
+									est un littéral de <code>String</code>
+									(comme <code>4.5</code> 
+									est un littéral 
+									pour <code>Number</code>)
+								</p>
+							</li>
+							<li>
+								<p>
+									Syntaxe : 
+									suite de caractères 
+									comprise entre un <code>`</code>
+									de début et un de fin
+									<br>
+									(
+										&rArr; ne contient pas ce délimiteur
+										&rarr; <code>`\``</code>
+									)
+								</p>
+							</li>
+							<li>
+								<p>
+									Particularités :
+								</p>
+								<ul>
+									<li>
+										<p>
+											<strong>multiline</strong> :
+											Peut contenir des passages
+											à la ligne
+											(plus besoin de <code>\n</code>)
+										</p>
+									</li>
+									<li>
+										<p>
+											<strong>interpolation</strong> :
+											Peut contenir des sous-suites 
+											de caractères délimitées
+											par <code>${</code>
+											et <code>}</code>
+											<br>
+											Chaque sous-suite est évaluée
+											en javascript 
+											(<code>expression</code>)
+											<br>
+											La valeur obtenue est 
+											utilisée pour produire 
+											la <code>String</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											<strong>tagged</strong> :
+											Peut-être préfixée par un nom
+											de 
+											<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates">
+												fonction
+											</a>
+										</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_03" 
+						data-title="dict / tab">
+					<h2>Deux types intégrés : <code>dict</code> et <code>array</code> </h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+Le langage <strong>intègre</strong> dans sa syntaxe
+deux types <em>presque</em> classiques :
+<br>
+<em>sugar coating</em> &rarr; 
+le langage <em>s'adapte</em> pour faciliter 
+leur utilisation 
+								</p>
+							</li>
+							<li>
+								<p>
+les <code>dictionnaires</code> 
+<br>
+<code>{ ... __cle__ : __valeur__, ... }</code>
+								</p>
+							</li>
+							<li>
+								<p>
+les <code>tableaux</code>
+<br>
+<code>[ ... __valeur__, ... ]</code>
+								</p>
+							</li>
+							<li>
+								<p>
+le <strong>JS</strong> dans <code>json</code>, 
+c'est pour <code>javascript</code> &#128161; 
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_04" 
+						data-title="dict">
+					<h2>les <code>dict</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+<code>{}</code> <strong>est</strong> un littéral 
+d'<code>Object</code> (comme 3 est un littéral de int)
+								</p>
+							</li>
+							<li>
+								<p>
+Les clés peuvent être des strings
+(ou mieux si ce sont des identifiants)
+<br>
+elles peuvent aussi être des ints,
+ou un mélange du tout
+(str|id|int)
+								</p>
+							</li>
+							<li>
+								<p>
+Les syntaxes admises sont : <code>o[k]</code> et <code>o.k</code> 
+(si k &equiv; identifiant)
+								</p>
+							</li>
+							<li>
+								<p>
+Les clés peuvent être associées à des valeur <em>classiques</em>
+ou à des fonctions
+<br>
+&rarr; on a donc la <code>poo</code> <em>gratuit</em>
+								</p>
+							</li>
+							<!--li>
+								<p>
+Plus le mécanisme d'héritage
+<code>javascript</code>
+								</p>
+							</li -->
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_05" 
+						data-title="tab">
+					<h2>Les <code>tab</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+<code>[]</code> <strong>est</strong> un littéral  d'<code>Array</code>
+								</p>
+							</li>
+							<li>
+								<p>
+C'est un tableau, indexé de 0 à <code>length-1</code>
+								</p>
+							</li>
+							<li>
+								<p>
+Il est <code>resizable</code> (au-delà du raisonnable)
+								</p>
+<pre>
+let t = [];  &rarrc; []
+t[0] = "a";  &rarrc; ["a"]
+t[4] = "e";  &rarrc; ["a", undefined, undefined, undefined, "e"]
+delete t[2]; &rarrc; ["a", undefined, undefined, undefined, "e"]
+</pre>								
+							</li>
+							<li>
+								<p>
+il est aussi utilisable comme liste / pile / file grâce aux méthodes :
+<br>
+<code>.push()</code> &nbsp;
+<code>.pop()</code> &nbsp;
+<code>.shift()</code> &nbsp;
+<code>.unshift()</code> &nbsp;
+&hellip;
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_06" 
+						data-title="!!dangers!!">
+					<h2>
+						Attention <code>dict</code> et <code>tab</code> méchants
+					</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+Les deux sont des <code>Object</code> :
+								</p>
+<pre>
+console.log( typeof {} ); &rarrc; "object"
+console.log( typeof [] ); &rarrc; "object"
+</pre>								
+							</li>
+							<li>
+								<p>
+L'interpolation des <code>String</code> peut interférer :
+								</p>
+<pre>
+if( '1'   == 1 ) console.log( 'aille' ); &rarrc; "aille"
+if( '0x1' == 1 ) console.log( 'aille' ); &rarrc; "aille"
+</pre>								
+<p>&rarr; d'où :</p>
+<pre>
+t.un   = "1";  console.log( t ); console.log( t.un );
+  &rarrc; ["a", undefined, undefined, undefined, "e"]   
+  &rarrc; "1"
+t['1'] = "b";  console.log( t ); console.log( t['1'] );
+  &rarrc; ["a", "b",       undefined, undefined, "e"]   
+  &rarrc; "b"
+</pre>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article>
+					<h2>
+						Attention <code>dict</code> et <code>tab</code> méchants (suite)
+					</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+<p>&rarr; ou aussi :</p>
+<pre>
+let o = {}; o.un = 1; 
+console.log( o['1'] );
+  &rarrc; undefined
+
+o[1] = 'a'; 
+console.log( o );
+  &rarrc; { 1: "a", un: 1 }
+console.log( o['1'] ); console.log( o[1] ); 
+  &rarrc; "a"
+  &rarrc; "a"
+</pre>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_07" 
+						data-title="JSON">
+					<h2><code>JSON</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+Syntaxe des littéraux  &rArr; définition facile d'objets 
+<em>à la volée</em> &rArr; 
+<a href="https://www.json.org/json-en.html">
+	<code>JSON</code>
+</a>
+								</p>
+							</li>
+							<li>
+								<p>
+Attention : <code>json</code> est plus contraint que la syntaxe
+<code>javascript</code>
+									<ul>
+										<li>
+											<p>
+&#9888; pas de méthodes
+											</p>
+										</li>
+										<li>
+											<p>
+'primitifs' &harr; <em>terminaux</em> 
+&trie; nombres, strings, true, false, null
+											</p>
+										</li>
+										<li>
+											<p>
+<code>dict</code> / <code>tab</code>
+											</p>
+										</li>
+										<li>
+											<p>
+clés &trie; des strings <em>bien formées</em>
+											</p>
+										</li>
+										<li>
+											<p>
++ imbrications de <code>dict</code> et <code>tab</code>
+											</p>
+										</li>
+									</ul>
+								</p>
+							</li>
+							<li>
+								<p>
+Sauvegarder / Lire / Transmettre un <code>json</code> &rArr; conversion :
+<br>
+<code>JSON.stringify( _obj_ )</code>
+&nbsp;&nbsp;et&nbsp;&nbsp;
+<code>JSON.parse( _str_ )</code>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_08" 
+						data-title="inst. decl.">
+					<h2>Instructions et déclarations de variables</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Langage impératif :
+									suite d'instruction 
+									exécutées dans l'ordre
+									(<em>ou presque</em>)
+								</p>
+							</li>
+							<li>
+								<p>
+									&#9888; Instruction : 
+									terminée ou non par <code>;</code>
+								</p>
+<pre>
+return 
+       0;
+</pre>								
+							</li>
+							<li>
+								<p>
+Déclaration de <em>variables</em> : 3 mots clés  &nbsp;
+<code>var</code> / <code>let</code> / <code>const</code>
+<br>
+différence de portée (globale / bloc / bloc ) et qq subtilités 
+<a href="https://jsfiddle.net/n3gfws7e/">&#128531;</a>
+								</p>
+								<p>
+meilleur controle &rarr; 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">
+strict mode 
+</a>
+<br>
+(le fameux <code>"use strict;"</code> en début de fichier)
+								</p>
+							</li>
+							<li>
+								<p>
+En fait &hellip;, <code>var</code> a une portée <code>bloc-function</code>
+&hellip;
+<br>
+&rarr; passez toujours en mode strict
+<br>
+&rarr;  privilégiez <code>let</code> et <code>const</code>
+(<em>schisme</em> const>let vs. let>const)
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_09" 
+						data-title="cond.">
+					<h2>Structures de contrôle : conditionnelles</h2>
+					<div>
+						<ul>
+							<li>
+<pre>
+if  ( __bool_like__ )  { ... }
+elif( __bool_like__ )  { ... }
+...
+else                   { ... }
+</pre>
+							</li>
+							<li>
+								<p>
+									&#9888; Utilisez les 
+									tests <strong>forts</strong> :
+									&nbsp;
+									<code>===</code>
+									&nbsp;
+									et
+									&nbsp;
+									<code>!==</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									&#9888; 
+									Les opérateurs 
+									&nbsp;
+									<code>||</code>
+									&nbsp;
+									et 
+									&nbsp;
+									<code>&&</code>
+									&nbsp;
+									ne sont pas des fonctions 
+									bool x bool &rarr; bool 
+									<br>
+									<strong>mais</strong>
+									des court-circuits
+									T x ? &rarr; T|?
+								</p>
+							</li>
+							
+							<li>
+<pre>
+switch( __exp__ ){
+  case __val__ :  ...  break;
+  ...
+  default:        ...
+}							
+</pre>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_10" 
+						data-title="while">
+					<h2>Structures de contrôle : itérations <code>while</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Boucle <code>tant que</code>
+								</p>
+<pre>
+while ( __bool_like__ )  { ... }
+</pre>
+							</li>
+							<li>
+								<p>
+									Boucle <code>faire</code>
+								</p>
+<pre>
+do { ... } while ( __bool_like__ );
+</pre>
+							</li>
+							<li>
+								<p>
+									On peut utiliser 
+									<code>continue</code>
+									et <code>break</code>
+									(dans tous les types d'itérations)
+								</p>
+							</li>
+							<li>
+								<p>
+									L'utilisation de 
+									<code>label</code>
+									peut permettre une sortie
+									de boucles imbriquées
+									<br>
+									(&#9888; approche 
+									toujours déconseillée,
+									et interdite dans ce cours)
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_11" 
+						data-title="for">
+					<h2>Structures de contrôle : itération <code>for</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Boucle classique
+								</p>
+<pre>
+for ( let _var_ = ... ; __bool_like__ ; ... )  { ... }
+</pre>
+							</li>
+							<li>
+								<p>
+									Boucle sur les valeurs d'un itérable 
+									(<code>Array</code>, 
+									<code>String</code>,
+									collections)
+								</p>
+<pre>
+for ( const _elem_ of _iterable_ )  { ... }
+</pre>
+							</li>
+							<li>
+								<p>
+									Boucle sur les propriétés (clés)
+									d'un <code>Object</code>
+								</p>
+<pre>
+for ( const _prop_ in _obj_ )  { ... }
+</pre>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article>
+					<h2>Structures de contrôle : itération <code>for</code> (suite)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>Donc :</p>
+<pre>
+let t = [ 'a', 'b', 'c' ];
+for ( const p of t )  { console.log( p ); } &rarrc; a b c
+for ( const e in t )  { console.log( e ); } &rarrc; 0 1 2
+
+let o = { '0':'a', '1':'b', '2':'c' };
+for ( const p of o )  { console.log( p ); } 
+	&rarrc; TypeError: o is not iterable
+for ( const e in o )  { console.log( e ); } &rarrc; 0 1 2 
+</pre>
+							</li>
+							<li>
+								<p>
+									Utilitaire associé : <code>unpacking</code>
+								</p>
+<pre>
+let o = { '0':'a', '1':'b', '2':'c' };
+for ( const <span class="texte_vert">[k,v]</span> of Object.entries(o) )  
+	{ console.log( `cle:${k}-&gt;val:${v}` ); }
+&rarrc; "cle:0-&gt;val:a"  "cle:1-&gt;val:b"  "cle:2-&gt;val:c"
+</pre>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_01_12" 
+						data-title="forEach">
+					<h2>Structures de contrôle : itération <code>.forEach()</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+<code>Array</code> dispose d'une méthode d'itération :
+<code>.forEach( __cb__ )</code>
+								</p>
+							</li>
+							<li>
+								<p>
+&rarr; exécute <code>__cb__</code> sur chaque élément du <code>tab</code>
+								</p>
+							</li>
+							<li>
+								<p>
+Cette fonction reçoit en premier paramètre, un élément à traiter
+								</p>
+							</li>
+							<li>
+								<p>
+Optionnellement, le second argument indique son indice
+								</p>
+							</li>
+							<li>
+								<p>
+&#9888; contexte <code>DOM</code>
+<br>
+<code>.querySelectorAll()</code>
+ne retourne pas <code>Array</code>
+<br>
+<strong>mais</strong> un objet ayant un .forEach( __cb__ )
+								</p>
+								<p>
+&rarr; on écrira donc :
+								</p>
+<pre>
+let res = document.querySelectorAll( __sel__ );
+//puis
+res.forEach( (__item__)       => { ... } );
+//ou
+res.forEach( (__item__,__idx__) => { ... } );
+</pre>								
+							</li>
+						</ul>
+					</div>
+				</article>
+			</section>
+
+			<section>
+			
+				<article 
+						class="titre" 
+						data-title="pour TP2">
+					<div>
+						<h1>Compléments pour TP2</h1>
+					</div>
+				</article>
+				
+				<article 
+						id="partie_02_01" 
+						data-title="classes css">
+					<h2>Remarque sur les classes <code>css</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Ayant un <code>element</code>
+									du <code>DOM</code>,
+									on accède facilement à 
+									<em>ses</em> classes
+									<code>css</code> :
+									<br>
+									<code>__el__.classList</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									On peut y 
+									<em>ajouter</em> / <em>enlever</em>
+									une classe :
+									&nbsp;
+									<code>.add()</code>
+									&nbsp;/&nbsp;
+									<code>.remove()</code> 
+								</p>
+							</li>
+							<li>
+								<p>
+									On peut <em>tester</em> 
+									la présence d'une classe :
+									&nbsp;
+									<code>.contains()</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									On peut <em>basculer</em> 
+									la présence d'une classe :
+									&nbsp;
+									<code>.toggle()</code>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_02_02" 
+						data-title="g.l.">
+					<h2>Remarque génie logiciel</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Ecrire des scripts ne dispense pas
+									d'organiser le code
+								</p>
+							</li>
+							<li>
+								<p>
+									Découpez en plusieurs fichiers
+									pour maintenir la taille de chacun
+									sous un seuil <em>raisonnable</em>
+								</p>
+							</li>
+							<li>
+								<p>
+									Introduisez des fonctions 
+									utilitaires
+								</p>
+<pre>
+function __nom__( __param__, ... ){ .... return ...; }
+</pre>							
+								<p>
+									(plus de détails au cours 3)
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_02_03" 
+						data-title="dom">
+					<h2>Remarques sur le <code>dom</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									A partir d'un <code>element</code>
+									du <code>dom</code>,
+									i.e. un <code>noeud</code>
+									de l'<code>arbre</code>,
+									<br>
+									on peut monter / descendre dans
+									la structure :
+									<br>
+									<code>__el__.parentNode</code>
+									&nbsp;/&nbsp;
+									<code>__el__.children</code>   
+								</p>
+							</li>
+							<li>
+								<p>
+									<code>.children</code>
+									est itérable par 
+									<code>for(;;)</code>
+									<br>
+									(utilisez
+									<code>.children.length</code>
+									pour la borne max)								
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<!-- article 
+						id="partie_02_04" 
+						data-title="svg">
+					<h2>Rappels <code>SVG</code></h2>
+					<div>
+						<p>
+							Langage de description d'un graphe
+							vectoriel incorporable au <code>dom</code>
+						</p>
+						<ul>
+							<li>
+<pre>
+    &lt;svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+        width="ww" height="hh" 
+        viewBox="x y w h" &gt;
+       ...
+    &lt;/svg&gt;
+</pre>
+								<ul>
+									<li>
+										<code>ww</code> et <code>hh</code>
+										sont en <code>px</code>
+									</li>
+									<li>
+										<code>x</code> et	<code>y</code> 
+										sont les coordonnées du 
+										graphique <code>svg</code>
+										associées au coin supérieur 
+										gauche de la boîte <code>html</code>
+									</li>
+									<li>
+										<code>w</code> et <code>h</code> 
+										sont les tailles du 
+										graphique <code>svg</code>
+										associées aux tailles
+										<code>ww</code> et <code>hh</code> 
+										de la boîte <code>html</code>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes">
+										Formes de base 
+									</a>
+								</p>
+								<ul>
+									<li>
+										<pre>&lt;rect     x= y= width= height= /&gt;</pre>
+									</li>
+									<li>
+										<pre>&lt;circle   cx= cy= r=           /&gt;</pre>
+									</li>
+									<li>
+										<pre>&lt;ellipse  cx= cy= rx= ry=      /&gt;</pre>
+									</li>
+									<li>
+										<pre>&lt;line     x1= y1= x2= y2=      /&gt;</pre>
+									</li>
+									<li>
+										<pre>&lt;polyline points=              /&gt;</pre>
+									</li>
+									<li>
+										<pre>&lt;polygon  points=              /&gt;</pre>
+									</li>
+									<li>
+										<pre>&lt;path     d=                   /&gt;</pre>
+									</li>
+								</ul>
+							</li>
+
+
+							<li>
+								<p>
+									Lien au <code>css</code>
+								</p>
+								<ul>
+									<li>
+										<p>
+											<code>stroke-width</code> &nbsp;
+											<code>stroke</code> &nbsp;
+											<code>fill</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>id</code> &nbsp;
+											<code>class</code>
+										</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+
+						>
+					<h2>Rappels <code>SVG</code> (suite)</h2>
+					<div>
+						<p>
+							Le 
+							<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/path">
+								<code>path</code></a> 
+							est la forme <em>à tout faire</em>
+							du svg
+							<br>
+							Son attribut <code>d</code> est 
+							une <code>string</code> contenant
+							une suite d'instructions, parmi :
+						</p>
+						<p class="plus_petit texte_gris">
+								<code>x</code> et <code>y</code>
+								représentant des 
+								<code>nombres réels</code> ;
+								les autres caractères étant 
+								<code>verbatim</code>
+						</p>
+						<ul><ul>
+								<li>
+									<p>
+										<code>M x,y</code> : 
+										aller directement au point (x,y)  
+									</p>
+								</li>
+								<li>
+									<p>
+										<code>m dx,dy</code> : 
+										se déplacer selon une 
+										variation de coordonnées 
+										<code>(dx,dy)</code>
+									</p>
+								</li>
+								<p class="plus_petit texte_gris">
+									Ces deux instructions ne tracent pas.
+									<br>
+									<code>M</code> est donc souvent 
+									la première instruction
+									<br>
+									Les instructions suivantes traceront
+									en se déplaçant 
+									<strong>à partir du point courant</strong> :
+								</p>
+								<li>
+									<p>
+										<code>L x,y</code> : 
+										tracer un segment
+										jusqu'aux coordonnées (x,y)
+									</p>
+								</li>
+								<li>
+									<p>
+										<code>l dx,dy</code> : 
+										tracer un segment, 
+										en se déplaçant 
+										d'une variation (dx,dy) 
+									</p>
+								</li>
+								<p class="plus_petit texte_gris">
+									La logique <em>coordonnées absolues</em>
+									vs. <em>variation</em> se poursuit ainsi 
+									<br>
+									selon que la commande 
+									soit une lettre <em>majuscule</em> 
+									ou <em>minuscule</em>
+								</p>
+								<li>
+									<p>
+										<code>H x</code> 
+										&nbsp; <em>ou</em> &nbsp;
+										<code>h dx</code> : 
+										tracer un segment horizontal 
+										(jusqu'à x ou situé à + dx)
+									</p>
+								</li>
+								<li>
+									<p>
+										<code>V x</code>
+										&nbsp; <em>ou</em> &nbsp;
+										<code>v dx</code> : 
+										tracer un segment vertical
+										(jusqu'à y ou situé à + dy)
+									</p>
+								</li>
+						</ul></ul>
+					</div>
+				</article>
+				<article 
+
+						>
+					<h2>Rappels <code>SVG</code> (suite)</h2>
+					<div>
+						<ul><ul>
+								<p class="plus_petit texte_gris">
+									Courbes de Bezier cubique
+								</p>
+								<img 
+									src="./cours_02_anim_bezier_cubique.gif" 
+									class="image_centree"
+									style="width:40%; float:right;"
+									/>
+								<li>
+									<p>
+										<code>C x1,y1,x2,y2,x3,y3</code> : 
+										<br>
+										<em>(P<sub>0</sub>)</em>
+										pt départ  = pt courant 
+										<br>
+										<em>(P<sub>1</sub>)</em>
+										<code>x1,y1</code> : pt contrôle départ
+										<br>
+										<em>(P<sub>2</sub>)</em>
+										<code>x2,y2</code> : pt contrôle arrivée
+										<br>
+										<em>(P<sub>3</sub>)</em>
+										<code>x3,y3</code> : pt arrivée
+									</p>
+								</li>
+								<li>
+									<p>
+										<code>C dx1,dy1,dx2,dy2,dx3,dy3</code> : 
+										<br>
+										idem en variations relatives
+										au point courant
+									</p>
+								</li>
+								<p class="plus_petit texte_gris">
+									Mathématiquement, les courbes de Bezier 
+									ne peuvent pas produire des arcs 
+									de cercles. svg inclus donc en plus
+									une commande pour les arcs de cercle 
+									et d'ellipse
+								</p>
+								<li>
+									<p>
+										<code>A&hellip;</code>
+										&nbsp; ou &nbsp;
+										<code>a&hellip;</code> : 
+										consultez la <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#elliptical_arc_curve">doc</a>
+										(attention aux maux de tête 
+										&rarrc; outil de dessin)
+									</p>
+								</li>
+								<p class="plus_petit texte_gris">
+									Finalement
+								</p>
+								<li>
+									<p>
+										<code>z</code> :
+										<em>fermer</em> le chemin
+										(comme <code>polygon</code> 
+										<em>ferme</em> une <code>polyline</code>)
+									</p>
+								</li>
+						</ul></ul>						
+					</div>
+				</article>
+				<article 
+
+						>
+					<h2>Rappels <code>SVG</code> (suite)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									&#9888; La création des éléments
+									<code>svg</code> requiert
+									d'indiquer le 
+									<code>namespace</code> :
+								</p>
+<pre>
+//fonction utilitaire
+
+function makeSVGNode(tag, attrs) {
+   let el = document.createElementNS("http://www.w3.org/2000/svg", tag);
+   for (const [key, value] of Object.entries(attrs)) {
+      el.setAttributeNS(null, key, value);
+   }
+   return el;
+}
+
+//puis, disposant d'un element <em>_svg_</em> et ayant construit un <em>_path_</em>
+
+_svg_.appendChild( 
+   makeSVGNode(
+      'path', 
+      { 
+         'd'     : _path_, 
+         'class' : 'courbe',
+      }
+   ) 
+);
+</pre>								
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+
+						>
+					<h2>Rappels <code>SVG</code> (suite)</h2>
+					<div>
+						<p>
+							Pour plus de facilité 
+							dans la construction
+							du graphe, explorez :
+						</p>
+						<ul>
+							<li>
+								<p>
+									<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/g">
+										<code>&lt;g&gt;</code></a>
+									: regroupement de formes
+								</p>
+							</li>
+							<li>
+								<p>
+									<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/defs">
+										<code>&lt;defs&gt;</code></a>
+									: prédéfinition de formes 
+									réutilisables
+								</p>
+							</li>
+							<li>
+								<p>
+									<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/use">
+										<code>&lt;use&gt;</code></a>
+									: utilisation d'une copie 
+									d'une forme 
+									prédéfinie (entre autre)
+									<br>
+									(&#9888; création du noeud 
+									en <code>javascript</code> 
+									différente)
+								</p>
+							</li>
+							<li>
+								<p>
+									<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/marker">
+										<code>&lt;marker&gt;</code></a>
+									: un raccourci des deux précédents
+									pour les extrémités des lignes
+									<br>
+									(typiquement, 
+									ajouter une flèche au bout)
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article -->
+
+			</section>
+			
+		</main>
+		<script> load() </script>		
+  </body>
+</html>

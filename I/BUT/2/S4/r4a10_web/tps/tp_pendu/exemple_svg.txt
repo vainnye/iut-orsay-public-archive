@@ -1,0 +1,54 @@
+exemple de code svg à include dans le document html
+
+
+<svg 
+	xmlns="http://www.w3.org/2000/svg" 
+	width="100%" height="100%" 
+	xmlns:xlink="http://www.w3.org/1999/xlink" 
+	viewBox="0 0  1150 620" 
+	preserveAspectRatio="xMinYMin meet" >
+	<path 
+		id="svg_socle" 
+		class="structure"
+		d="M170.112,595.891l56.704,-74.611l50.735,75.606Z" />
+	<line 
+		id="svg_poteau1" 
+		class="structure"
+		x1="223" y1="122" x2="226" y2="525" />
+	<line 
+		id="svg_poteau2" 
+		class="structure"
+		x1="222" y1="123" x2="414" y2="122" />
+	<line 
+		id="svg_corde" 
+		class="structure"
+		x1="412" y1="125" x2="412" y2="192" />
+	<circle 
+		id="svg_corps_1" 
+		class="corps"
+		cx="412" cy="227" r="33.441"/>
+	<line 
+		id="svg_corps_2" 
+		class="corps"
+		x1="412" y1="260" x2="416" y2="383" />
+	<line 
+		id="svg_corps_3" 
+		class="corps"
+		x1="405" y1="288" x2="366" y2="316" />
+	<line 
+		id="svg_corps_4" 
+		class="corps"
+		x1="419" y1="288" x2="459" y2="322" />
+	<line 
+		id="svg_corps_5" 
+		class="corps"
+		x1="410" y1="398" x2="378" y2="460" />
+	<line 
+		id="svg_corps_6" 
+		class="corps"
+		x1="420" y1="397" x2="453" y2="467" />
+	<text 
+		id="svg_perdu"  
+		x="509" y="241" 
+		xml:space="preserve">Aaarrghh...</text>
+</svg>

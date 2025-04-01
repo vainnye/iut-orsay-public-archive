@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>R1.02 - HTML/CSS - 03</title>
+		<link rel="stylesheet" href="../css/amphi.css">
+		<script src="../js/amphi.js"></script>
+	</head>
+	<body>
+	
+		<nav>
+			<ul id="nav_liste">
+				<!-- li class="section">Section</li>
+				<li><a href="#partie_01_01">Partie</a></li>
+				<li><a href="#partie_01_02">Partie</a></li>
+				<li class="sec">Section</li>
+				<li><a href="#partie_02_01">Partie</a></li -->
+			</ul>
+			<template id="nav_li_sec">
+				<li class="section"></li>
+			</template>
+			<template id="nav_li_part">
+				<li><a href=""></a></li>
+			</template>
+		</nav>
+				
+		<main>
+			<section>
+				<article
+						class="titre" 
+						data-title=""
+						>
+					<div>
+						<h1>
+							Ressource 1.02
+							<br>
+							Développement d’interface web
+							<br>
+							Cours 3
+						</h1>
+					</div>
+				</article>
+				<article 
+						class="titre" 
+						data-title="Listes">
+					<div>
+						<h1>
+							Listes html
+						</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_01_01" 
+						data-title="ul ol">
+					<h2>Eléments gérant une liste</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Une liste est traitée en html
+									comme une suite d'éléments
+									<br>
+									C'est donc un élément <em>list</em>
+									regroupant des <em>items</em>
+									(ses fils directs)
+									
+								</p>
+							</li>
+							<li>
+								<p>
+									Une <em>list</em> est toujours ordonnée
+								</p>
+								<ul>
+									<li>
+										<p>
+											Si cet ordre doit être explicité à 
+											l'utilisateur final, le tag
+											utilisé sera <code>ol</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											Sinon, le tag
+											utilisé sera <code>ul</code>
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									Les <em>item</em> portent toujours le tag
+									<code>li</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									On obtient les deux syntaxes suivantes
+								</p>
+							</li>
+						</ul>
+						<table class="moit_moit"> 
+							<tr>
+								<td>
+<pre>
+    &lt;ol&gt;
+        &lt;li&gt; ... &lt;/li&gt;
+            ...
+        &lt;li&gt; ... &lt;/li&gt;
+    &lt;/ol&gt;
+</pre>
+								</td>
+								<td>
+<pre>
+    &lt;ul&gt;
+        &lt;li&gt; ... &lt;/li&gt;
+            ...
+        &lt;li&gt; ... &lt;/li&gt;
+    &lt;/ul&gt;
+</pre>
+								</td>
+							</tr>
+						</table>
+						<ul>
+							<li>
+								<p>
+									Une grande variété de propriétés
+									contrôle
+									la mise en page :
+									<a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Styling_lists">doc</a>
+									&nbsp;
+									<a href="https://css-tricks.com/list-style-recipes/">conseils</a>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+			</section>
+			<section>
+				<article 
+						class="titre" 
+						data-title="Tableaux">
+					<div>
+						<h1>
+							Tableaux html
+						</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_02_01" 
+						data-title="structure">
+					<h2>Structure des tableaux en html</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Un tableau est un élément html spécialisé
+									de tag <code>table</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Ses fils doivent apparaitre dans 
+									un ordre imposé :
+								</p>
+								<ol>
+									<li>
+										<p>
+											<code>caption </code> : (optionnel)
+											usuellement un 
+											texte décrivant le contenu tableau
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>colgroup</code> : (optionnel)
+											description de 
+											<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/élément/colgroup">regroupement de colonnes</a>
+											(peu utilisé)
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>thead</code> : (optionnel) 
+											lignes réservées à la structuration 
+											des noms de colonnes
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>tbody</code>  : 
+											lignes de contenu
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>tfoot</code> : (optionnel) 
+											lignes réservées à l'affichage de 
+											résumés sur le contenu										</p>
+									</li>
+								</ol>
+ 							</li>
+							<li>
+								<p>
+									Les lignes de <code>thead</code>,
+									<code>tbody</code>, ou <code>tfoot</code>,
+									sont aussi des éléments structurés
+								</p>
+								<ul>
+									<li>
+										<p>
+										Chaque ligne est un élément 
+										portant le tag <code>tr</code>
+										(<em>table row</em>)
+										</p>
+									</li>
+									<li>
+										<p>
+											Elle doit avoir autant de cases,
+											i.e. de fils <code>td</code> 
+											(<em>table data</em>) que nécessaire 
+											<br>
+											pour être cohérente 
+											avec le nombre de colonnes
+										</p>
+									</li>
+									<li>
+										<p>
+											Les cases peuvent aussi être étiquetées
+											<code>th</code>, pour distinguer
+											celles qui jouent un rôle particulier
+											d'entête (héritage html4 ; <em>parfois</em>
+											redondant avec <code>thead</code>)
+										</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_02_02" 
+						data-title="exemples">
+					<h2>Exemples de tableaux</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Le premier exemple présente la 
+									<a href="./cours_03_ex1_tableaux.html#base">structure de base</a>
+									pour un tableau de notes
+								</p>
+							</li>
+							<li>
+								<p>
+									On procède ensuite au 
+									<a href="./cours_03_ex1_tableaux.html#regroupement_th">regroupement de certains titres de colonnes</a>
+								</p>
+							</li>
+							<li>
+								<p>
+									Enfin, on 
+									<a href="./cours_03_ex1_tableaux.html#regroupement_td">fusionne certaines de cases</a>
+									sur la même ligne ou colonne
+								</p>
+							</li>
+							<li>
+								<p>
+									Remarque : il est possible de cumuler les 
+									fusions en ligne et colonne
+									<br>
+									ce qui donne un rectangle 
+									couvrant plusieurs lignes et colonnes
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_02_03" 
+						data-title="style">
+					<h2>Propriétés css pour les tableaux</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									La propriété <code>caption-side</code> 
+									permet de positionner l'élément 
+									<code>caption</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Le pseudo sélecteur <code>:nth-child()</code>
+									permet d'<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child">alterner</a> 
+									<br>
+									entre les lignes paires 
+									et impaires, entre autres
+								</p>
+							</li>
+							<li>
+								<p>
+									La sélection par attribut 
+									permet de cibler 
+									<br>
+									les fusions de lignes/colonnes :
+									<code>[rowspan]</code> / <code>[colspan]</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Au sein de chaque groupe sémantique, 
+									la distinction <code>td</code> / <code>th</code>
+									<br>
+									repère la distinction entre cases
+									de contenu / de nommage
+								</p>
+							</li>
+							<li>
+								<p>
+									Les sélecteurs composés prennent 
+									tout leur sens 
+									<br>
+									pour différencier
+									les lignes de <code>thead</code>, 
+									<code>tbody</code> 
+									et <code>tfoot</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Plus de détails, 
+									et des conseils, sur les blogs
+									(<a href="https://css-tricks.com/complete-guide-table-élément/">par exemple</a>)
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+			</section>
+			<section>
+				<article 
+						class="titre" 
+						data-title="Formulaires">
+					<div>
+						<h1>
+							Formulaires html
+						</h1>
+					</div>
+				</article>
+				<article 
+						id="partie_03_01" 
+						data-title="intro">
+					<h2>Formulaires Web</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Les formulaires
+									jouent un rôle particulier dans le 
+									modèle web
+								</p>
+ 							</li>
+							<li>
+								<p>
+									Il permet à l'utilisateur final d'envoyer 
+									des informations au serveur
+								</p>
+ 							</li>
+							<li>
+								<p>
+									Celui-ci répondra en renvoyant un nouveau 
+									document html
+								</p>
+ 							</li>
+							<li>
+								<p>
+									Dans ce cours nous ne nous occupons pas 
+									du côté serveur
+								</p>
+ 							</li>
+							<li>
+								<p>
+									Nous allons seulement voir comment construire 
+									les formulaires côté client,
+									<br>
+									c'est-à-dire dans le document html,
+									pour le présenter à l'utilisateur final
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_03_02" 
+						data-title="form">
+					<h2>Structure de l'élément formulaire : racine <code>form</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Le formulaire est un élément 
+									html spécialisé : <code>form</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Les éléments du formulaire,
+									i.e les fils de <code>form</code>,
+									n'ont pas d'ordre imposé
+								</p>
+							</li>
+							<li>
+								<p>
+									L'élément <code>form</code> gère la 
+									communication avec le serveur via deux attributs :
+								</p>
+								<ul>
+									<li>
+										<p>
+											<code>action</code> : 
+											url (côté serveur)
+											qui recevra l'envoi
+											des informations saisies 
+											par l'utilisateur
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>method</code> :
+											méthode <code>HTTP</code>
+											utilisée pour la transmission des données :
+											<code>GET</code> ou <code>POST</code> 
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									Remarques :
+								</p>
+								<ul>
+									<li>
+										<p>
+											GET ne peut être employé que 
+											pour des petits volumes
+											de données (&lt;3Ko) 
+										</p>
+									</li>
+									<li>
+										<p>
+											En particulier pour l'envoi de fichiers, 
+											il faut utiliser POST
+										</p>
+									</li>
+									<li>
+										<p>
+											avec POST, un troisième attribut 
+											est requis : 
+											<br>
+											<code>enctype</code> 
+											avec la valeur <code>multipart/form-data</code>
+										</p>
+									</li>
+									
+								</ul>
+							</li>
+							<li>
+								<p>
+									(hors sujet)
+									exploitation en local
+									<br>
+									&rarr; <code>method="dialog"</code> :
+									aucun envoi / traitement en script
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_03_03" 
+						data-title="label/input">
+					<h2>Structure de l'élément formulaire : paires <code>label</code>/<code>input</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Les champs de saisie 
+									s'organisent via une paire d'éléments : 
+ 									
+								</p>
+								<ul>
+									<li>
+										<p>
+											<code>label</code> : 
+											description de la saisie est attendue,
+											destinée à l'utilisateur final
+ 										</p>
+									</li>
+									<li>
+										<p>
+											<code>input</code> : 
+											élément pour la saisie effective,
+											spécialisé via
+											l'attribut <code>type</code>
+										</p>
+									</li>
+								</ul>
+ 							</li>
+							<li>
+								<p>
+									Chaque <code>input</code> porte
+									son <code>id</code> (unique)
+									<br>
+									Le <code>label</code> lui est associé
+									en le recopiant dans son attribut
+									<code>for</code>
+								</p>
+							</li>
+							<!-- li>
+								<p>
+									Usuellement, les navigateurs enfoncent 
+									le clou en redirigeant le focus
+									vers l'<code>input</code> voulu, 
+									lorsque le <code>label</code> 
+									associé est cliqué
+								</p>
+							</li -->
+							<li>
+								<p>
+									Chaque <code>input</code> doit 
+									avoir un attribut <code>name</code>
+									pour permettre la transmission
+									<br>
+									Sa valeur servira 
+									de clé pour les informations
+									collectées par l'input
+								</p>
+							</li>
+							<li>
+								<p>
+									Quelques autres attributs courants des <code>input</code>
+								</p>
+								<ul>
+									<li>
+										<p>
+											<code>required</code> : 
+											<strong>doit</strong>
+											être renseigné pour autoriser l'envoi
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>placeholder</code> : 
+											permet d'afficher un indice sur 
+											ce qui est attendu
+											
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>value</code> : 
+											permet de préremplir
+										</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_03_04" 
+						data-title="submit/reset">
+					<h2>Structure de l'élément formulaire : <code>submit</code> et <code>reset</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Un élément <code>input</code>
+									de <code>type="submit"</code> 
+									permet de déclencher l'envoi :
+									<br>
+									<code>&lt;input 
+									type="submit" 
+									value="message affiché"
+									/&gt;</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Il prend la forme d'un bouton
+									que l'on retrouvera a priori 
+									dans tout les formulaires, 
+									à la fin
+								</p>
+							</li>
+							<li>
+								<p>
+									Couramment, il lui est associé 
+									un <code>input</code> 
+									prenant aussi la forme d'un bouton
+									<br>
+									qui permet la remise à zéro du formulaire :
+									<br>
+									<code>&lt;input 
+									type="reset" 
+									value="message affiché"
+									/&gt;</code>
+									<br>
+									Il est bien entendu optionnel
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_03_05" 
+						data-title="input-txt">
+					<h2>L'<code>input</code> couteau suisse : <code>type="text"</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Par défaut, on peut toujours 
+									se rabattre sur le <code>type</code>
+									le plus simple
+									<br>
+									<code>&lt;input type="text"/&gt;</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Celui-ci permet à l'utilisateur 
+									de saisir une string
+								</p>
+							</li>
+							<li>
+								<p>
+									Les attributs classiques de taille 
+									 sont disponibles : 
+									 <code>min</code> et <code>max</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									S'agissant de string, tout informaticien
+									pense "expressions régulières"
+									<br>
+									L'attribut <code>pattern</code> permet 
+									de définir une expression régulière 
+									qui servira à contrôler le 
+									<em>genre</em> de string saisie
+								</p>
+							</li>
+							<li>
+								<p>
+									L'attribut <code>list</code> permet 
+									d'utiliser une liste de complétion
+									<br>
+									Sa valeur est l'<code>id</code> d'un élément 
+									<code>datalist</code>,
+									dont les fils (<code>option</code>) 
+									énumèrent les choix possibles 
+									via leur attribut <code>value</code>
+									<br>
+									<span class="plus_petit">
+									(la <code>datalist</code> peut être 
+									définie n'importe où dans le <code>body</code>, 
+									et ne sera jamais affichée)
+									</span>
+								</p>
+							</li>
+							<li>
+								<p>
+									Toute autre contrôle/vérification/traitement
+									est responsabilité du serveur
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_03_06" 
+						data-title="input-spé">
+					<h2>Quelques <code>type</code> d'<code>input</code> spécialisés</h2>
+					<div>
+						<table class="big">
+							<tr>
+								<td>
+									<code>search</code> &nbsp;
+									<code>tel</code> 
+								</td>
+								<td>
+									spécialisations sémantiques de <code>text</code>
+									<br>
+									sans autre valeur ajoutée
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>password</code>
+								</td>
+								<td>
+									Le classique ****
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>url</code>  &nbsp;
+									<code>email</code> &nbsp;
+									<code>week</code> &nbsp;
+									<code>month</code>
+								</td>
+								<td>
+									ajoutent un <code>pattern</code>
+									par défaut 
+									<br>
+									(localisé : selon langue du navigateur)
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>time</code>  &nbsp;
+									<code>date</code> &nbsp;
+									<code>datetime-locale</code> &nbsp;
+									<code>colorweek</code>
+								</td>
+								<td>
+									<em>picker</em> : pop up dédiée 
+									(horloge, calendrier, 
+									cercle chromatique)
+									<br>
+									Attention : chaque navigateur a 
+									<em>son</em> picker présenté
+									(peut contredire les choix corporate...)
+								</td>
+							</tr>
+						</table>
+					</div>
+				</article>
+				<article>
+					<h2>Quelques <code>type</code> d'<code>input</code> spécialisés (suite)</h2>
+					<div>
+						<table class="big">
+							<tr>
+								<td>
+									<code>number</code>
+								</td>
+								<td>
+									Que des nombres
+									<br>
+									S'accompage usuellement
+									de deux boutons + et -
+									<br>
+									Selon OS, un keypad dédié 
+									<br>
+									attributs <code>min</code> et <code>max</code>
+								</td>
+							<tr>
+								<td>
+									<code>range</code>
+								</td>
+								<td>
+									Nombre choisi avec une barre coulissante
+									<br>
+									attributs <code>min</code> et <code>max</code>
+									<br>
+									plus facile / moins précis
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>file</code>
+								</td>
+								<td>
+									fichier à joindre
+									<br>
+									<em>filepicker</em> selon OS
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>hidden</code>
+								</td>
+								<td>
+									Aucun affichage
+									<br>
+									permet au programmateur 
+									d'assurer un suivi
+								</td>
+							</tr>
+						</table>
+					</div>
+				</article>
+				<article>
+					<h2>Quelques <code>type</code> d'<code>input</code> spécialisés (suite)</h2>
+					<div>
+						<table class="big">
+							<tr>
+								<td>
+									<code>checkbox</code>
+								</td>
+								<td>
+									booléen === coché/decoché
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<code>radio</code>
+								</td>
+								<td>
+									<ul><ul>
+										<li>
+											<p>
+												Un et un seul choix parmi un groupe de 
+												<em>radio buton</em>
+											</p>
+										</li>
+										<li>
+											<p>
+												Aider l'utilisateur avec un regroupement
+												visuel des alternatives
+												(par exemple, un parent 
+												<code>fieldset</code>)
+											</p>
+										</li>
+										<li>
+											<p>
+												Regroupement logique 
+												<br>
+												=== même
+												valeur pour l'attribut <code>name</code>
+											</p>
+										</li>
+									<br>
+									</ul></ul>
+								</td>
+							</tr>
+ 						</table>
+					</div>
+				</article>
+				<article 
+						id="partie_03_07" 
+						data-title="style">
+					<h2>Utiliser du css pour un formulaire</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Dans le cas des formulaires, certains aspects 
+									de la mise en page sont de notre responsabilité,
+									mais d'autres resteront entre
+									les mains du navigateur (sauf à faire de
+									<strong>très</strong> gros efforts &hellip;)
+								</p>
+							</li>
+							<li>
+								<p>
+									L'ergonomie est cruciale 
+									afin de permettre une saisie 
+									efficace
+									<br>
+									<span class="souligne">
+									Toutes les erreurs de saisie 
+									nous pénalisent lors du traitement
+									</span>
+								</p>
+							</li>
+							<li>
+								<p>
+									Une erreur détectée au niveau du serveur
+									implique	
+									<br>
+									de gérer des aller/retour 
+									et des répétitions de saisie 
+								</p>
+							</li>
+							<li>
+								<p>
+									En plus de ce que nous connaissons, css ajoute 
+									deux pseudo-classes 
+									<br>
+									<code>:valid</code> et <code>:invalid</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									Attention, pour cela, il faut être capable 
+									de définir ce que c'est qu'une information correcte, 
+									sans avoir recours aux informations stockées 
+									seulement sur le serveur
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+			</section>
+
+
+
+ 
+
+			<!-- section>
+				
+				<article 
+						class="titre" 
+						data-title="intro">
+					<div>
+						<h1>
+							Intro
+						</h1>
+					</div>
+				</article>
+
+				<article 
+						id="partie_01_01" 
+						data-title="...">
+					<h2></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+								</p>
+								<ul>
+									<li>
+										<p>
+										</p>
+									</li>
+									<li>
+										<p>
+										</p>
+									</li>
+									<li>
+										<p>
+										</p>
+									</li>
+								</ul>
+ 							</li>
+							<li>
+								<p>
+								</p>
+								<ul>
+									<li>
+										<p>
+										</p>
+									</li>
+									<li>
+										<p>
+										</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>
+
+				<article 
+						id="partie_01_02" 
+						data-title="...">
+					<h2>...</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+								</p>
+							</li>
+							<li>
+								<p>
+								</p>
+							</li>
+							<li>
+								<p>
+								</p>
+							</li>
+							<li>
+								<p>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				
+			</section -->
+			
+		</main>
+		<script> load() </script>		
+  </body>
+</html>

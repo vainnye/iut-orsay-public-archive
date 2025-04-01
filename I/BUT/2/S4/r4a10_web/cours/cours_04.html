@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>R4.a10 - Javascript/DOM - 04</title>
+		<link rel="stylesheet" href="../css/amphi.css">
+		<script src="../js/amphi.js"></script>
+	</head>
+	<body>
+	
+		<nav>
+			<ul id="nav_liste">
+			</ul>
+			<template id="nav_li_sec">
+				<li class="section"></li>
+			</template>
+			<template id="nav_li_part">
+				<li><a href=""></a></li>
+			</template>
+		</nav>
+				
+		<main>
+			<section>
+				<article 
+						class="titre" 
+						data-title="R4a10 - 4">
+					<div>
+						<h1>
+							Ressource 4.a10
+							<br>
+							Javascript / DOM
+							<br>
+							Cours 4
+						</h1>
+					</div>
+				</article>
+				<article 
+						class="titre" 
+						data-title="bases js">
+					<div>
+						<h1>
+							Bases du langage
+							<br>
+							(suite)
+						</h1>
+					</div>
+				</article>	
+				<article 
+						id="partie_01_01" 
+						data-title="class">
+					<h2>Modèle objet de <code>javascript</code> : class</h2>
+					<div>
+						<p>
+							Syntaxe <em>classiste</em> 
+							<a href="https://jsfiddle.net/7nqymv6x/5/">
+								disponible
+							</a>
+						</p>
+<pre>
+  class C {
+    static st(){ console.log( 'methode statique de la classe C' ) }
+
+    //s = 99;  <-- impossible: seulement des méthodes
+
+    constructor( v ){ this.x = v; } //constructor est un "mot clé"
+
+    say_hello(){ 
+      console.log( `je s'appelle ${this.x}` ) ;
+      //attention, pas ça :
+      //console.log( `je s'appelle ${x}` ) ; 
+			//-- ReferenceError: x is not defined
+    }
+
+    //--définition d'une propriété "plus contrôlée"
+    set y( v ){ console.log('##setter de y'); this._y = v;    }
+    get y()   { console.log('##getter de y'); return this._y; }
+  }
+</pre>
+						<p>
+Attention:
+utiliser <code>this.y</code> dans <code>get</code> ou <code>set</code>
+&rArr; boucle infinie
+						</p>
+					</div>
+				</article>	
+				<article>
+					<h2>Modèle objet de <code>javascript</code> : class (suite)</h2>
+					<div>
+<pre>
+  //--accès méthode static					    
+  C.st();                  &rarrc; methode statique de la classe C
+  //--nouvel objet
+  let c = new C('groot');
+  //c.st();                //-- TypeError: c.st is not a function
+  //--accès méthode d'instance
+  c.say_hello();           &rarrc; je s'appelle groot
+  c.x = "toto";            //-- aucune protection d'accès aux props
+  c.say_hello();           &rarrc; je s'appelle toto
+  //--accès prop "custom"
+  console.log(c.y);        &rarrc; ##getter de y
+                           &rarrc; undefined   //<-- non init.
+
+  c.y = 1;                 &rarrc; ##setter de y
+
+  console.log(c.y);        &rarrc; ##getter de y
+                           &rarrc; 1  
+
+  c._y = 2;                // -- aucune protection d'acces
+  console.log(c.y);        &rarrc; ##getter de y
+                           &rarrc; 2
+</pre>
+					</div>
+				</article>	
+				<article>
+					<h2>Modèle objet de <code>javascript</code> : class (suite)</h2>
+					<div>
+<pre>
+  //creation à la volée d'attribut
+  console.log(c.z);        &rarrc; undefined
+  c.z = 1;                 // -- même sans get ou set
+  console.log(c.z);        &rarrc; 1
+
+  //création à la volée d'attribut static
+  console.log( C.s );      &rarrc; undefined
+  C.s = 98 ;               // -- pourtant interdit dans class C... :(
+  console.log( C.s );      &rarrc; 98
+</pre>
+					</div>
+				</article>	
+				<article 
+						id="partie_01_02" 
+						data-title="prototype">
+					<h2>Modèle objet de <code>javascript</code> : prototype</h2>
+					<div>
+						<p>
+							Prototype d'un objet : 
+							<a href="https://jsfiddle.net/jzap3f45/">
+								<em>un complément d'information</em>
+							</a>
+						</p>
+<pre>
+						  
+  //--classiquement, en javascript :
+  let o = { 'a' : 1 };
+  console.log( o );
+      &rarrc; { 'a' : 1 }
+  console.log( o.a );
+      &rarrc; 1
+  console.log( o.b );
+      &rarrc; undefined
+
+  //--'chainer' deux objets pour l'algo de recherche de prop.
+  let oo = { 'b' : 2, 'a' : 99 };
+  o.__proto__ = oo;
+  console.log( o.a );
+      &rarrc; 1 //-- dabord les props. de o
+  console.log( o.b );
+      &rarrc; 2 //-- 'complétées' ensuite par celles de oo
+  
+</pre>
+					</div>
+				</article>	
+				<article>
+					<h2>Modèle objet de <code>javascript</code> : prototype (suite)</h2>
+					<div>
+<pre>
+
+  //--on peut prolonger cette chaine :
+  oo.__proto__ = { 'c' : 3 };
+  console.log( o.c );
+      &rarrc; 3
+
+  //-- attention!!! qui est reconnu comme propriété de qui ??
+  console.log( o.__proto__ );
+      &rarrc; { 'b' : 2, 'a' : 99, 'c' : 3 }
+      //ceci aurait du être oo, donc sans la prop 'c'
+
+  //--de même avec for-in
+  for(const k in o){ console.log( `o.${k} : ${o[k]}` ); }
+    &rarrc; o.a : 1   &rarrc; o.b : 2   &rarrc; o.c : 3
+    //--on voit les 2 niveaux profondeur du chainage   
+  
+  //--solution : méthode d'instrospection
+  console.log( o.__proto__.hasOwnProperty('b') );   &rarrc; true
+  console.log( o.__proto__.hasOwnProperty('c') );   &rarrc; false
+  
+</pre>
+					</div>
+				</article>	
+				<article 
+						id="partie_01_03" 
+						data-title="...poo">
+					<h2>Modèle objet de <code>javascript</code> : POO par prototype</h2>
+					<div>
+<p style="text-align:center;background-color:red;"><strong>On nous ment! on nous cache tout!</strong> area 51, les reptiliens, tout ça, tout ça ...</p>
+						<p>
+Derrière la syntaxe de <code>class</code>, il y a une fonction
+<!--(<em>constructrice</em>),
+<br>
+i.e. avec une propriété <code>.prototype</code>
+<br>
+(&#9888; pas <code>.__proto__</code>) -->
+						</p>
+<pre>
+
+  //--en fait, voici ce qui se passe pour la class C :
+
+  function C( v ){ this.x = v; } //-- le code du <code>constructor</code>
+
+  C.st = function(){ console.log( 'methode statique de la classe C' ) }
+
+  C.s = 99; //l'impossible mais faisable...
+
+  C.prototype.say_hello = function(){ 
+	console.log( `je s'appelle ${this.x}` ); 
+  }
+  
+</pre>
+					</div>
+				</article>	
+				<article>
+					<h2>Modèle objet de <code>javascript</code> : poo par prototype (suite)</h2>
+					<div>
+					  <p>
+<a href="https://jsfiddle.net/4k96nowx/">on peut tout retester :</a>
+					    </p>
+<pre>
+
+  C.st();                  
+
+  let c = <strong>new C</strong>('groot'); <strong>// Mais non!!&hellip; mais si</strong>.
+
+  c.say_hello();
+  //c.st();
+    //-- TypeError: c.st is not a function
+    //--> car elle n'est pas dans le .prototype
+
+  c.x = "toto";      
+  c.say_hello();     
+  console.log(c.z);  
+  c.z = 1;           
+  console.log(c.z);  
+  console.log( C.s );
+  C.s = 98 ;         
+  console.log( C.s );
+  
+</pre>
+					</div>
+				</article>	
+				<article 
+						id="partie_01_04"
+						data-title="factory">
+					<h2>Modèle objet de <code>javascript</code> : factory</h2>
+					<div>
+<p>Deux problèmes:</p>
+					  <ul>
+						      <li>
+								<p>
+Pas de private?
+<br>
+&rarr; extension de la norme: 
+<br>
+dans <code>class</code>,
+le nom d'un membre privé
+doit débuter par <code>#</code>
+<br>
+mais non disponible partout&hellip;
+								</p>
+						        </li>
+							<li>
+								<p>
+Dans le contexte <code>DOM</code>, veut-on créer une classe pour un seul objet?
+								</p>
+							</li>
+						</ul>
+<p>Une autre solution pour ces deux problèmes :</p>
+						<ul>
+							<li>
+								<p>
+<code>factory</code> :
+<br>
+une fonction qui crée, <em>customise</em>
+et retourne l'objet voulu
+								</p>
+								<p>
+(Change-t-on vraiment qqchose avec cette approche ? ...)
+                                                                </p>
+							</li>
+						</ul>
+					</div>
+				</article>	
+				<article 
+						
+						>
+					<h2>Modèle objet de <code>javascript</code> : factory (suite)</h2>
+					<div>
+					  <p>
+<a href="https://jsfiddle.net/7orqtb3z/"><code>Exemple</code></a>
+					  </p>
+					  
+<pre>
+  function make_parabole( a, b, c ){
+    //--
+    function calcule(x){ return a*x*x+b*x+c; }
+    const delta = a*a - 4*b*c; //discriminant
+    let racines = undefined;   // a calculer (...si elles exitent)
+    const est_complexe    = ()=&gt;{ return !racines;                     };
+    const a_racine_double = ()=&gt;{ return racines && racines.length==1; };
+    //--
+    return {
+      calcule,                   //equivalent à "calcule" : calcule,
+      get d(){ return delta; },  //getter
+      est_complexe,
+      get r1(){ if( racines ) return racines[0]; },
+      a_racine_double,
+      get r2(){ if( racines && !a_racine_double() ) return racines[1]; },
+    }
+    //--
+  }
+</pre>
+					</div>
+  				</article>
+				<article 
+						
+						>
+					<h2>Modèle objet de <code>javascript</code> : factory (suite)</h2>
+					<div>
+<pre>
+  let x_deux_moins_un = make_parabole( 1, 0, -1 );
+  
+  console.log( x_deux_moins_un.est_complexe() );               &rarrc; false
+  console.log( x_deux_moins_un.r1 );                           &rarrc; -1
+  console.log( x_deux_moins_un.a_racine_double() );            &rarrc; false
+  console.log( x_deux_moins_un.r2 );                           &rarrc; 1
+  console.log( x_deux_moins_un.calcule(x_deux_moins_un.r1) );  &rarrc; 0
+  console.log( x_deux_moins_un.calcule(x_deux_moins_un.r2) );  &rarrc; 0
+  console.log( x_deux_moins_un.calcule(0)  );                  &rarrc; -1
+  console.log( x_deux_moins_un.calcule(2)  );                  &rarrc; 3
+  console.log( x_deux_moins_un.calcule(-2) );                  &rarrc; 3
+
+  console.log( x_deux_moins_un.racines );                      &rarrc; undefined
+  x_deux_moins_un.racines = [99,98];                  
+  console.log( x_deux_moins_un.racines );                      &rarrc; [99,98]
+  console.log( x_deux_moins_un.r1 );                           &rarrc; -1
+</pre>
+					</div>
+				</article>	
+				<article 
+						id="partie_01_05"
+						data-title="cloture">
+					<h2>Cloture d'une fonction</h2>
+					<div>
+<p style="text-align:center;background-color:red;"><strong>On nous ment! on nous cache tout!</strong> ... encore ???  ...</p>
+						<ul>
+							<li>
+								<p>
+Thanos n'existe pas en javascript....
+<br>								  
+L'univers de la fonction ne disparait pas (pas toujours) après son execution
+								</p>
+							</li>
+							<li>
+								<p>
+Quand l'objet rendu réfère à une variable locale,
+<br>
+l'espace des variables de la fonction est maintenu
+								</p>
+							</li>
+							<li>
+								<p>
+Exemple :
+								</p>
+<pre>
+    function make_generateur_id(){ 
+      let next=0; 
+      return ()=>{ return `id_${next++}` } 
+    }
+
+    const cpt = make_generateur_id();
+
+    console.log(cpt());
+        &rarrc; id_0
+    console.log(cpt());
+        &rarrc; id_1
+    console.log(cpt());
+        &rarrc; id_2
+
+</pre>
+							</li>
+						</ul>
+					</div>
+				</article>	
+				<article>
+					<h2>Cloture d'une fonction (suite)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+Remarque : Les paramètres sont aussi des variables
+								</p>
+<pre>
+
+function make_generateur_id_n( n ){ 
+    return ()=>{ return `id_${n++}` } 
+}
+
+const cpt_n = make_generateur_id_n( 10 );
+
+console.log(cpt_n());
+    &rarrc; id_10
+console.log(cpt_n());
+    &rarrc; id_11
+console.log(cpt_n());
+    &rarrc; id_12
+
+</pre>
+							</li>
+						</ul>
+					</div>
+				</article>	
+				<article 
+						id="partie_01_06"
+						data-title="?this?">
+					<h2>Resolution de <code>this</code></h2>
+					<div>
+						<ul>
+							<li>
+							  <p>
+On connaissait <code>this</code> en POO,
+<br>					
+comme référence vers l'instance courante
+<br>
+(dans le corps d'une méthode)
+							  </p>
+							</li>
+							<li>
+								<p>
+En javascript, toute fonction reçoit 
+un paramètre tacite <code>this</code>
+<br>
+mais son sens varie &#128128;
+								</p>
+								<ul>
+									<li>
+										<p>
+											<code>f(...)</code> : invocation 
+											<em>vanilla</em> de la fonction
+											<br>
+											&rarr; en mode <code>strict</code>:
+											&nbsp;&nbsp;
+											<code>this &trie; undefined</code>
+											<br>
+											&rarr; sinon:
+											&nbsp;&nbsp;
+											<code>this &trie; global object</code>
+											&nbsp;&nbsp;
+											(en contexte <code>dom</code> :
+											<code>window object</code>)
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>o.f(...)</code> : invocation 
+											<em>vanilla</em> de la méthode
+											<br>
+											&rarr; &nbsp;&nbsp;
+											<code>this &trie; o</code>
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>new f(...)</code> : utilisation
+											<em>classiste</em>, et tant que 
+											constructeur
+											<br>
+											&rarr; &nbsp;&nbsp;
+											<code>this &trie; {}</code>
+											&nbsp;&nbsp;
+											(nouvel objet créé
+											avant d'exécuter 
+											le corps de <code>f</code>)
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>(...)=&gt;{ ... this ...}</code> :
+											cas des <code>Arrow function</code>
+											<br>
+											&rarr; &nbsp;&nbsp;
+											pas de <code>this</code> propre,
+											on récupére le <code>this</code> disponible dans
+											le contexte
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>f.call(o)</code>
+											et 
+											<code>f.apply(o)</code>: 
+											deux cas particuliers 
+											(propres à
+											<code>javascript</code>)
+											<br>
+											&rarr; &nbsp;&nbsp;
+											hors sujet
+										</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>	
+				<article>
+					<h2>Resolution de <code>this</code> (suite)</h2>
+					<div>
+							<li>
+								<p>
+Remarque :
+<br>
+Le cas des arrow function est défini pour être utile à
+<br>
+leur usage de <code>callback</code> <em>définies à la volée</em>
+								</p>
+<pre>
+								  
+//--si on fait ceci, on est embêté
+setTimeOut( function(){ ...this... }, ... ); 
+//-- en effet, ici this &trie; undefined|window
+//-- et c'est a priori pas ce à quoi on pensait à ce moment là
+
+//--par contre si on fait ceci :
+setTimeOut(       ()=&gt;{ ...this... }, ... ); 
+//-- this conserve 'sa valeur à ce moment là'
+//-- c'est à dire dans le bloc où setTimeOut est utilisé
+
+</pre>
+							</li>
+						</ul>
+					</div>
+				</article>	
+				<article 
+						id="partie_01_07"
+						data-title="kiss">
+					<h2>Organisation du code : <a href="https://en.wikipedia.org/wiki/KISS_principle">kiss principle</a></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Utilisation <em>standard</em>
+									et <em>directe</em> est plus prudente
+								</p>
+							</li>
+							<li>
+								<p>
+									Un code découpé en fonctions
+									courtes, autonomes
+								</p>
+							</li>
+							<li>
+								<p>
+									Eviter les astuces alambiquées,
+									les variables globales,
+									les effets de bords
+									<br>
+									(&hellip; sauf pour des
+									variables de configuration)
+								</p>
+							</li>
+							<li>
+								<p>
+									Découper en fichiers courts,
+									spécialisés
+								</p>
+							</li>
+							<li>
+								<p>
+									Il faudrait pouvoir 
+									lire tout le code pertinent
+									<br>
+									en un seul fichier, 
+									<br>
+									sur peu de pages, 
+									<br>
+									sans avoir à prendre des notes
+									(mais en lisant la doc)
+									<br>
+									pour détecter un bug
+								</p>
+							</li>
+						
+						</ul>
+					</div>
+				</article>	
+			</section>
+
+
+			<!-- section>
+			
+				<article 
+						class="titre" 
+						data-title="XXX">
+					<div>
+						<h1></h1>
+					</div>
+				</article>
+				
+				<article 
+						id="partie_0x_0x" 
+						data-title="xxx">
+					<h2>XXX</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+								</p>
+							</li>
+							<li>
+								<p>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				
+			</section -->
+			
+		</main>
+		<script> load() </script>		
+  </body>
+</html>

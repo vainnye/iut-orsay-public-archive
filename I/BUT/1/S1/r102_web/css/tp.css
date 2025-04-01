@@ -1,0 +1,119 @@
+*{
+	margin  : 0;
+	padding : 0;
+}
+
+body{
+	background-color : #aaa;
+	padding          : 3rem;
+	/* --- */
+	counter-reset    : exos;
+}
+
+header{
+	background-color : #ddd;
+}
+header h1{
+	text-align : center;
+	font-size  : 4rem;
+}
+
+aside{
+	background-color : #ccc;
+	border           : 2px solid black;
+	margin           : 2rem;
+	padding          : 1rem;
+}
+aside p{
+	text-indent: 2rem;
+	font-size : 1.3rem;
+}
+
+nav{}
+
+main{
+	padding : 0 6rem;
+	font-size  : 2.5rem;
+}
+
+main > ol > li{
+	margin     : 1rem 0 2.5rem 0;
+	list-style : none;
+	font-size  : 2.5rem;
+}
+
+main > ol > li:before{
+	content           : 'Exercice ' counter(exos);
+	text-decoration   : underline;
+	font-weight       : bold;
+	padding-right     : 1rem;
+	/* --- */
+	counter-increment : exos;
+	counter-reset     : questions;
+}
+
+main > ol > li > ol > li{
+	margin     : 1rem 0;
+	list-style : none;
+	font-size  : 1.9rem;
+}
+
+main > ol > li > ol > li:before{
+	content           : 'Question ' counter(questions);
+	text-decoration   : underline;
+	padding-right     : 1rem;
+	/* --- */
+	counter-increment : questions;
+}
+
+main li li ol > li{
+	margin          : 0.5rem 0 0.5rem 1rem;
+	list-style-type : lower-alpha;
+	font-size       : 1.6rem;
+	padding-left    : 1rem;
+}
+
+main li li li ol > li{
+	/* margin          : 0.5rem 0 0.5rem 1rem; */
+	list-style-type : lower-roman;
+	font-size       : 1.3rem;
+	/* padding-left    : 1rem; */
+}
+
+main p{
+	font-size : 1.4rem;
+	margin : 1rem 0;
+}
+
+main pre{
+	font-size : 1.3rem;
+}
+
+main pre.a_corrige{
+	border : 2px solid black;
+	border-radius : 10px;
+	background-color : #ddd;
+	padding : 0.5rem;
+}
+
+main .hint {
+	float : right;
+	clear : both;
+	border : 1px dotted black;
+}
+main .hint:hover {
+	background-color : #ccc;
+	padding : 0.5rem;
+	border-radius : 10px;
+	width : 100%
+}
+
+main .hint span:nth-child(2){
+	display:none;
+}
+main .hint:hover span:nth-child(1){
+	display:none;
+}
+main .hint:hover span:nth-child(2){
+	display:inline;
+}

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<link rel="stylesheet" href="cwac.css" />
+
+
+
+<meta charset="utf-8" />
+<title>Projet CWAC</title>
+<link rel="shortcut icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦆</text></svg>" />
+
+</head>
+<body>
+<nav>
+<a href="#intro">Contexte</a>
+<a href="#orga">Planning</a>
+<a href="#consignes">Consignes</a>
+<a href="#sujet">Choix du sujet</a>
+<a href="#pages">Site Web - contenu</a>
+<a href="#site">Site Web - spécifications</a>
+<a href="#com">Texte argumentatif</a>
+<a href="#rapport">Rapport</a>
+<a href="#diapos">Oral</a>
+<a href="#aide">Demander de l'aide</a>
+<a href="#rendu">Rendu</a>
+<a href="#notes">Notation</a>
+</nav>
+
+
+
+
+<h1>Projet 
+<div class="logo">
+<div class="cwac">CW <span class="space"> </span>AC</div>
+<div class="canard">🦆</div>
+<div class="slogan">Communication Web Académique</div>
+</div>
+</h1>
+<section>
+<h2 id="intro">Contexte général</h2>
+<p>Vous faites partie du service informatique d'une école et on vous a chargé d'un projet, nom de code : Communication Innovante - Conception Internet (COIN-COIN). Il s'agit de créer un site Web pour la communication de l'école.</p>
+
+<p>Vous devez inventer une l'école, avec un nom, un slogan et une identité visuelle. Durant le projet, vous allez produire un texte argumentatif, un site Web pour l'école, un rapport et préparer une présentation orale pour présenter vos travaux.</p> 
+
+<p>Cette page contient toutes les consignes du projet ; c'est votre seule référence.</p>
+
+<p><strong>Responsables du projet :</strong></p>
+
+<ul>
+<li> <strong>Communication</strong> : <a href="mailto:caroline.covas@universite-paris-saclay.fr">Caroline Covas</a> et <a href="mailto:jean-michel.ledjou@universite-paris-saclay.fr">Jean-Michel Ledjou</a>. </li>
+<li> <strong>Web</strong> : <a href="mailto:benjamin.hellouin-de-menibus@universite-paris-saclay.fr">Benjamin Hellouin de Menibus</a>.</li>
+</ul>
+
+<div class="next"><a href="#orga">section suivante</a></div>
+
+</section>
+
+<section>
+<h2 id="orga"> Organisation et planning</h2>
+
+<p><span style="font-size: 150%; color: red;">
+<p>Ce projet se fait en <strong>binômes</strong> (sauf quelques exceptions). Vous pouvez trouver votre groupe <a href="https://cours.iut-orsay.fr/mod/choicegroup/view.php?id=45596">ici</a>.</p>
+
+<h4>Planning</h4>
+<ul>
+<li><p><strong>Avant la première session : </strong> discutez avec votre binôme et choisissez un thème d'école qui vous plait à tous les deux.</p>
+
+<li><p><strong>Séance 1 (communication) : </strong> réflexion sur votre école et préparation du texte argumentatif.</p>
+<li><p><strong>Séances 2 à 5 (Web) : </strong> création du site Web.
+<li><p><strong>Jeudi 30 novembre : </strong> Rendu du projet (site + rapport).</p> 
+<li><p><strong>Séance de préparation à l'oral : </strong> préparation des diapositives et de la présentation (début janvier).</p>
+<li><p><strong>Oral : </strong>  en dernière semaine du semestre.</p>
+</ul>
+
+<p>Pour les dates de rendu, voir la <a href="#rendu">section Rendu</a>.</p>
+
+
+<div class="next"><a href="#consignes">section suivante</a></div>
+
+</section>
+
+<section>
+<h2 id="consignes">Consignes générales :</h2>
+
+<p><span style="font-size: 150%; color: red;">
+⚠</span> Ce site est la seule référence pour les consignes. Si vous avez un doute, vous devez nous demander.</p>
+
+<ul>
+<li>C'est normal que vous ne sachiez pas tout faire. N'hésitez pas à faire des recherches sur Internet, regarder d'autres sites, nous poser des questions...
+
+<li> Vous devez suivre les bonnes pratiques vues en cours même si le sujet ne le précise pas. Par exemple, pensez à la lisibilité, à la validation W3C...
+
+<li> Vous avez de la liberté sur le contenu, mais il faut respecter rigoureusement les consignes du sujet (c'est votre cahier des charges). Vous pouvez aller au-delà (voir section <a href="#notes">Notation</a>) mais sans aller à l'encontre des consignes.
+
+<li> Vous devez conserver une sauvegarde commune de votre projet (je recommande le <a href="https://cloud.iut-orsay.fr/">cloud de l'IUT</a> et sauvegarder votre travail après chaque séance.
+</ul>
+
+<h3> Travail en groupe : </h3>
+<ul>
+<li>Pas de changement de partenaire, sauf situation exceptionnelle et avec notre autorisation.</li>
+<li>En cas d'absences non justifiées ou si nous voyons que la participation est inégale, nous pouvons décider de mettre des notes différentes aux membres du projet.
+<li>En cas d'absence, vous devez prévenir vos partenaires et rattraper votre travail plus tard.</li>
+<li> Si vous avez un problème avec votre binôme, vous devez nous en parler <strong>avant la fin du projet</strong>. Nous serons vigilants à ce qui se passe dans votre groupe, et nous vous aiderons à trouver une solution.</li> 
+</ul>
+
+<h3> Ressources externes :</h3>
+<ul>
+<li> Vous pouvez utiliser des ressources externes (code, images, texte...) de manière raisonnable. Vous devez <strong>citer leur origine</strong> dans le rapport. Il faut que nous puissions retrouver l'original (le site, <strong>pas</strong> le moteur de recherche). Si vous l'avez adaptée ou modifiée, dites-le. Bien sûr, ne récupérez pas des pages entières (ça se voit).</li>
+
+<li> Si vous utilisez du code externe sans le signaler, nous considèrerons que vous n'avez rien fait sur la partie concernée.</li>
+
+<li>Vous ne pouvez pas réutiliser du code d'autres projets (cette année ou années passées). </li>
+</ul>
+
+
+<div class="next"><a href="#sujet">section suivante</a></div>
+
+</section>
+
+<section>
+<h2 id="sujet">Choix du sujet</h2>
+<h3>L'école</h3>
+
+<p> Avant la première séance, choisissez entre vous une école (mot à prendre au sens large : centre de formation, université, etc.) qui peut être réaliste ou complètement imaginaire, sérieuse ou parodique... 
+
+<p>Evitez des sujets : 
+<ul>
+<li> provocateurs (insultants, inconfortables, etc.)
+<li> surréalistes (il faut que vous puissiez expliquer l'utilité de l'entreprise)
+</ul>
+
+<p>Le but est que le sujet vous plaise ; ça n'a pas d'impact sur votre note.
+
+<p>Pour préparer <a href="#com">la première séance</a>, réflechissez à votre projet : qui sont les étudiants intéressés ? Qui voudront les recruter ? Qu'est-ce qui différencie votre école des autres ? etc.
+
+<p>Demandez-nous si vous avez un doute. </p>
+
+<h3>Identité visuelle</h3>
+
+<p>Vos productions (site, rapport, diapos) doivent avoir une identité visuelle commune; elles doivent faire apparaître :
+<ol>
+<li>Le nom de l'école.</li>
+<li>Une image qui servira de logo (ne faites pas compliqué).</li>
+<li>Un sous-titre ou slogan.</li>
+<li>Deux couleurs majeures (définies par un code RGB / hexa).</li>
+<li>Deux polices (par exemple : textes / titres).</li>
+</ol>
+
+
+<div class="next"><a href="#pages">section suivante</a></div>
+</section>
+
+<section>
+<h2 id="pages">Site Web - contenu </h2>
+
+<p>Votre site Web contiendra plusieurs pages (fichiers HTML différents qui peuvent partager des fichiers CSS). <strong>Chaque membre du projet choisit une page dont il est personnellement responsable</strong> et le reste est fait en commun. Cela ne vous empêche pas de vous entraider et de partager du CSS pour avoir la même identité visuelle.
+
+<h3> Menu de navigation </h3>
+
+<p>Chaque page contient un menu de navigation dans lequel votre nom et logo apparaissent et qui permet d'aller sur toutes les pages. Cliquer sur le logo renvoie à la page d'accueil.</p>
+
+<h3>Première page : accueil</h3>
+
+<p>Il s'agit de la page sur laquelle les visiteurs arrivent automatiquement.</p>
+
+<p>Elle contient un texte argumenté présentant votre entreprise (plus de détails en partie <a href="#com">Communication</a>). Les différents paragraphes doivent être visuellement séparés (pas de gros blocs de texte). La page doit contenir une grande image de fond et votre logo affiché en grand.</p>
+
+<p>Elle doit aussi contenir une vidéo venant d'un fourniseur de votre choix : framatube, youtube, dailymotion... (on ne regarde pas la pertinence).</p>
+
+<h3>Deuxième page : formation</h3>
+
+<p>Cette page propose différents cours / formations / filières (au moins trois), chacun dans un bloc indépendant. Chaque bloc doit contenir :</p>
+
+<ul>
+<li>Le nom ainsi qu'une courte description ;</li>
+<li>Une image ou une icône.</li>
+<li>Au moins une info (crédits, pré-requis, prix...) hors du texte ;</li>
+</ul>
+
+<p>Les informations doivent être présentées de manière cohérente entre les blocs, et il doit être facile de rajouter un bloc si nécessaire. Autrement dit, il ne faut pas que chaque bloc ait beaucoup de CSS spécifique. L'usage de Flexbox ou des grilles CSS est recommandé.</p>
+
+<h3>Troisième page : contact</h3>
+
+<p> Cette page sert aux informations de contact et d'accès. Elle contient :</p>
+<ul>
+<li> Des informations de contact (adresse, téléphone, mail - vous pouvez tout inventer).
+<li> Une carte pointant sur l'entreprise, en passant par un service externe (OpenStreetMaps ♡, Google Maps, Bing Maps...) C'est à vous d'aller vous renseigner sur leur site.
+<li> Un formulaire de contact inactif (appuyer sur le bouton ne fait rien). Il doit permettre au visiteur de sélectionner une formation qui l'intéresse, d'indiquer ses informations de contact, et de laisser un message.
+</ul>
+
+<h3> Pied de page </h3>
+
+<p>Chaque page contient un pied de page contenant la liste des membres du projet et des liens vers votre rapport aux formats traitement de texte <strong>et</strong> au format pdf.</p>
+
+
+<div class="next"><a href="#site">section suivante</a></div>
+</section>
+
+<section>
+<h2 id="site">Site Web - spécifications</h2>
+
+<h3>Spécifications techniques</h3>
+<ol>
+<li> Les polices doivent s'afficher correctement même si la police n'est pas installée chez l'utilisateur (en utilisant <em>@font-face</em> dans le CSS). Vous ne devez pas dépendre d'un site de polices externes.</li>
+<li> Le site doit passer la validation W3C. S'il reste une erreur ou un avertissement, indiquez-le dans le rapport.</li>
+<li> L'image du logo et un titre doivent apparaître dans l'onglet du navigateur.</li>
+<li> Le site utilise l'espace disponible et doit rester utilisable sur toute taille d'écran entre 350px et 1600px. Il faut utiliser au moins une requête média pour changer la mise en page d'un bloc.</li>
+<li> A un endroit dans votre site, il y a du texte sur une image.</li>
+</ol>
+
+
+<h3>Gestion de projet </h3>
+<ol>
+<li> Le projet est organisé en sous-dossiers, et le CSS en plusieurs fichiers, de manière logique.
+<li> Les noms (classes, fichiers, dossiers, images...) sont clairs.
+<li> Pas de code mort, de code dupliqué inutilement (dans le CSS), ou de fichier inutilisé.
+</ol>
+
+
+<div class="next"><a href="#com">section suivante</a></div>
+</section>
+
+<section>
+<h2 id="com">Texte argumentatif</h2>
+
+<p>Vous devez rédiger deux textes :</p>
+
+<p><strong>Description générale : </strong> Présentez l’école que vous avez créée en mentionnant le nom, le lieu, la date de création, le nom du directeur(rice), du (de la) responsable pédagogique, le type de cours, la tranche d’âge concernée, matières spécifiques enseignées... </p>
+<p>Il faut aussi montrer en quoi votre école est originale : pourquoi se démarque-t-elle des autres écoles présentes (donner un panorama, réel ou inventé, des écoles déjà existantes, qu’elles soient dans le même domaine que votre école ou dans un autre domaine).</p>
+
+<p>Cette présentation de l’école est à rendre au professeur de Communication, à la suite de la 1ère séance de Projet Web, de manière manuscrite. Vous <strong>pouvez</strong> (facultatif mais recommandé) déposer une deuxième version améliorée sur Moodle pour la date de rendu du projet.</p>
+
+<p><strong>Argumentation : </strong>Rédigez un développement pour expliquer à trois interlocuteurs différents les atouts de votre école :
+
+<ol>
+<li>les partenaires et sponsors
+<li>les élèves et les parents d’élèves
+<li>les entreprises (ou autres) qui pourraient recruter les élèves par la suite.
+</ol>
+
+<p>Pour ce faire, vous devez rédiger 3 paragraphes distincts dans lesquels vous adapterez vos arguments à la cible. On demande 3 ou 4 arguments par cible. Vous pouvez appuyer vos arguments sur des informations ou des chiffres inventés, surtout si votre projet est imaginaire.
+
+<p>Le travail (environ 2 pages) est à rendre sur Moodle <del>fin novembre</del> <strong>le 8 décembre</strong> avec le reste du projet. 
+
+<div class="next"><a href="#rapport">section suivante</a></div>
+
+</section>
+
+<section>
+<h2 id="rapport">Rapport</h2>
+<p>Le rapport est un <strong>court</strong> document qui indique quelques informations technique ; ne cherchez pas à expliquer le site ou l'école en détail.
+
+<p>Il doit contenir les informations suivantes :
+<ul>
+<li> Une page de garde qui comprend : vos noms, votre groupe, le nom et le logo de l'entreprise, le logo de l'IUT.
+<li> Une table des matières, faite automatiquement (pas à la main).
+<li> Une introduction d'un paragraphe qui explique ce qu'est ce document.
+<li> Les couleurs, polices et logos que vous avez choisi d'utiliser dans les trois documents. Indiquez rapidement à quels endroits ils sont utilisés. 
+<li> La liste des sources de toutes les ressources externes que vous réutilisez ou dont vous vous êtes inspirés (voir la partie <a href="#consignes">Consignes</a>) : images, polices, code...
+<li> Compte-rendu de validation W3C (HTML et CSS) : reste-t-il des erreurs ? Si oui, dites une phrase sur ce que vous avez fait pour essayer de les résoudre, ou pourquoi vous avez choisi de l'ignorer.
+<li> La répartition du travail (qui s'est chargé de quelle page - on ne demande pas d'entrer dans tous les détails)</li>
+</ul>
+
+<p>La page de garde doit être un peu soignée. Il doit y avoir des numéros de page automatiques (sauf en page 1) et des en-têtes avec le nom des auteurs. Votre logo doit apparaître sur chaque page en en-tête ou en pied de page.</p>
+
+<p>On ne demande pas que le rapport soit très joli (ça peut être du bonus), mais la présentation doit être cohérente et professionnelle. Relisez votre rendu et évitez les changements de style ou les trous dans le texte sans raison.
+
+<div class="next"><a href="#diapos">section suivante</a></div>
+
+</section>
+
+<section>
+<h2 id="diapos">Oral</h2>
+
+<p>Vous aurez en janvier une séance de préparation à l'oral puis l'oral lui-même. Il n'est pas demandé de préparer de diapositives.</p>
+
+<p>La soutenance orale dure 10 minutes pour l’ensemble du groupe. Ensuite, le jury posera 5 minutes de questions. Vous veillerez à ce que le temps de parole soit distribué équitablement au sein du groupe.</p>
+
+<ol>
+<li>Vous présentez d'abord le projet : contexte, objectifs.
+<li>Vous détaillez les différentes étapes de la réalisation du projet. Chaque membre du groupe présentera le travail qu'il a réalisé. Vous mentionnez les réussites, les écueils (difficultés rencontrées et solutions trouvées, les impasses). N’hésitez pas à mettre en avant une réussite dont vous êtes particulièrement fier lors de ce projet.
+<li>Enfin, vous effectuez un bilan technique et humain du projet, c'est-à-dire que vous expliquez ce que la réalisation de ce projet vous a apporté en termes de compétences et de qualités (lesquelles ont été développées, lesquelles ont été simplement renforcées ?)
+</ol>
+
+<p>Vous avez la possibilité de faire une démonstration du sité élaboré (ou tout autre démonstration qui vous semble opportune).
+
+<p>⚠ N’oubliez pas qu’il s’agit d’un exercice oral qui doit susciter l’intérêt de l’auditoire. Vous veillerez donc à ciseler votre discours de façon à le rendre éloquent.
+
+<div class="next"><a href="#aide">section suivante</a></div>
+
+</section>
+
+<section>
+<h2 id="aide">Demander et trouver de l'aide</h2>
+
+Hors des séances, vous pouvez poser vos questions par mail ou sur le canal Discord du projet (<a href="https://discord.com/channels/1013875595089809499/1013875601574207586">S106 - Projet COIN</a>), que nous essayons de regarder régulièrement.
+
+<h3>Comment poser des questions ?</h3>
+<ol>
+<li>Posez votre question dés le premier mail ou message, n'attendez pas l'autorisation (❌ "Bonjour Monsieur, puis-je vous poser une question sur le projet ?").
+<li>Si votre question porte sur du code, envoyez votre code ou donnez un lien.
+<li>Essayez d'être le plus clair possible : quelle page est concernée, quel est le nom du bloc, qu'est-ce qui ne marche pas , que voulez-vous faire... Une capture d'écran peut être utile mais ne remplace pas une explication.
+<li>Nous ne répondons pas forcément immédiatement. Plus votre question est facile à comprendre et contient les informations, plus vite vous aurez une réponse !
+</ol>
+
+<ul>
+<li> <strong>Communication</strong> : <a href="mailto:caroline.covas@universite-paris-saclay.fr">Caroline Covas</a> et <a href="mailto:jean-michel.ledjou@universite-paris-saclay.fr">Jean-Michel Ledjou</a>. </li>
+<li> <strong>Web</strong> : <a href="mailto:benjamin.hellouin-de-menibus@universite-paris-saclay.fr">Benjamin Hellouin de Menibus</a>.</li>
+</ul>
+
+<div class="next"><a href="#rendu">section suivante</a></div>
+
+</section>
+
+
+<section>
+
+<h2 id="rendu">Consignes de rendu</h2>
+
+<p><strong>Rendu du projet :</strong> jeudi 30 novembre au soir pour le site Web et le rapport (les projets sont récupérés automatiquement le lendemain matin). Vendredi 8 décembre pour le texte argumentatif sur Moodle.</p>
+
+<p>Le site et le rapport doivent être déposés sur <a href="https://webdev.iut-orsay.fr/">https://webdev.iut-orsay.fr/</a>. Vous êtes responsables de tester à l'avance la procédure de dépôt qui est indiquée là-bas et de nous signaler les problèmes par mail (avec une capture d'écran et une explication du problème). 
+
+<h3>Spécifications</h3>
+
+<p>Un des membres doit rendre le projet, les autres membres déposent une redirection automatique vers l'adresse du projet<button><div class="info"><p>Si vous n'arrivez pas à faire une redirection, mettez une page contenant un lien.</div></button>. Tous les rendus sont faits dans un sous-dossier cwac (pas de majuscules).</p>
+
+<p>Si vous avez bien fait les choses, le site ou la redirection doit être visible à l'adresse :</p>
+<pre style="text-align:center">https://webdev.iut-orsay.fr/~login/cwac</pre>
+
+<p><strong>Si cette adresse n'est pas accessible, votre rendu n'est pas fini.</strong> Ne laissez que votre rendu / redirection et pas d'anciennes versions.</p>
+
+<p>Si vous n'y arrivez pas, partagez un dossier du <a href="cloud.iut-orsay.fr/">cloud de l'IUT</a> avec nous.</p>
+
+<p>Si les consignes de rendu ne sont pas respectées, cela nous donne plus de travail, et vous serez donc pénalisés sur votre note individuelle.</p>
+
+<h3>Retards</h3>
+
+<p> Si vous rendez en retard, vous <strong>devez</strong> nous <a href="mailto:benjamin.hellouin-de-menibus@universite-paris-saclay.fr">envoyer un mail</a> pour nous prévenir, et de nouveau quand vous faites le rendu. La pénalité sont de 0.5pt par jour de retard, mais nous vous donnerons un délai gratuit et moins de pénalité si vous nous avez prévenus professionellement à l'avance.</p> 
+
+<div class="next"><a href="#notes">section suivante</a></div>
+</section>
+
+<section>
+<h2 id="notes">Critères d'évaluation</h2>
+<h3>Web (2/3 de la note finale)</h3>
+
+<table id="web">
+<tr>
+<th>Productions
+<button><div class="info">
+<p>Pour cette colonne, on note juste la présence de ce qui est demandé dans le sujet. Ca n'a pas besoin d'être très joli.
+</div></button> 
+</th><th>5</th>
+<th>Respect du cahier des charges</th><th>4</th>
+<th>Apparence / finition</th> <th> 3,25 </th>
+<th>Qualité technique</th><th>4,75</th>
+</tr>
+
+<tr>
+<td>Menu + Pied de page</td><td>1,25</td>
+<td>Spécifications générales du site <button><div class="info">Consignes diverses du sujet qui ne sont pas notées ailleurs </div></button> </td><td>0,75</td>
+<td>Finition visuelle du site 
+<button><div class="info">
+<p>Le site est lisible, l'apparence est cohérente entre les pages, les éléments sont bien alignés, il n'y a pas de trou ou d'élément qui passe sous un autre... Un travail important sur l'apparence ira en bonus.
+</div></button> 
+
+
+</td><td>1,25</td>
+<td>Qualité générale du code 
+    <button><div class="info">
+    <ul>
+        <li> <p>Bons éléments HTML (<code>&lt;address&gt;</code> pour un élément de contact, <code>&lt;h2&gt;</code> pour un sous-titre, etc.) 
+        <li> <p>Pas d'élements HTML obsolètes
+        <li> <p>Bon usage des sélecteurs CSS, pas de classes inutiles.
+        <li> <p>Pas d'utilisation excessive de <code>&lt;br&gt;</code> ou de <code>position</code> pour la mise en page.
+        <li> <p>Pas de code CSS dupliqué 
+        <li> <p>Pas de code inutile oublié.
+    </ul>    
+    </div></button> </td><td>1,25</td>
+</tr>
+
+<tr>
+<td>Site: page 1 </td><td>1,25</td>
+<td>Contenu et spécifications du rapport</td><td>2,5</td>
+<td>Identité<br>(logo, polices, couleurs) <button><div class="info">Spécifications données en page "Choix du sujet". Cela inclut le fait que la police est intégrée de la manière demandée.</div></button></td><td>1</td>
+<td>Validation W3C HTML+CSS
+
+<button><div class="info">
+<p>La validation doit être faite et le rapport doit indiquer les erreurs qu'il reste dans la version finale (éventuellement avec une courte explication).
+<p>Pensez à revalider la version finale !
+    </div></button> 
+</td> <td>1,25</td>
+</tr>
+
+<tr>
+<td>Site : page 2</td><td>1,25</td>
+<td>Consignes de rendu
+<button><div class="info">
+<p>Respectez bien les consignes de la partie "Rendu", en particulier le nom du dossier.
+<p>Attention, tous les membres du groupe ont quelque chose à faire.
+<p>Ne pas avoir deux versions du projet, je ne veux pas avoir à choisir.
+</div></button><br>(note individuelle)
+</td><td>0,75</td>
+<td>Apparence et finition du rapport
+<button><div class="info">
+<p>Apparence uniforme et propre du rapport ; pas de changement de style ou de trou sans raison. Jolie page de garde.
+</div></button> 
+</td><td>1</td>
+<td>Conception adaptative du site
+<button><div class="info"><p>Expliqué dans "Site Web - général" (point 4). <p>Il faut que le site soit utilisable sur petit écran et qu'il n'y ait pas trop d'espace vide sur grand écran. </div></button>
+</td><td>1,5</td>
+</tr>
+
+<tr>
+<td>Site : page 3</td><td>1,25</td><td></td><td></td>
+<td></td><td></td>
+<td>Projet bien rangé, formatage, choix des noms
+<button><div class="info">
+<ul>
+<li><p>Les fichiers, dossiers, classes, identifiants ont des noms clairs qui indiquent leur usage (pas <code>Image5.jpg</code>, <code>css.css</code> ou <code>class="div1"</code>).
+<li><p>Il ne reste pas de code ou de fichier inutilisé oublié.
+<li><p>Le dossier du projet est organisé (par exemple, les polices dans leur sous-dossier), tout n'est pas en vrac à la racine.
+<li><p>Le code est indenté de manière à peu près cohérente et bien rangé. On trouve facilement les parties de la page en HTML (n'hésitez pas à mettre des espaces).
+<li><p>Le code CSS est bien rangé pour qu'on voie facilement quelle partie est responsable de quoi (commentaires ou plusieurs fichiers).
+</ul>
+ </div></button>
+</td><td>0,75</td>
+</tr>
+</table>
+
+<h4> Groupes </h4>
+
+<p>Les membres du groupe pourront avoir des notes différentes si la situation le justifie (absences répétées, répartition inégale du travail). 
+
+<p>Si vous avez fait le projet seul (pour tout ou une partie), vous aurez un bonus en compensation pouvant aller jusqu'à 2,5 pts. A l'inverse, les trinômes sont notés plus sévèrement (environ -2 pts si vous avez fait le projet entier à trois), mais vous pouvez toujours avoir 20/20 avec le travail supplémentaire.
+
+<h4 id="#bonus"> Travail supplémentaire</h4>
+<p> Un rendu de bonne qualité qui respecte tout ce qui est demandé vous donnera une très bonne note. Pour des points supplémentaires, vous pouvez pousser plus loin certains aspects du sujet : améliorer encore la finition et l'apparence, faire une page en plus, ajouter un menu déroulant ou des animations CSS...
+
+<p>Nous voulons récompenser votre créativité et les aspects que vous voulez mettre en avant, mais cela ne doit pas remplacer le coeur du projet : respecter le cahier des charges.
+
+<h3>Communication (1/3 de la note)</h3>
+
+<h4>Textes (10 pts)</h4>
+
+<table id="textes">
+<tr>
+<th>Cohérence et structuration du propos</th>
+<th>Qualité des arguments</th>
+<th>Originalité du projet<br>Capacité à se démarquer</th>
+<th>Vocabulaire et style <br>adaptés à chaque cible</th>
+<th>Soin et orthographe</th>
+</tr>
+
+
+
+<tr>
+<td>2 points</td>
+<td>4 points</td>
+<td>2 points</td>
+<td>2 points</td>
+<td>+/- 1 point</td>
+</tr>
+
+</table>
+
+<h4>Oral (10 pts)</h4>
+
+
+<p>Respect du temps de parole : 1 pt</p>
+
+<table id="oral">
+<tr>
+<th>Verbal : 3 pts</th>
+<th>Non verbal : 3 pts</th>
+<th>Structure : 3 pts</th>
+</tr>
+
+<tr>
+<td><strong>Syntaxe</strong><br>correction et clarté</td>
+<td><strong>Apparence générale</strong><br>aisance physique, absence de tension, mobilité dans l'espace, confiance en soi, force de conviction </td>
+<td><strong>Construction</strong><br>cohérence du raisonnement, clarté des transitions,<br> valorisation des idées principales, fermeté de la démarche</td>
+</tr>
+
+<tr>
+<td><strong>Vocabulaire</strong><br>précision, richesse, pertinence du registre</td>
+<td><strong>Gestuelle</strong><br>absence de gestes parasites, expressivité, implication </td>
+<td><strong>Introduction</strong><br>vivacité de l'accroche, présentation claire du sujet, annonce du plan, originalité</td>
+</tr>
+
+<tr>
+<td><strong>Absence de mots parasites</strong></td>
+<td><strong>Visage</strong><br>sourire, présence, ouverture</td>
+<td><strong>Conclusion</strong><br>fermeté, originalité, choix de la chute, ouverture</td>
+</tr>
+
+<tr>
+<td><strong>Voix</strong><br>débit, clarté de l'articulation et de la prononciation, intonation</td>
+<td><strong>Regard</strong><br>franchise et mobilité, absence de lecture des notes,<br> recherche du feedback auprès des auditeurs</td>
+<td></td>
+</tr>
+
+</table>
+</section>
+</body>
+<script>
+css = "transform:";
+if (Math.floor(Math.random() * 2) == 1){css += " scale(-1, 1)";}
+css += " rotate("+Math.floor(Math.random()*360)+"deg);";    
+const coin = document.getElementsByClassName("canard")[0];
+coin.setAttribute("style", css);
+</script>
+</html>

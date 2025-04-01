@@ -1,0 +1,18 @@
+form {
+    width : 50vw;
+    margin : auto;
+    border : solid 1px black;
+    box-shadow: 10px 5px 5px black;
+}
+form div{
+    margin : 2em;
+}
+form input{
+    float : right;
+    width : 60%;
+}
+form input[type="submit"]{
+    float : right;
+    width : 40%;
+    margin-right : 30%;
+}

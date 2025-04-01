@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../../css/tp.css" />
+		<title>R1.02 - HTML / CSS - TP 4</title>
+    </head>
+	<body>
+
+		<header>
+			<h1>R1.02 - HTML / CSS - TP 4</h1>
+		</header>
+
+		<aside>
+			<p>
+				Dans ce TP vous allez tester les techniques de placement 
+				<code>float</code>, <code>flexbox</code>, et <code>grid</code>.
+				Vous rendrez ensuite vos pages <em>responsive</em>, 
+				afin qu'elles s'adaptent à trois largeurs d'écran classiques.
+			</p>
+		</aside>
+
+		<main>
+			<ol>
+
+				<!-- Exercice -->
+				<li> Mise en place
+					<ol> 
+						<li>
+							<ol>
+								<li>
+									<p>
+									Créez un répertoire <code>tp4</code>.
+									Copiez les éléments 
+									de <a href="./base.zip">base</a>
+									dans ce répertoire (fichier
+									<em>base.zip</em> à décompreser).
+									</p>
+								</li>
+								<li>
+									<p>
+									Dans <code>/styles</code>,
+									créez trois nouveaux fichiers 
+									ne contenant que la déclaration
+									d'encodage&nbsp;:
+									<code>float_101.css</code>,
+									<code>flexbox_101.css</code>,
+									et <code>grid_101.css</code>
+									</p>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+
+				<!-- Exercice -->
+				<li> Pas à pas
+					<ol> 
+						<!-- Question -->
+						<li> Float
+							<p>
+							Pour cette question, sauf indication contraire, 
+							le travail de style est à faire dans <code>float_101.css</code>
+							</p>
+							<ol>
+								<!-- Item -->
+								<li>
+									<p>
+									Dans le fichier <code>index.html</code>
+									ajoutez le lien vers le fichier 
+									<code>float_101.css</code>
+									</p>
+								</li>
+								<li>
+									<p>
+									Modification des titres principaux&nbsp;:
+									</p>
+									<ol>
+										<li>
+											<p>
+											Pour chaque titre de section,
+											remplacez la première lettre 
+											par une image
+											(voir <code>/images/alphabet</code>).
+											(éventuellement, encadrez le tout par un <code>div</code>, pour vous aider ; mais ce n'est pas indispensable).
+											Mettez en commentaire la règle qui 
+											gérait le titre	dans <code>index.css</code>
+											</p>
+										</li>
+										<li>
+											<p>
+											Décollez le titre de la gauche.
+											Encadrez l'image en doré (<em>GoldenRod</em>).
+											Positionnez l'image à gauche, 
+											avec <code>float</code>
+											</p>
+										</li>
+										<li>
+											<p>
+											Retravaillez le style de l'élément <code>h1</code>
+											en redéfinissant sa taille et le soulignement
+											(ceci remplace ce qui existait 
+											précédemment dans <code>index.css</code>)
+											</p>
+										</li>
+										<li>
+											<p>
+											Avec la même couleur dorée, 
+											ajoutez un soulignement de toute
+											la ligne de titre, en utilisant
+											une bordure basse (<code>border-bottom</code>)
+											</p>
+										</li>
+									</ol>
+								</li>
+								<!-- Item -->
+								<li>
+									<p>
+									Modification des titres secondaires&nbsp;:
+									</p>
+									<ol>
+										<li>
+											<p>
+											Pour chaque titre d'article,
+											supprimez le numéro hiérarchique 
+											(par exemple <em>"1.2"</em> dans 
+											<em>"1.2 In sed sapien"</em>)
+											et ajoutez une image 
+											(voir <code>/images/chiffres</code>)
+											indiquant son numéro simple 
+											(seulement <em>2</em> pour cet exemple)
+											<br/>
+											(<strong>Attention</strong>&nbsp;: 
+											ne rajoutez pas	de <code>div</code> 
+											cette fois-ci)
+											<br/>
+											Supprimez la règle qui gérait le titre
+											dans <code>index.css</code>
+											(utilisez les commentaires, plutot qu'une suppresion définitive)
+											</p>
+										</li>
+										<li>
+											<p>
+											Ajoutez une règle css pour 
+											encadrer l'image en doré plus foncé
+											(<em>DarkGoldenRod</em>).
+											Positionnez l'image à droite, avec <code>float</code>
+											</p>
+										</li>
+										<li>
+											<p>
+											Retravaillez le style de l'élément <code>h2</code>
+											en redéfinissant sa taille et le soulignement
+											(comme précédemment dans <code>index.css</code>)
+											</p>
+										</li>
+										<li>
+											<p>
+											Avec la même couleur, 
+											ajoutez un soulignement de toute
+											la ligne de titre, en utilisant
+											une bordure basse
+											</p>
+										</li>
+										<li>
+											<p>
+											Remarquez que cette bordure démarre trop tôt.
+											Retaillez-la en supprimant cet <em>overflow</em>.
+											(remarque&nbsp;: cela pourrait aussi servir 
+											pour les <code>h1</code>)
+											</p>
+										</li>
+									</ol>
+								</li>
+								<!-- Item -->
+								<li>
+									<p>
+									On veut tester le comportement avec des blocs float
+									de plus grande taille. Plutôt que de rechercher des 
+									images plus grandes, augmentez la taille des 
+									images précédemment ajoutées grâce au css&nbsp;:
+									Utilisez l'inspecteur de <em>Firefox</em>
+									pour faire varier la taille des images 
+									<em>à la volée</em>,
+									et observer le comportement des textes.
+									Après vous expériences, revenez 
+									à une taille raisonnable.
+									</p>
+								</li>
+								<!-- Item -->
+								<li>
+									<p>
+									On veut tester le comportement avec plusieurs blocs float 
+									en compétition. Pour cela, modifiez l'élément 
+									<code>aside</code>&nbsp;:
+									on veut obtenir un rectangle situé à gauche, 
+									sur 40% de la largeur de la page.
+									<br/>
+									De même, une fois vos tests faits, supprimez ces modifications.
+									</p>
+								</li>
+								<li>
+									<strong>Attention&nbsp;:</strong>
+									<p>
+									Vous avez supprimé deux 
+									informations du fichier	<code>index.css</code>&nbsp;:
+									le formatage des <em>h1</em> et celui des <em>h2</em>.
+									Il faut donc rajouter dans les autres pages 
+									(<em>tableau</em> et <em>formulaire</em>)
+									des liens vers le css qui contient maintenant 
+									les informations de style (<em>float_101</em>).
+									</p>
+									<p>
+									Mais ce n'est pas tout. Vous avez aussi changé 
+									la structure pour les titres, en ajoutant une 
+									image (et peut être un <code>div</code>). Il faut donc aussi 
+									répercuter ces modifications dans les autres
+									fichiers (<em>tableau.html</em>,&hellip;).
+									</p>
+								</li>
+							</ol>
+							<img style="width:60vw;display:block;margin:auto;border:2px solid black;" src="./page_index.png" />
+						</li>
+						<li> FlexBox
+							<p>
+							Pour cette question, sauf indication contraire, 
+							le travail de style est à faire dans <code>flexbox_101.css</code>
+							</p>
+							<ol>
+								<!-- Item -->
+								<li>
+									<p>
+									Nous allons tester les <code>flexbox</code> sur 
+									l'affichage d'une collection d'images 
+									(voir <code>/images/collection</code>).
+									Créez pour cela une nouvelle page 
+									<em>images.html</em>&nbsp;:
+									</p>
+									<ol>
+										<li>
+											<p>
+											Elle doit contenir la même structure de base 
+											que les autres (<em>header</em>, <em>nav</em>, 
+											<em>main</em>, <em>footer</em>, 
+											liens vers les fichiers <code>css</code>, &hellip;)
+											</p>
+										</li>
+										<li>
+											<p>
+											Elle doit s'intégrer à la navigation,
+											et ce, dans toutes les pages
+											</p>
+										</li>
+										<li>
+											<p>
+											Son <code>main</code> ne contiendra qu'une 
+											<code>section</code>, 
+											avec un bloc égrainant toutes les images&nbsp;:
+											</p>
+<pre>
+&lt;div class="album"&gt;
+	&lt;img src="./images/collection/000.webp" /&gt;
+	&lt;img src="./images/collection/001.jpeg" /&gt;
+	&lt;img src="./images/collection/002.webp" /&gt;
+	&lt;img src="./images/collection/003.jpg" /&gt;
+	&lt;img src="./images/collection/004.jpg" /&gt;
+	&lt;img src="./images/collection/005.png" /&gt;
+	&lt;img src="./images/collection/006.jpg" /&gt;
+	&lt;img src="./images/collection/007.jpg" /&gt;
+	&lt;img src="./images/collection/008.jpg" /&gt;
+	&lt;img src="./images/collection/009.webp" /&gt;
+	&lt;img src="./images/collection/010.avif" /&gt;
+	&lt;img src="./images/collection/011.jpg" /&gt;
+	&lt;img src="./images/collection/012.jpeg" /&gt;
+	&lt;img src="./images/collection/013.webp" /&gt;
+&lt;/div&gt;											</pre>
+										</li>
+									</ol>
+								</li>
+								<li>
+									<p>
+									Ajoutez dans <code>images.html</code> 
+									le lien vers <code>flexbox_101.css</code>
+									</p>
+								</li>
+
+								<li>
+									<p>
+									Dans <code>flexbox_101.css</code>, 
+									retaillez les images, en leur donnant une fine
+									bordure noire arrondie.
+									</p>
+									<p>
+									Maitrisez la taille des images, en limitant 
+									la largueur à <code>90%</code> de celle de son 
+									conteneur (le <code>div</code>)
+									et la hauteur à <code>15rem</code>
+									</p>
+									<p>
+									Faites varier la taille de la fenêtre de <em>Firefox</em>. 
+									Vérifier le bon comportement de l'album.
+									</p>
+								</li>
+								<li>
+									<p>
+									Passez l'album en mode <code>flexbox</code>
+									</p>
+								</li>
+								<li>
+									<p>
+									Evitez le débordement, en demandant à l'album 
+									de passer à la ligne lorsque ça sera nécessaire
+									</p>
+								</li>
+								<li>
+									<p>
+									Forcer l'espacement des images sur chaque ligne,
+									en demandant la répartition de la place disponible 
+									</p>
+								</li>
+								<li>
+									<p>
+									Rajoutez des séparations entre les lignes
+									</p>
+								</li>
+								<li>
+									<p>
+									Remarquez que la première et la dernière ligne
+									n'ont pas été séparées des bords haut et bas.
+									Forcez ces espacements
+									</p>
+								</li>
+								<li>
+									<p>
+									Faites varier la taille de la fenêtre de <em>Firefox</em>. 
+									Vérifier le bon comportement de l'album.
+									</p>
+								</li>
+								<li>
+									<p>
+									Retravaillez le style de l'album (bordure, fond, &hellip;)
+									pour le rendre un peu plus esthétique
+									</p>
+								</li>
+							</ol>
+							<img style="width:60vw;display:block;margin:auto;border:2px solid black;" src="./page_images.png" />
+						</li>
+						<li> Navigation responsive en flexbox
+							<p>
+								Vous avez pu constater que <code>flexbox</code>
+								aide à gérer la largeur disponible. Nous allons 
+								utiliser cela pour refaire la barre de navigation.
+							</p>
+							<ol>
+								<!-- Item -->
+								<li>
+									<p>
+									Créez un nouveau fichier <code>flexbox_101_nav.css</code>
+									dans le répertoire adéquat, 
+									contenant l'annonce de base d'encodage.
+									Ajoutez un lien vers ce <code>css</code> dans toutes les pages.
+									Désactivez la gestion de la navigation dans 
+									le fichier <code>index.css</code>
+									</p>
+									<p>
+									Dans la suite, sauf mention contraire, on travaille dans
+									<code>flexbox_101_nav.css</code>
+									</p>
+								</li>
+								<li>
+									<p>
+									
+									Réactivez le style de base de la navigation, 
+									à savoir ceux définissant&nbsp;:
+									&nbsp; &nbsp; &nbsp; <em>nav a</em>
+									&nbsp; &nbsp; &nbsp; <em>nav a.ici</em> 
+									&nbsp; &nbsp; &nbsp; <em>nav a:hover</em>
+									</p>
+								</li>
+								<li>
+									<p>
+									Nous voulons que <code>flexbox</code> gère la taille&nbsp;:
+									Dans <em>nav a</em>, retirez le	<em>bricolage</em>, 
+									à savoir&nbsp;: <br/>"<em>display : inline-block;</em>" 
+									et "<em>width : xx%;</em>",
+									puis passez en <code>flexbox</code>
+									</p>
+								</li>
+								<li>
+									<p>
+									Répartissez les liens sur la ligne
+									</p>
+								</li>
+								<li>
+									<p>
+									Testez en faisant varier la largeur 
+									de la fenêtre <em>Firefox</em>.
+									Gérez les débordements constatés
+									(rajoutez aussi les espacements nécessaires)
+									</p>
+								</li>
+								<li>
+									<p>
+									Remarquez que la navigation s'est collée au main.
+									Séparez-la un peu pour que ce soit plus propre.
+									</p>
+								</li>
+							</ol>
+							<img style="width:60vw;display:block;margin:auto;border:2px solid black;" src="./detail_nav_flexbox.00.png" />
+							<img style="width:40vw;display:block;margin:1rem auto;border:2px solid black;" src="./detail_nav_flexbox.01.png" />
+							<img style="width:20vw;display:block;margin:auto;border:2px solid black;" src="./detail_nav_flexbox.02.png" />
+						</li>
+						<li> Grid
+							<p>
+							Pour cette question, sauf indication contraire, 
+							le travail de style est à faire dans <code>grid_101.css</code>
+							</p>
+							<ol>
+								<!-- Item -->
+								<li>
+									<p>
+									Dans <code>index.html</code>,
+									nous allons utiliser un <code>grid</code> 
+									pour organiser les <code>article</code>
+									en simulant des colonnes. 
+									Cela <strong>ne nécessite pas</strong> de retoucher
+									la structure du <code>dom</code>.
+									Il suffit d'utiliser le parent des <code>article</code>
+									comme <code>container</code> naturel. Pour cela,
+									modifiez la propriété adéquate 
+									pour le faire passer en <code>grid</code>
+									</p>
+									<p>
+									Répartissez les fils en quatre colonnes de largeur
+									équivalentes
+									</p>
+								</li>
+								<li>
+									<p>
+									Nous sommes gênés par le titre et son image, 
+									qui n'entrent pas dans la logique de colonne 
+									que l'on veut appliquer.
+									Par chance, ces deux éléments sont déjà regroupés
+									dans un <code>div</code>.
+									Ciblez-le, et utilisez la propriété
+									<code>grid-column-start</code> pour gérer ce 
+									cas particulier
+									</p>
+								</li>
+								<li>
+									<p>
+									Testez en faisant varier la largeur 
+									de la fenêtre <em>Firefox</em>.
+									</p>
+									<p>
+									Clairement, autant le <code>flexbox</code> utilisé 
+									pour la navigation fait bien son travail, 
+									autant les petites colonnes 
+									deviennent désagréable à lire.
+									</p>
+									<p>
+									Utilisez les <code>mediaquery</code> pour que 
+									le nombre de colonnes soit réduit à 2
+									lorsque la largeur passe sous les 1200px,
+									puis à une seule colonne lorsque la
+									largeur passe sous les 600px.
+									</p>
+									<!-- p>
+									N'oubliez pas de gérer aussi le cas particulier
+									</p -->
+								</li>
+							</ol>
+							<img style="width:60vw;display:block;margin:auto;border:2px solid black;" src="./detail_grid.00.png" />
+							<img style="width:40vw;display:block;margin:1rem auto;border:2px solid black;" src="./detail_grid.01.png" />
+							<img style="width:20vw;display:block;margin:auto;border:2px solid black;" src="./detail_grid.02.png" />
+
+						</li>
+					</ol>
+				</li>
+
+				<!-- Validation -->
+				<li> Valider le html et le css
+				</li>
+
+			</ol>
+		</main>
+
+	</body>
+</html>

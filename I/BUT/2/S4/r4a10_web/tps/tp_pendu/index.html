@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../../css/tp.css" />
+		<title>R4A10 - TP Pendu</title>
+    </head>
+	<body>
+
+		<header>
+			<h1>R4A10 - Javascript / DOM - TP Pendu</h1>
+		</header>
+
+		<aside>
+			<p>
+Dans ce TP vous allez réaliser un jeu du pendu.
+			</p>
+		</aside>
+
+		<div class="rappel" >
+			<h2>Règles du jeu</h2>
+			<ol>
+				<li>
+L'ordinateur choisit un mot
+				</li>
+				<li>
+Il indique au joueur le nombre de lettres (représentées par des
+positions vacances : caractères <em>underscore</em>, 
+ou <em>?</em>, ou &hellip;)
+				</li>
+				<li>
+Le joueur propose une lettre
+					<ul>
+						<li>
+Si la lettre apparaît dans le mot, toutes les positions	correspondantes 
+à ses occurrences sont révélées
+						</li>
+						<li>
+Sinon le joueur perd un essai, ce qui est représenté par l'ajout d'un élément 
+au dessin du personnage pendu
+						</li>
+					</ul>
+				</li>
+				<li>
+Le joueur gagne s'il trouve le mot avant d'être pendu
+				</li>
+			</ol>
+		</div>
+
+		<main>
+
+			<ol>
+
+				<!-- Exercice -->
+				<li> Dictionnaire
+					<p>
+L'ordinateur pioche au hasard dans une liste de mots français. Ces mots 
+sont regroupés selon leur nombre de lettre. Cela pourra vous aider, par la suite,
+pour définir des niveaux de difficulté
+					</p>
+					<p>
+Vous hébergerez cette liste sur le serveur <code>webdev</code>, sur votre compte, 
+en y ajoutant un service <code>php</code> de tirage au hasard
+					</p>
+					<p>
+Dans ce premier exercice nous allons tester cela
+					</p>
+					<ol> 
+						<li> 
+							<ol>
+								<li>
+									<p>
+Le fichier <a href="./dico">dico.php</a> contient le tableau des mots par 
+longueur. récupérez ce fichier, et placez le sur votre espace personnel
+									</p>
+								</li>
+								<li>
+									<p>
+Au même endroit, définissez un script <code>proposition.php</code> qui affiche 
+un mot au hasard (un simple <code>echo</code> de la <code>string</code> 
+correspondante, sans aucune mise en forme <code>html</code>)
+									</p>
+								</li>
+								<li>
+									<p>
+Pour rendre cette fonctionnalité plus souple, permettez l'envoi de deux 
+paramètres par l'url : <code>min_char</code> et <code>max_char</code>.
+le script les récupèrera grâce à <code>$_GET</code> quand ils sont spécifiés,
+où choisira deux valeurs par défaut sinon
+									</p>
+								</li>
+								<li>
+									<p>
+Testez directement en utilisant firefox. L'<code>url</code> devrait ressembler 
+à ceci :
+<br>
+<code>https://webdev.iut-orsay.fr/~moimoimoi/mon_rep/proposition.php?min_char=7&max_char=9</code>
+									</p>
+									<p>
+Rafraichissez plusieurs fois pour vous assurer que vous obtenez des mots au 
+hasard, et que le script respecte les bornes de taille choisies
+									</p>
+								</li>
+							</ol>
+						</li>
+						<li> 
+							<ol>
+								<li>
+									<p>
+Construisez à présent un document <code>html</code>, avec deux zones de saisies
+pour les paramètres, un bouton pour déclencher l'envoi, et quatre zones 
+d'affichage (on va tester par paquets de quatre requêtes). Le résultat espéré 
+est celui-ci :
+									</p>
+									<img src="./ex1.png" />
+								</li>
+								<li>
+									<p>
+Programmez la fonction qui réagit au clic sur le bouton. Elle doit :
+									</p>
+									<ol>
+										<li>
+											<p>
+Récupérer les valeurs saisies pour les deux paramètres
+											</p>
+										</li>
+										<li>
+											<p>
+Créer la string qui  correspond à l'url (celle que l'on a testée à la main 
+au 1.1.d)
+											</p>
+										</li>
+										<li>
+											<p>
+Lancer quatre <code>fetch</code> avec cette même url, pour remplir les quatre
+espaces prévus
+											</p>
+											<p>
+<strong>Attention :</strong> lorsque <code>fetch</code> est 
+<code>fullfiled</code>, il faut:
+											</p>
+											<ol>
+												<li>
+													<p>
+en premier lieu une <code>promise</code> pour extraire la <code>string</code>
+obtenue
+<br>
+(<code>rep =&gt; rep.text()</code>)														
+													</p>
+												</li>
+												<li>
+													<p>
+puis une seconde <code>promise</code> pour placer cette information dans 
+l'élément
+<br>
+(<code>txt =&gt; { el.innerText = txt; }</code>).
+													</p>
+												</li>
+											</ol>
+										</li>
+									</ol>
+									<p>
+Remarques : 
+									</p>									
+									<ul>
+										<li>
+											<p>
+Au niveau du <code>fetch</code>, prévoir un <code>catch</code> peut vous aider 
+à débugger
+											</p>
+										</li>
+										<li>
+											<p>
+Pour que tout se passe bien, votre document <code>html</code> et votre service
+<code>php</code> doivent être tous deux sur votre espace personnel
+(on évite ainsi le problème 
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cors</a>)
+											</p>
+										</li>
+									</ul>
+									
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+
+				<!-- Exercice -->
+
+				<li> Le pendu
+					<p>
+A vous de jouer !
+					</p>
+					<img src="./ex2.png" />
+					<ol> 
+						<li> Quelques remarques
+							<ol>
+								<li>
+									<p>
+Vous pouvez utiliser des 
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face">polices embarquées</a>
+									</p>
+								</li>
+								<li>
+									<p>
+Vous pouvez dessiner <em>complètement</em> le pendu en 
+<a href="./exemple_svg.txt">svg</a>, 
+puis nommer 
+(<code>id</code>) les morceaux que vous voulez faire apparaître lors des erreurs
+(et les organiser dans une liste, par exemple)
+									</p>
+								</li>
+								<li>
+									<p>
+Vous savez déjà réagir aux frappes au clavier. Pour distinguer les commandes 
+(<em>nouvelle partie</em> et <em>abandonner partie</em>)
+vous pouvez en plus 
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/shiftKey">détecter</a>
+la touche <code>shift</code> (ou une autre si vous préférez)
+									</p>
+								</li>
+							</ol>
+						</li>
+						<li> Pour aller plus loin
+							<p>
+Si le coeur vous en dit, vous pouvez :
+							</p>	
+							<ul>
+								<li>
+									<p>
+Rajouter des commandes de configuration (pour <code>min_char</code>
+et <code>max_char</code>, par exemple)
+									</p>
+								</li>
+								<li>
+									<p>
+Saisir un nom de joueur
+									</p>
+								</li>
+								<li>
+									<p>
+Définir une table dans la base avec les joueurs, leurs mots de passe, 
+et les highscore
+									</p>
+								</li>
+								<li>
+									<p>
+Rajouter un script <code>php</code> de contrôle du mot de passe
+									</p>
+								</li>
+								<li>
+									<p>
+Rajouter un script <code>php</code> d'enregistrement du nouveau highscore
+									</p>
+								</li>
+								<li>
+									<p>
+Historiser une statistique des mots les plus durs et les plus faciles à trouver
+au fur et à mesure des parties
+									</p>
+								</li>
+								<li>
+									<p>
+Exploiter cet historique pour redéfinir les niveaux de difficulté du jeu
+									</p>
+								</li>
+							</ul>
+						</li>
+					</ol>
+				</li>
+
+			</ol>
+		</main>
+
+	</body>
+</html>

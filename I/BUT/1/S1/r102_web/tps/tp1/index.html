@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../../css/tp.css" />
+		<title>R1.02 - HTML / CSS - TP 1</title>
+    </head>
+	<body>
+
+		<header>
+			<h1>R1.02 - HTML / CSS - TP 1</h1>
+		</header>
+
+		<aside>
+			<p>
+				Dans ce TP vous allez créer votre premier document html.
+				Il contient les composants classiques d'une page standard.
+				Vous pourrez conserver sa structure de base comme point 
+				de départ les pages les plus courantes.
+			</p>
+			<p>				
+				Pour l'instant, le rendu de la page sera déterminé
+				par les choix du navigateur. Nous verrons par la suite comment 
+				utiliser le CSS pour redéfinir les fonts, les tailles, 
+				les positions, les couleurs, &hellip;
+			</p>
+			<p>
+				Chaque étape de ce TP est détaillée et ne sera plus 
+				reprise par la suite. Ce niveau de détail ne sera plus
+				utilisé par la suite. Vous devez donc solliciter 
+				l'aide du chargé de TP sans attendre, dès la première 
+				question que vous ne réussissez pas à réaliser.
+			</p>
+		</aside>
+
+		<main>
+			<ol>
+
+				<!-- Exercice -->
+				<li> Mise en place
+
+					<ol> 
+
+						<li> Création des répertoires et du fichier html
+							<ol>
+								<li>
+									<p>
+									Dans l'explorateur de fichiers de 
+									windows,	choisissez <code>ce PC</code>,
+									puis le disque <code>(Z:)</code>.
+									</p>
+								</li>
+								<li>
+									<p>
+									Créez un répertoire <code>R102-html</code>.
+									Dans ce répertoire, créez un répertoire
+									<code>tp1</code>.
+									</p>
+								</li>
+								<li>
+									<p>
+									Dans le répertoire <code>tp1</code>, 
+									ajoutez un nouveau fichier&nbsp;:
+									<em>clic-droit &gt; Nouveau &gt; Document texte</em>
+									</p>
+								</li>
+								<li>
+									<p>
+									Renommez le fichier créé pour l'appeler 
+									<code>index.html</code> 
+									</p>
+									<p>
+									Vous devez donc enlever l'extension 
+									<code>.txt</code> que windows a rajoutée 
+									par défaut. Si votre navigateur de fichiers
+									n'affiche pas les extensions, allez dans l'onglet
+									<em>Affichage</em>, et cochez la case 
+									<em>Extensions de noms de fichiers</em>
+									</p>
+								</li>
+							</ol>	
+						</li>
+
+						<li> Configuration de Notepad++
+							<ol>
+								<li>
+									<p>
+									Toujours dans l'explorateur de fichiers,
+									associez les fichiers "<em>.html</em>"
+									avec le logiciel "<em>Notepad++</em>".
+									</p>
+									<p>
+									Pour cela, sélectionnez le fichier.
+									Ensuite, dans le menu contextuel 
+									c'est-à-dire par un <em>clic-droit</em>,
+									choisissez "<em>Propriétés</em>". 
+									Au niveau de "<em>S'ouvre avec</em>",
+									utilisez le bouton "<em>Modifier</em>".
+									Dans la fenêtre qui s'ouvre alors,
+									choisissez le logiciel <em>notepad ++</em>. 
+									</p>
+									<p>
+									Si vous ne trouvez pas le logiciel dans 
+									la liste proposée, utilisez l'option 
+									"<em>plus d'applications</em>",
+									puis éventuellement l'option 
+									"<em>Rechercher une autre application</em>".
+									Un explorateur de fichier s'ouvre alors 
+									dans le répertoire <em>Programmes</em>.
+									Vous devriez y trouver un sous-répertoire
+									<em>Notepad ++</em>, et à l'intérieur,
+									le fichier <em>notepad++.exe</em>. 
+									Sélectionnez-le.
+									</p>
+									<p>
+									<strong>Validez</strong> en appuyant
+									d'abord sur le bouton "<em>Appliquer</em>",
+									puis sur le bouton "<em>Ok</em>".
+									Vous devez alors constater que l'icône associée 
+									au fichier <code>index.html</code> a changé. 
+									Dans ce cas, tout va bien.
+									</p>
+								</li>
+								<li>
+									<p>
+									Ouvrez le fichier <code>index.html</code>
+									avec <em>Notepad++</em>. Il vous suffit à présent
+									de double-cliquer dessus.
+									</p>
+								</li>
+								<li>
+									<p>
+									Sélectionnez le menu <em>Settings</em>,
+									puis l'option <em>Préférences</em>.
+									Dans la liste à gauche, choisissez
+									<em>Auto-Completion</em>.
+									Cochez les 6 cases de la zone 
+									"<em>Auto-Insert</em>" : de celle avec 
+									une parenthèse ouvrante, jusqu'à celle 
+									qui mentionne "html/xml close tag".
+									Refermez ensuite la boîte de dialogue.
+									</p>
+								</li>
+								<li>
+									<p>
+									Testons à présent votre installation.
+									En première ligne, tapez la déclaration du doctype
+									vue en cours.
+									Puis en seconde ligne, tapez la balise 
+									ouvrante de l'élément 
+									<em>html</em>, c'est-à-dire
+									<strong>&lt;html&gt;</strong>.
+									Deux choses doivent se produire&nbsp;:
+									</p>
+									<ul>
+										<li>
+											<p>
+											Lorsque vous tapez le caractère 
+											"<strong>&gt;</strong>",
+											<em>Notepad++</em> doit compléter 
+											automatiquement, en ajoutant la balise 
+											fermante
+											<strong>&lt;/html&gt;</strong>
+											</p>
+										</li>
+										<li>
+											<p>
+											Tout doit être coloré en bleu
+											</p>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<p>
+									Si tout s'est bien passé, vous êtes prêt.
+									Sinon, demandez de l'aide au chargé de tp.
+									</p>
+									<p>
+									Vous êtes libre d'utiliser d'autres outils.
+									Mais le chargé de tp n'est pas tenu de 
+									vous fournir une assistance sur leur
+									fonctionnement.
+									</p>
+								</li>
+							</ol>	
+						</li>
+					</ol>
+
+				</li>
+
+				<!-- Exercice -->
+				<li> Structure html classique
+
+					<ol> 
+					
+						<li> Squelette
+							<p>
+							Vous êtes à présent dans <em>Notepad++</em>.
+							Le fichier <code>index.html</code> est ouvert,
+							et contient uniquement la balise <code>html</code>.
+							</p>
+							<ol>
+								<li>
+									<p>
+									Ajoutez deux fils à l'élément <code>html</code>,
+									en insérant les balises ouvrantes et fermantes 
+									<code>head</code> puis <code>body</code>
+									</p>
+								</li>
+								<li>
+									<p>
+									Ajoutez deux fils à l'élément 
+									<code>head</code>&nbsp;: 
+									<code>meta</code>, puis <code>title</code>.
+									</p><p>
+									Rappel&nbsp;: 
+									<code>meta</code> est une balise unaire
+									</p>
+								</li>
+								<li>
+									<p>
+									Ajoutez l'attribut <code>charset</code>
+									dans la balise <code>&lt;meta&gt;</code>, 
+									avec la valeur	<code>utf-8</code>
+									</p>
+								</li>
+								<li>
+									<p>
+									Ajoutez comme contenu de l'élément
+									<code>title</code>, la chaine de caractères
+									"<em>1er html</em>".
+									</p>
+								</li>
+								<li>
+									<p>
+									Ajoutez quatre fils à l'élément 
+									<code>body</code>&nbsp;:&nbsp;&nbsp;
+									<code>header</code> &nbsp;&nbsp; 
+									<code>aside</code> &nbsp;&nbsp;
+									<code>main</code> &nbsp;&nbsp;
+									<code>footer</code>
+									</p>
+								</li>
+								<li>
+									<p>
+									Attention : 
+									</p>
+									<p>
+									Dans <em>Notepad++</em>, la barre principale indiquant
+									la localisation de votre fichier débute surement
+									par un <strong>*</strong>.
+									De même, dans l'onglet, l'icône devant le nom du fichier
+									est certainement de couleur rouge.
+									</p>
+									<p>
+									Cela indique que vous n'avez pas sauvegardé.
+									C'est-à-dire que le travail fait dans 
+									<em>Notepad++</em> n'a pas été écrit sur le disque dur,
+									là où est réellement le fichier <code>index.html</code>.
+									Utilisez le raccourci <em>Ctrl+S</em>,
+									constatez que l'astérisque disparait,
+									et que l'icône passe au bleu.
+									</p>
+								</li>
+								<li>
+									<p>
+									Vérifiez que tout est bien indenté :
+									<a href="https://www.freeformatter.com/html-formatter.html">
+										ici par exemple
+									</a>.
+									</p>
+								</li>
+							</ol>	
+						</li>
+						
+						<li> Visualisation
+						
+							<ol>
+								<li>
+									<p>
+									Ouvrez le fichier <code>index.html</code>
+									avec <em>Firefox</em>. 
+									Vous pouvez procéder par <em>drag n drop</em>, 
+									à partir du navigateur (de fichier) windows,
+									vers le navigateur (internet) <em>Firefox</em>.
+									Ou bien, en ouvrant directement le fichier 
+									à partir de <em>Firefox</em>, avec le raccourci
+									<em>Ctrl+O</em>, et en recherchant le fichier
+									<code>index.html</code> sur le disque <code>Z</code>
+									dans le répertoire correspondant.
+									</p>
+								</li>
+								<li>
+									<p>
+									Pour l'heure, on obtient seulement une page blanche.
+									On pourrait croire qu'il n'y a pas de contenu.
+									</p>
+									<p>
+									Ceci dit, dans l'onglet, on voit apparaitre
+									le contenu de l'élément <code>title</code>. C'est
+									<em>Firefox</em> qui a librement décidé d'utiliser 
+									cette information de cette manière. Vous n'obtiendriez 
+									surement pas le même comportement sur un téléphone 
+									portable par exemple.
+									</p>
+									<p>
+									Il y a pourtant bien un contenu.
+									Demandez à voir le 
+									<em>code source de la page</em>,
+									avec le raccourci <em>Ctrl+U</em>.
+									Vous voyez ce que vous avez tapé dans 
+									<em>Notepad++</em>. Dans le cas contraire,
+									vous n'avez probablement pas sauvegardé.
+									</p>
+								</li>
+								<li>
+									<p>
+									<em>Firefox</em> offre <em>l'inspecteur</em>, 
+									un outil de visualisation et de manipulation 
+									du code source intéressant&nbsp;:
+									utilisez le raccourci <em>Ctrl+Shift+I</em>
+									</p>
+									<p>
+									Un onglet <em>Inspector</em> apparaît, dans lequel
+									vous voyez ce que firefox a compris en lisant 
+									le fichier.
+									</p><p>
+									Vous pouvez le modifier en live. Par exemple,
+									changez le contenu de l'élément <code>title</code>
+									et observer la conséquence sur le nom de
+									l'onglet.
+									</p>
+									<p>
+									Remarquez la structure arborescente des emboitements
+									des éléments. (si vous ne comprenez pas cette phrase,
+									consultez vos notes d'amphi)
+									</p>
+								</li>
+								<li>
+									<p>
+									<strong>Attention&nbsp;:</strong> 
+									Vous pouvez modifier la page <code>index.html</code>
+									dans l'<em>inspector</em>. C'est parfait pour faire 
+									des essais et du debug. Mais ces changements ne seront
+									pas sauvegardés dans le fichier <code>index.html</code>.
+									</p>
+									<p>
+									Faites l'essai. Modifiez quelques éléments, sauvegardez, 
+									puis utilisez la touche <em>F5</em> pour demander 
+									à <em>Firefox</em> de recharger la page 
+									(c'est-à-dire de relire le fichier sur le disque).
+									</p>
+								</li>
+							</ol>	
+						</li>
+						
+					</ol>
+				</li>
+
+				<!-- Exercice -->
+				<li> Contenu
+					<p>
+					Utilisons à nouveau <em>Notepad++</em> pour éditer 
+					(i.e. modifier) le contenu du fichier <code>index.html</code>.
+					</p>
+					<ol>
+						<li> header
+							<ol> 
+								<li>
+									<p>
+									Ajoutez trois fils à l'élément 
+									<code>header</code>&nbsp;:&nbsp;&nbsp;
+									<code>h1</code> &nbsp;&nbsp;
+									<code>h2</code> &nbsp;&nbsp;
+									<code>p</code> 
+									</p>
+								</li>
+								<li>
+									<p>
+									Dans <code>h1</code> spécifiez le titre 
+									principal&nbsp;: "<em>Premier
+									document html</em>".
+									</p>
+								</li>
+								<li>
+									<p>
+									Dans <code>h2</code> spécifiez le sous-titre&nbsp;:
+									"<em>Structure standard d'une page
+									html</em>".
+									</p>
+								</li>
+								<li>
+									<p>
+									Dans <code>p</code> revendiquez la page&nbsp;:
+									indiquez vos nom, prénom, et groupe de tp.
+									(faites une phrase&hellip;)
+									</p>
+								</li>	
+								<li>
+									<p>
+									Comme à l'exercice précédent, vérifiez l'indentation.
+									</p>
+								</li>
+								<li>
+									<p>
+									Visualisez avec <em>Firefox</em> 
+									(par exemple, en rechargeant la page avec <em>F5</em>)
+									&hellip; bien sûr, il aura fallu sauvegarder.
+									</p>
+								</li>
+							</ol>
+						</li>
+						<li> aside
+
+							<ol> 
+								<li>
+									<p>
+									Ajoutez trois fils à l'élément 
+									<code>aside</code>&nbsp;:&nbsp;&nbsp;
+									<code>img</code> &nbsp;&nbsp;
+									<code>p</code> &nbsp;&nbsp;
+									<code>p</code> 									
+									</p>
+									<p>
+									Rappel : <code>img</code> est une balise unaire.
+									</p>
+								</li>
+								<li>
+									<p>
+									Là où se trouve le fichier <em>index.html</em>,
+									créez un nouveau répertoire et appellez-le
+									<code>images</code>.
+									Téléchargez une image et sauvegardez-la dans ce
+									répertoire. 
+									(<a href="./matrix.jpg">par exemple celle-ci</a>)
+									</p>
+									<p>
+									Pour utilisez cette image, renseignez la valeur
+									de l'attribut <code>src</code> de la balise 
+									<code>img</code>.
+									</p>
+									<p>
+									Pour être en conformité avec la norme, 
+									renseignez aussi l'attribut <code>alt</code>
+									de la balise avec une description de l'image.
+									</p>
+								</li>
+								<li>
+									<p>
+									Remplissez les deux éléments <code>p</code>.
+									Par exemple "<em>Cette page est réalisée
+									en première année d'informatique,
+									à l'iut d'Orsay,
+									dans le cadre du cours R1.02</em>".
+									Et "<em>Elle constitue la pierre
+									angulaire des sciences de l'information,
+									sans qui aucune construction métapanthéorique
+									n'est sereinement envisageable par un esprit 
+									multidimentionnel sain.</em>" &hellip; 
+									ou bien deux autres paragraphes d'introduction.
+									</p>
+								</li>
+							</ol>
+						</li>
+						<li> footer
+
+							<ol> 
+								<li>
+									<p>
+									Ajoutez deux fils à l'élément 
+									<code>footer</code>&nbsp;:&nbsp;&nbsp;
+									<code>p</code> &nbsp;&nbsp;
+									<code>address</code>
+									</p>
+								</li>
+								<li>
+									<p>
+									Dans l'élément <code>p</code>, indiquez les copyright,
+									ou les mentions légales, ou toute autre information
+									technique pertinente pour ce document.
+									Par exemple	"<em>All rights reserved to 
+									Metatron, the scribe</em>".
+									</p>
+								</li>
+								<li>
+									<p>
+									Dans l'élément <code>address</code>, insérez 
+									un premier fils de type <code>p</code>,
+									qui vous servira à mentionner l'adresse postale 
+									de l'iut.
+									</p>
+									<p>
+									Ajoutez un second fils de type <code>a</code>,
+									dont le contenu affiché sera "<em>site web</em>",
+									et dont l'attribut <code>href</code> 
+									permettra d'aller vers la page d'accueil de l'iut.
+									</p>
+								</li>
+								<li>
+									<p>
+									Vérifiez l'indentation.
+									</p>
+								</li>
+								<li>
+									<p>
+									Visualisez.
+									</p>
+								</li>
+								<li>
+									<p>
+									Vérifiez que le lien mène à la page voulue.
+									</p>
+								</li>
+							</ol>
+						</li>
+						<li> main
+
+							<p>
+							Nous avons définitivement épuisé notre 
+							imagination pour procéder au remplissage 
+							du contenu. Nous allons donc recourir
+							à un outil classique pour le remplissage&nbsp;: 
+							un générateur de texte.	Utilisons par exemple 
+							<a href="https://www.lipsum.com/">
+								celui-ci
+							</a>
+							</p>
+							<ol> 
+								<li>
+									<p>
+									Ajoutez trois fils <code>section</code>
+									à l'élément <code>main</code>.
+								</li>
+								<li>
+									<p>
+									Ajoutez dans chacune de ces trois sections,
+									un fils <code>h1</code>,
+									puis deux à quatre <code>article</code>.
+									Variez la quantité d'<code>article</code>
+									selon les sections pour mieux tester les rendus.
+									</p>
+								</li>
+								<li>
+									<p>
+									Remplissez les titres avec un numéro, 
+									de 1 à 3, suivi de quelques mots.
+									</p>
+								</li>
+								<li>
+									<p>
+									Dans chaque article, débutez par un fils 
+									<code>h2</code>, puis deux à cinq <code>p</code>.
+									A nouveau, variez les quantités.
+									</p>
+								</li>
+								<li>
+									<p>
+									Utilisez pour chaque <code>h2</code> 
+									une numérotation imbriquée, 
+									c'est-à-dire <strong>le</strong> numéro 
+									du <code>h1</code> parent, 
+									suivit d'un point,
+									suivit d'un	numéro propre au <code>h2</code> 
+									(de 1 à 4).
+									Complétez le titre avec quelques mots de votre choix.
+									</p>
+								</li>
+								<li>
+									<p>
+									Remarquez que dans <em>Notepad++</em>
+									les symboles <code>+</code> à gauche,
+									à côté des numéros de ligne,
+									vous permettent de <em>replier</em>
+									le contenu d'un élément. Cela peut vous aider 
+									à voir seulement ce qui vous intéresse,
+									mais aussi à débuger l'imbrication de vos balises
+									ouvrantes et fermantes.
+									</p>
+								</li>
+								<li>
+									<p>
+									On veut garnir les éléments <code>p</code>
+									avec une phrase aléatoire.
+									<strong>Cette activité devient infernale
+									si vous la faites brutalement !</strong>
+									Nous allons donc préférer une approche 
+									quelque peu automatisée.
+									</p>
+									<ol>
+										<li>
+											<p>
+											Dans un fichier auxiliaire, copiez
+											une bonne quantité de paragraphes 
+											aléatoires, suffisante pour le nombre
+											de <code>p</code> que vous devez garnir.
+											Si vous avez utilisé le site proposé,
+											chaque paragraphe copié 
+											s'étend sur une seule ligne,
+											puis être séparé du suivant par une ligne
+											blanche.
+											</p>
+										</li>
+										<li>
+											<p>
+											Placez le curseur au début de la première
+											ligne.
+											</p>
+										</li>
+										<li>
+											<p>
+											Dans la barre des icônes de <em>Notepad++</em>,
+											appuyez sur la touche 
+											"<em>Start recording</em>"
+											</p>
+											<img src="barre_icones.png" />
+										</li>
+										<li>
+											<p>
+											Ecrivez "<code>&lt;p&gt;</code>" en
+											début de ligne.
+											</p>
+										</li>
+										<li>
+											<p>
+											Appuyer sur la touche <code>Fin</code>
+											de votre clavier pour aller en fin de ligne.
+											</p>
+										</li>
+										<li>
+											<p>
+											Ecrivez "<code>&lt;/p&gt;</code>" en
+											fin de ligne.
+											</p>
+										</li>
+										<li>
+											<p>
+											Avec les flèches du curseur de votre clavier,
+											avancez jusqu'au début de la ligne suivante
+											(en passant la ligne vide donc).
+											</p>
+										</li>
+										<li>
+											<p>
+											Dans la barre d'icônes,
+											appuyez sur la touche 
+											"<em>Stop recording</em>", 
+											juste à côté de l'icône 
+											"<em>Strat recording</em>".
+											</p>
+										</li>
+										<li>
+											<p>
+											Les actions que nous avons enregistrées 
+											débutent à un état bien précis&nbsp;:
+											<em>être au début d'une ligne "intéressante"</em>.
+											Elles ajoutent alors les balises voulues.
+											Puis reviennent dans le même état, mais 
+											pour la ligne suivante.
+											</p>
+											<p>
+											Nous pouvons donc re-jouer/re-executer
+											ces actions, avec un bon espoir de répéter
+											le comportement voulu sur des données correctes.
+											</p>
+											<p>
+											Utilisez l'icône "<em>Playback</em>", 
+											située juste après deux première.
+											</p>
+										</li>
+										<li>
+											<p>
+											Recliquez autant de fois que nécessaire,
+											ou utilisez l'icône suivante.
+											</p>
+										</li>
+										<li>
+											<p>
+											Dans le fichier <code>index.html</code>,
+											remplacez les éléments <code>p</code>
+											vide par ceux ainsi créés.
+											</p>
+										</li>
+									</ol>
+								</li>
+								<li>
+									<p>
+									Vérifiez l'indentation.
+									</p>
+								</li>
+								<li>
+									<p>
+									Visualisez.
+									</p>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+
+				<!-- Exercice -->
+				<li> Validation
+
+					<ol>
+						<li>
+							<p>
+								Validez votre document html pour garantir
+								qu'il respecte les normes actuelles, avec 
+								<a href="https://validator.w3.org/#validate_by_upload">
+									cet outil en ligne
+								</a>. Et corrigez les éventuelles erreurs
+								(mais pas nécessairement les warning).
+							</p>
+							<p>
+								Attention : ignorerez les cas suivants&nbsp;: <br/>
+								<code>Trailing slash on void elements has 
+								no effect and interacts badly with unquoted 
+								attribute values.</code>
+							</p>
+						</li>
+					</ol>
+
+				</li>
+
+			</ol>
+		</main>
+
+	</body>
+</html>

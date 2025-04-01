@@ -1,0 +1,424 @@
+/*---------------------------------------------------- */
+/*---------------------------------------------------- */
+/*---------------------------------------------------- */
+
+*{
+	margin : 0;
+	padding : 0;
+}
+
+body{
+	background-color : #999999;
+}
+
+/*---------------------------------------------------- */
+/*---------------------------------------------------- */
+/*---------------------------------------------------- */
+
+nav{
+	position         : fixed;
+	z-index          : 2;
+	top              : 2vh;
+	right            : 1vw;
+	padding          : 10px;
+	opacity          : 0.4;
+	width            : 5.5rem;
+	background-color : #ccc;
+	border-radius    : 8px;
+}
+nav ul{
+	list-style-type : none;
+	margin          : 0;
+	padding         : 0px;
+	border-right    : 3px solid #bbb;
+	overflow        : hidden;
+}
+nav li{
+	padding     : 0;
+	text-indent : 0;
+}
+nav ul li.section{
+	text-align       : right;
+	color            : black;
+	background-color : #bbb;
+}
+nav ul a{
+	display         : inline-block;
+	width           : 100%;
+	text-decoration : none;
+	color           : #ccc;
+	font-family     : sans-serif;
+	font-size       : 0.8rem;
+	color           : black;
+}
+nav:hover{
+	opacity : 0.9;
+}
+nav ul a:hover{
+	background-color : #eee;
+}
+
+/*---------------------------------------------------- */
+/*---------------------------------------------------- */
+/*---------------------------------------------------- */
+
+/* section : rien de particulier */
+
+/*---------------------------------------------------- */
+
+article{
+	height                : 99vh;
+	width                 : 100vw;
+	border-bottom : 1vh solid black;
+	font-size             : 2.2rem;
+	display               : grid;
+	grid-template-rows    : 6vh 0.1rem 1fr calc(0.5rem + 1vh);
+	grid-template-columns : 0.5rem 1fr 1.5rem;
+	column-gap            : 0rem;
+	row-gap               : 0rem;
+	grid-template-areas : 
+		".. titre_page   .."
+		".. ..           .."
+		".. contenu_page .."
+		".. ..           .."
+	;
+}
+
+article > h2{
+	grid-area     : titre_page;
+	justify-self  : start;
+	align-self    : start;
+	background    : #bbb;
+	border-radius : 5px;
+	border        : 1px solid red;
+	font-size     : 2rem;
+	padding       : 0 2rem;
+}
+
+article > div{
+	grid-area    : contenu_page;
+	justify-self : stretch;
+	align-self   : stretch;
+	background   : white;
+	border       : 1px solid green;
+	overflow     : auto;
+}
+
+/*----------------------------------------------------*/
+
+article.titre{
+	height                : 100vh;
+	width                 : 100vw;
+	font-size             : 6rem;
+	display               : grid;
+	grid-template-rows    : 0.1rem 1fr 4rem;
+	grid-template-columns : 0.5rem 1fr 1.5rem;
+	grid-template-areas : 
+		".. ..            .."
+		".. titre_section .."
+		".. pied          pied"
+	;
+	/* position: relative; */
+}
+article.titre > div{ 
+	grid-area    : titre_section;
+	justify-self : center;
+	align-self   : center;
+	background   : white;	
+	
+}
+article.titre > div > h1{
+	text-align : center;
+	font-size  : 6rem;
+	padding    : 0.2rem 5rem;
+}
+article.titre > div.pied{ 
+	grid-area    : pied;
+	justify-self : end;
+	align-self   : start;
+	background   : #ddd;	
+	/* width        : 20%; */
+}
+article.titre > div.pied > p{
+	text-align : right;
+	font-size  : 2rem;
+}
+
+/* h2{ */
+	/* font-size     : 3vw; */
+	/* background    : #bbb; */
+	/* display       : inline-block; */
+	/* padding       : 2px 2vw; */
+	/* border-radius : 5px; */
+	/* border        : 1px solid #ccc; */
+/* } */
+h3{
+	text-decoration : underline;
+	margin          : 1vh 0;
+}
+h4{
+	padding-left    : 1.5em;
+	text-decoration : underline;
+}
+
+p{
+	padding     : .5rem 1.5vw .5rem 8vw;
+	text-indent : -7vw
+}
+.centre{
+	text-align : center;
+}
+.to_right{
+	text-align : right;
+}
+.plus_petit{
+	font-size : 1.7rem;
+}
+.souligne{
+	text-decoration : underline;
+}
+
+ul{
+	padding-left : 4vw;
+}
+ul ul {
+	font-size : 2rem;
+}
+ul ol {
+	font-size : 2rem;
+}
+ul ul li p{
+	padding-bottom : 0 ;
+}
+ul ol li p{
+	padding-bottom : 0 ;
+}
+ul ul ul{
+	font-size : 1.8rem;
+}
+
+ul.masto_liste > li{
+	list-style : none;
+}
+ul.masto_liste > li p:before{
+	content : ". ";
+}
+ul.masto_liste > li p:after{
+	content : " .";
+}
+ul.masto_liste > li p{
+	text-align  : center;
+	font-size   : 4rem;
+	font-weight : bold;
+	padding     : 0 0 0.5rem 0;
+}
+
+ol {
+	padding-left : 5rem;
+}
+ol li{
+	padding : 0;
+}
+
+
+
+
+pre{
+	font-size : 1.9rem;
+}
+
+
+table.big{
+	margin          : 1rem 4vw;
+	width           : 90vw;
+	border-collapse : collapse;
+	font-size       : 2rem;
+}
+
+table.big th{
+	text-align     : center;
+	font-weight    : bold;
+	/* font-size      : 1.2rem; */
+	border-left    : 1px solid black;
+	border-top     : 1px solid black;
+	border-bottom  : 1px solid black;
+}
+table.big th:first-child {
+	border-left : none;
+}
+table.big td {
+	padding       : 0.5em;
+	border-left   : 1px solid black;
+	border-top    : 1px solid black;
+	border-bottom : 1px solid black;
+}
+table.big td:first-child {
+   text-align  : center;
+	border-left : none;
+}
+
+table.moit_moit {
+	width : 80%;
+	margin : 0 auto;
+}
+table.moit_moit tr + tr td{
+	border-top   : 1px solid black;
+}
+table.moit_moit td {
+	width : 50%;
+	padding : 0.5rem;
+}
+table.moit_moit td:first-child {
+	border-right   : 1px solid black;
+}
+
+
+.bigger_square_bracket{
+	font-size      : 1.9rem;
+	vertical-align : sub;
+}
+
+.texte_rouge{
+	color : red;
+}
+
+.texte_bleu{
+	color : blue;
+}
+
+.texte_vert{
+	color : green;
+}
+
+.texte_gris{
+	color : #999;
+}
+
+.texte_gras{
+	font-weight : bold;
+}
+
+.soulignement{
+	border-radius  : 10px;
+	border-bottom  : 1px solid black;
+	padding-bottom : 4px;
+	display        : inline-block;
+}
+
+.soulignement_vert{
+	border-radius  : 10px;
+	border-bottom  : 2px solid green;
+	padding-bottom : 4px;
+	display        : inline-block;
+}
+
+.soulignement_bleu{
+	border-radius  : 10px;
+	border-bottom  : 1px solid blue;
+	padding-bottom : 4px;
+	display        : inline-block;
+}
+
+.exemple_arborescent  {
+	font-size : 2rem;
+}
+
+.bords_bleu{
+	border-color : blue !important;
+}
+
+.bords_vert{
+	border-color : green !important;
+}
+
+.bords_noir{
+	border-color : black !important;
+}
+
+.alerte{
+	color : red !important;
+	font-weight : bold !important;
+	background-color : pink !important;
+}
+
+.noeud{
+	padding      : 5px;
+	text-align   : center;
+	border-width : 1px;
+	border-style : solid;
+	border-color : rgba(255,255,255,0);
+	margin       : 10px;	
+	padding      : 0;
+}
+
+.noeud span {
+	display             : inline-block;
+	width               : 100%;
+	border-bottom-style : solid;
+}
+
+.descendants{
+	display        : flex;
+	flex-direction : row;
+	flex-wrap      : nowrap;
+	align-items    : stretch;
+}
+
+.descendants > .noeud {
+	display   : inline-block;
+	flex-grow : 1;
+}
+
+.image_centree{
+  display      : block;
+  margin-left  : auto;
+  margin-right : auto;
+}
+
+.image_filling{
+  width           : 95%;
+  height          : 95%;
+  object-fit      : contain;
+  object-position : 50% 50%;
+}
+
+
+pre.code{
+	width : 60%;
+	float : left;
+	margin : 0.5rem;
+	border-radius : 2rem;
+	padding : 0.5rem 2rem;
+	background-color : azure;
+	font-size : 2rem;
+}
+pre.trace{
+	width : 25%;
+	float : right;
+	margin : 0.5rem;
+	border-radius : 2rem;
+	padding : 0.5rem 2rem;
+	background-color : #eee;
+	font-size : 2rem;
+}
+pre.trace + *{
+	clear : both;
+}
+/*---------------------------------------------------- */
+/*---------------------------------------------------- */
+/*---------------------------------------------------- */
+
+.bigger_square_bracket{
+	font-size : 1.9em;
+	vertical-align: sub;
+}
+.bordure{
+	border : 2px solid grey;
+	margin-bottom : 1rem;
+}
+.bloc_prefix_20{
+	display     : inline-block;
+	width       : 20rem;
+	text-indent : 0;
+}
+ 

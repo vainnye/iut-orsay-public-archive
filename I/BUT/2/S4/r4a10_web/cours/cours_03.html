@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>R4.a10 - Javascript/DOM - 03</title>
+		<link rel="stylesheet" href="../css/amphi.css">
+		<script src="../js/amphi.js"></script>
+	</head>
+	<body>
+	
+		<nav>
+			<ul id="nav_liste">
+			</ul>
+			<template id="nav_li_sec">
+				<li class="section"></li>
+			</template>
+			<template id="nav_li_part">
+				<li><a href=""></a></li>
+			</template>
+		</nav>
+				
+		<main>
+			<section>
+				<article 
+						class="titre" 
+						data-title="R4a10 - 3">
+					<div>
+						<h1>
+							Ressource 4.a10
+							<br>
+							Javascript / DOM
+							<br>
+							Cours 3
+						</h1>
+					</div>
+				</article>
+				<article 
+						class="titre" 
+						data-title="bases js">
+					<div>
+						<h1>
+							Bases du langage
+							<br>
+							(suite)
+						</h1>
+					</div>
+				</article>				
+				<article 
+						id="partie_01_01" 
+						data-title="fonctions">
+					<h2>Les fonctions : déclaration</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Déclaration classique
+								</p>
+<pre>
+function __nom__? ( ...args...? ) { ...corps...?  return...? }
+
+</pre>
+								<ul>
+									<li>
+<pre>
+function somme(x,y) { let res = x+y; return res; }										
+</pre>
+									</li>
+									<li>
+<pre>
+let adding = function (x,y) { return x+y; }
+</pre>
+									</li>
+									<li>
+<pre>
+function print_somme(x,y) { console.log(`${x}+${y}=${x+y}`); }										
+</pre>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									Paramètres par défaut 
+								</p>
+<pre>
+... ( ...args..., x=.., y=.., ... ) ...
+</pre>
+								<ul>
+									<li>
+										<p>
+											Contrairement à
+											<code>python</code>, les valeurs
+											sont regénérées à chaque appel
+											&#128524;
+										</p>
+<pre>
+function f(a,t=[]){ if(a!==undefined)t.push(a); console.log(t); }
+f(); &rarrc; []     f(1); &rarrc; [1]     f(2); &rarrc; [2]
+</pre>
+									</li>
+									<li>
+										<p>
+											Par contre <code>javascript</code> 
+											n'impose	pas que <em>tous</em> 
+											soient à la fin
+											&#128561;
+										</p>
+<pre>
+function h(x = 1, y) { console.log( [x, y] ); }
+h();   h(2);   h(4,5); 
+&rarrc; [1,undefined]   [2,undefined]   [4,5]
+</pre>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>				
+				<article 
+						id="partie_01_01b" 
+						data-title="arrow fun.">
+					<h2>Un cas particulier : arrow functions</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+Un sorte de fonction anonyme de la famille 
+<br>
+<em>"me l'emballer pas, c'est pour manger tout de suite"</em>
+(&hellip; ou presque)
+								</p>
+							</li>
+							<li>
+								<p>
+déclaration <em>inline</em>, i.e. 
+directement là où l'identifiant d'une fonction est attendu :
+<br>
+<code>( ...args...? ) =&gt; { ...corps...?  return...? }</code>
+								</p>
+							</li>
+							<li>
+								<p>
+Par exemple, la fonction <em>somme de deux termes</em> :
+<br>
+<code>(x,y)=&gt;{ return x+y; }</code> 
+								</p>
+								<p>
+attention, elle concatènerait aussi deux strings, ou &hellip;
+								</p>
+							</li>
+							<li>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">
+	il y a qq syntaxes raccourcies
+</a>
+							</li>
+						</ul>
+					</div>
+				</article>				
+				<article 
+						id="partie_01_02" 
+						data-title="callback">
+					<h2>Les fonctions : callback</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									L'opérateur <code>()</code>
+									déclenche l'évaluation 
+									d'une fonction
+								</p>
+<pre>
+console.log( ((x,y)=>{ return x+y; }) (1,2) );  &rarrc; 3
+</pre>
+							</li>
+							<li>
+								<p>
+									Une fonction est un objet
+								</p>
+								<ul>
+									<li>
+										<p>
+											Assignable à une variable,
+											à une propriété
+										</p>
+<pre>
+let plus = function (x,y){ return x+y; }
+let o    = {}; 
+o.somme  = function (x,y){ return x+y; }
+</pre>
+									</li>
+									<li>
+										<p>
+											Passable en paramètre
+											à une autre fonction
+										</p>
+<pre>
+function calcule(x,y,operation){ return operation(x,y); }
+console.log( calcule(1,2,plus) );   &rarrc; 3
+</pre>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									<code>dom</code> :
+									contexte évènementielle
+									<br>
+									&rArr; 
+									décrire la réaction à un événement : 
+									fonction (<em>callback</em>)
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>				
+				<article 
+						id="partie_01_03" 
+						data-title="promise">
+					<h2>Promises</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+But : faciliter la gestion des résultats <em>à venir</em>
+(événementiel = asynchrone)
+								</p>
+							</li>
+<pre>
+let p = new Promise( (yes,no) =&gt; {  
+  ... 
+  yes( __val_ok__ ); // prévient quand on connait enfin la réponse
+  ... 
+  no( __val_ko__ );  // prévient quand on sait que ça a raté
+  ... 
+});
+</pre>								
+							<li>
+								<p>
+Une promise est un <code>object</code>
+qui encapsule des instructions
+								</p>
+							</li>
+							<li>
+								<p>
+Une fois construite, elle part les executer dans son coin
+								</p>
+							</li>
+							<li>
+								<p>
+Pendant ce temps le code (qui a contruit la promise)
+continue à s'executer
+								</p>
+							</li>
+							<li>
+								<p>
+Comme l'exemple ne le montre pas, il peut y avoir plusieurs appels
+à <code>yes</code> et <code>no</code>
+<br>
+mais le premier à s'executer sera le seul pris en compte
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>				
+				<article>
+					<h2>Promises (suite)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+Toute promise a une méthode pour traiter l'événement 
+correspondant à la production de sa réponse 
+<code>.then()</code> 
+										</p>
+<pre>
+p.then( ( __val_ok__ ) =&gt; { ... } );
+</pre>								
+									</li>
+									<li>
+										<p>
+Elle offre aussi deux autres méthodes utilitaires	
+										</p>
+										<ul>
+											<li>
+												<p>
+<code>.catch()</code> : traitement des problèmes
+(execution de <code>no</code> ou levée d'<code>exception</code>)
+												</p>
+<pre>
+p.catch( ( __val_ko__ ) =&gt; { ... } );
+</pre>					
+												<p>
+Remarque : <code>.then()</code> a aussi une syntaxe étendue pour ça
+											</p>
+<pre>p.then( ( __val_ok__ ) =&gt; { ... } , ( __val_ko__ ) =&gt; { ... } );
+</pre>								
+											</li>
+											<li>
+												<p>
+<code>.finally()</code> : nettoyage à toujours executer 
+(<em>cloture fichier/connections, &hellip;</em>)
+
+												</p>
+<pre>
+p.finally( ( ) =&gt; { ... } );
+</pre>								
+											</li>
+										</ul>
+									</li>
+									<li>
+										<p>
+On peut chaîner les appels :
+<code>p.then().then().catch()</code>
+<br>
+en effet, ces méthodes retournent
+toujours des <code>Promise</code>
+										</p>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</article>				
+				<article 
+						id="partie_01_04" 
+						data-title="..exemple">
+					<h2>Promises : premier exemple</h2>
+					<div>
+						<p>
+							<a href="https://jsfiddle.net/avwk27ed/">
+								jsfiddle
+							</a>
+						</p>
+<pre>
+  let p = new Promise( (<span class="texte_bleu">yes</span>,<span class="texte_bleu">no</span>) =&gt; { 
+       let rep = <span class="texte_vert">prompt</span>('1+1 ?');  // <span class="texte_vert">asynchrone</span>
+       if( rep.length===1 ) <span class="texte_bleu">yes</span>(rep);
+       else                 <span class="texte_bleu">no</span>(rep);
+  }).then( (un_char) =&gt; {
+       console.log("oui, c'est moins de dix...");
+       if( un_char!=="2" ) <span class="texte_rouge">throw</span> new Exception( "niet" );
+       console.log(" et c'est bien 2");
+  }).catch( (aucune_chance) =&gt; {
+       console.log(" mais non.");
+  }).finally( () =&gt; {
+       console.log("merci pour votre participation.");
+  })
+</pre>					
+					</div>
+				</article>				
+				<article 
+						id="partie_01_05" 
+						data-title="..fetch">
+					<h2>Promises : second exemple</h2>
+					<div>
+						<p>
+							Incorporées dans les bibliothèques modernes
+							<a href="https://jsfiddle.net/od2t9jce/">
+								fetch
+							</a>
+						</p>
+<pre>
+  const url = 'https://jsonplaceholder.typicode.com/users/1';
+  fetch( 
+      url 
+  ).then(
+      response => response.json()
+  ).then(
+      json => {
+      document.getElementById("ze_nom").innerText = json.name;
+  });
+  
+  //ayant qqpart dans le dom:
+  &lt;p&gt; first user is : &lt;span id="ze_nom"&gt;...&lt;/span&gt; &lt;/p&gt;  
+</pre>					
+					</div>
+				</article>				
+				<article 
+						id="partie_01_06" 
+						data-title="..concurrence">
+					<h2>Promises : concurrence</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Asynchrone = plusieurs exécutions
+									en (pseudo-)parallèle
+								</p>
+							</li>
+							<li>
+								<p>
+									Plusieurs utilitaires 
+									pour les gérer :
+								</p>
+								<ul>
+									<li>
+										<p>
+											<code>Promise.all( _liste_de_promises_ )</code>
+											<br>
+											les exécute toutes
+											<br>
+											retourne la liste des réponses
+											<br>
+											échoue dès qu'au moins 
+											une échoue
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>Promise.race( _liste_de_promises_ )</code>
+											<br>
+											les exécute toutes
+											<br>											
+											retourne première 
+											qui s'arrête 
+											(<code>settle</code>)
+											<br>
+											réussit ou échoue selon
+											ce que fait cette 
+											<em>première</em> promise
+										</p>
+									</li>
+									<li>
+										<p>
+											<code>Promise.any( _liste_de_promises_ )</code>
+											<br>
+											les exécute toutes
+											<br>
+											retourne la première réponse 
+											(<code>fullfil</code>)
+											<br>
+											échoue quand 
+											<strong>toutes</strong>
+											échouent (<code>reject</code>)
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									Remarque : on peut/doit
+									chaîner sur ces méthodes
+									pour traiter les résultats
+								</p>
+							</li>
+							<li>
+								<p>
+									En cas de besoin,
+									un point de départ <em>artificiel</em>
+									pour chaîner :
+									<code>Promise.resolve()</code>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>				
+				<article 
+						id="partie_01_07" 
+						data-title="..execution">
+					<h2>Promises : exécution</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									L'exécution de la 
+									<code>callback</code>
+									principale démarre 
+									immédiatement
+									(<code>synchrone</code>)
+								</p>
+							</li>
+							<li>
+								<p>
+									Mais, on peut par exemple
+									vouloir <em>créer</em>
+									des promises pour 
+									<em>plus tard</em>
+								</p>
+							</li>
+							<li>
+								<p>
+									Une possibilité : 
+									emballer la <code>promise</code>
+									dans une <code>callback</code>
+									(<em>creational pattern</em>)
+								</p>
+<pre>
+...
+function usine( ... ){ ... return new Promise( ... ); }
+//pour l'instant, aucune <code>promise</code> n'existe
+// &rArr; donc aucune <code>callback</code> n'a démarré
+...
+...
+...
+usine( ... ); //maintenant, on démarre
+...
+</pre>
+								<p>
+									<a href="https://jsfiddle.net/f1nhyobr/1">
+										exemple
+									</a>
+								</p>
+<!-- pre>
+console.log("---creation a la main");
+
+let p1 = new Promise((yes,no) =&gt; { console.log( `p(1)` ); yes(1); });
+let p2 = new Promise((yes,no) =&gt; { console.log( `p(2)` ); yes(2); });
+Promise.all( [ 
+	new Promise((yes,no) =&gt; { console.log( `!!p(0)!!` ); yes(0); }), 
+  p1,
+  p2,
+]).then( 
+	reps =&gt; console.log( `then ${reps}` )
+)
+
+console.log("---creation emballee");
+
+function usine(val){ 
+	return new Promise( (yes,no) =&gt; {
+  	console.log( `p(${val})` );
+    yes(val);
+  }); 
+}
+
+Promise.all( [ 
+	new Promise((yes,no) =&gt; { console.log( `!!p(0)!!` ); yes(0); }), 
+  usine(1), 
+  usine(2) 
+]).then( 
+	reps =&gt; console.log( `then ${reps}` )
+)
+
+console.log("---fin");
+
+///trace
+"---creation a la main"
+"p(1)"
+"p(2)"
+"!!p(0)!!"
+"---creation emballee"
+"!!p(0)!!"
+"p(1)"
+"p(2)"
+"---fin"
+"then 0,1,2"
+"then 0,1,2"
+</pre -->								
+							</li>
+						</ul>
+					</div>
+				</article>
+			</section>
+
+			<section>
+				<article 
+						class="titre" 
+						data-title="application"
+						>
+					<div>
+						<!--h1>Compléments pour TP3</h1-->
+						<h1>Application</h1>
+					</div>
+				</article>
+				
+				<article 
+						id="partie_02_01" 
+						data-title="cinématiques">
+					<h2>Rappel Cinématiques <code>css</code></h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition">
+										<code>transition</code>
+									</a>
+								</p>
+								<ul>
+									<li>
+										<p>
+											Déclenchée 
+											par un changement de valeur 
+											pour 
+											la/les propriété(s)
+											<code>css</code>
+											choisie(s)
+										</p>
+									</li>
+									<li>
+										<p>
+											Exécutée une fois
+										</p>
+									</li>
+									<li>
+										<p>
+											&rarr; Passage progressif
+											de la valeur de départ 
+											à la valeur d'arrivée
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<p>
+									<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation">
+										<code>animation</code>
+									</a>
+								</p>
+									<ul>
+										<li>
+											<p>
+												Scène prédéfinie
+												(une ou plusieurs propriétés
+												évoluent progressivement)
+											</p>
+										</li>
+										<li>
+											<p>
+												Associée à une règle css
+												(le plus souvent une <code>class</code>)
+											</p>
+										</li>
+										<li>
+											<p>
+												Jouée une ou plusieurs fois
+											</p>
+										</li>
+									</ul>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_02_02" 
+						data-title="..script">
+					<h2>Cinématiques et script</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									Evénement associé qui nous intéresse : 
+									<code>animationend</code>
+								</p>
+							</li>
+							<li>
+								<p>
+									&rarr; Décrire une 
+									<span class="texte_vert">réaction</span>
+									après une <code>animation</code>
+									sur un <code>element</code> :
+								</p>
+<pre>
+_el_.addEventListener("animationend", <span class="texte_vert">_cb_</span> );
+</pre>
+							</li>
+							<li>
+								<p>
+									&#9888; Il faut ensuite se
+									retirer des <code>listener</code>
+								</p>
+<pre>
+_el_.removeEventListener("animationend", <span class="texte_vert">_cb_</span> );
+</pre>
+								<p>
+									pour cela il faut mentionner
+									<em>la même</em>
+									<span class="texte_vert"><code>_cb_</code></span>
+									(&rArr;éviter d'utiliser une 
+									<code>Arrow function</code>)
+								</p>
+							</li>
+							<li>
+								<p>
+									Réagir entre chaque itération 
+									d'une <code>animation</code>
+									<br>	
+									ou relancer une même
+									<code>animation</code>
+									peut nécessiter des astuces
+									<br>
+									(on traitera le problème en tp)
+								</p>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+						id="partie_02_03" 
+						data-title="..exemple">
+					<h2>
+						Exemple <code>transition</code> :
+						<a href="https://jsfiddle.net/4emosrbu/5/">
+							HighScores
+						</a>
+					</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									<code>html</code>
+								</p>
+<pre>
+&lt;table class="highscores"&gt;
+
+  &lt;caption&gt;HIGHSCORES&lt;/caption&gt;
+
+  &lt;thead&gt;
+    &lt;tr&gt; &lt;th&gt;Tag&lt;/th&gt; &lt;th&gt;Lvl&lt;/th&gt; &lt;/tr&gt	;
+  &lt;/thead&gt;
+
+  &lt;tbody&gt;
+    &lt;tr&gt; &lt;td class="tag"&gt;&lt;/td&gt; &lt;td class="lvl"&gt;&lt;/td&gt; &lt;/tr&gt;
+    &lt;tr&gt; &lt;td class="tag"&gt;&lt;/td&gt; &lt;td class="lvl"&gt;&lt;/td&gt; &lt;/tr&gt;
+    &lt;tr&gt; &lt;td class="tag"&gt;&lt;/td&gt; &lt;td class="lvl"&gt;&lt;/td&gt; &lt;/tr&gt;
+  &lt;/tbody&gt;
+
+&lt;/table&gt;
+</pre>								
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+
+						>
+					<h2>Highscores (suite)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									<code>css</code>
+								</p>
+<pre>
+table.highscores{ width : 18rem;  text-align : center; }
+
+table.highscores caption{ border : 1px solid black;  border-radius : 1rem; }
+table.highscores th{ font-size : 2rem;  border-bottom : 1px solid black; }
+table.highscores td{ font-size : 1.5rem; overflow  : hidden; }
+
+table.highscores td span.too_high{ /*position de départ*/
+   transform  : translateY(-100%);
+   transition : 0.7s;
+}
+table.highscores td span{ /*position normale*/
+   transform   : translateY(0%);
+   display     : inline-block;
+   /*transition  : 0.7s;*/	
+}
+</pre>
+							</li>
+						</ul>
+					</div>
+				</article>
+				<article 
+
+						>
+					<h2>Highscores (suite)</h2>
+					<div>
+						<ul>
+							<li>
+								<p>
+									<code>script</code>
+								</p>
+<pre>
+const HIGHSCORES = [ { 'tag':'MAX', 'lvl':'98' }, { 'tag':'JOE', 'lvl':'95' }, { 'tag':'DOH', 'lvl':'01' } ];
+const tds_tag = document.querySelectorAll('tr .tag'); const tds_lvl = document.querySelectorAll('tr .lvl');
+
+let animations   = Promise.resolve();
+for (const [idx, { tag, lvl } ] of HIGHSCORES.entries()) {
+   animations    = char_par_char( animations, tag, tds_tag[idx] );
+   animations    = char_par_char( animations, lvl, tds_lvl[idx] );
+}
+
+function char_par_char( anims, str, el ){
+   for( let ze_char of str.split('') ){
+      let span=document.createElement('span'); span.textContent=ze_char; span.classList.add('too_high'); el.appendChild( span );
+      anims = anims.then( val => new Promise( (yes,no) => {
+         setTimeout( ()=>{ span.classList.remove('too_high'); yes(); }, 300 );
+      }));   
+   }
+   return anims; 
+}</pre>
+							</li>
+						</ul>
+					</div>
+				</article>
+
+
+				
+			</section>
+			
+		</main>
+		<script> load() </script>		
+  </body>
+</html>

@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../../css/tp.css" />
+		<title>R1.02 - HTML / CSS - TP 3</title>
+    </head>
+	<body>
+
+		<header>
+			<h1>R1.02 - HTML / CSS - TP 3</h1>
+		</header>
+
+		<aside>
+			<p>
+				Dans ce TP vous allez créer deux nouvelles pages&nbsp;:
+				une contenant un tableau, et une contenant un formulaire.
+				Ces pages seront ensuite articulées avec celle 
+				réalisée lors des tps précédents
+				par l'ajout d'une navigation.
+			</p>
+		</aside>
+
+		<main>
+			<ol>
+
+				<!-- Exercice -->
+				<li> Mise en place
+					<ol> 
+
+						<li> Historisation
+							<ol>
+								<li>
+									<p>
+									Dans l'explorateur de fichiers de 
+									windows, recopiez le répertoire
+									créé lors du tp précédent,
+									puis renommer le <code>tp3</code>.
+									</p>
+								</li>
+								<li>
+									<p>
+									Vérifiez bien que ce nouveau répertoire
+									contient une copie de votre fichier
+									<code>index.html</code>, ainsi que des 
+									sous-répertoires et de leurs contenus.
+									</p>
+								</li>
+							</ol>
+						</li>
+
+						<li> Création des deux nouvelles pages
+							<ol>
+								<li>
+									<p>
+									Créez un fichier <code>tableau.html</code>
+									et un fichier <code>formulaire.html</code>
+									au même niveau que le fichier <code>index.html</code>
+									(c'est-à-dire dans le même répertoire).
+									</p>
+								</li>
+								<li>
+									<p>
+									Dans chacun de ces fichiers, 
+									placez la structure de base d'une page html&nbsp;:
+									en premier la balise <code>doctype</code>, 
+									puis l'élément <code>html</code>
+									avec ses deux fils, <code>head</code> et 
+									<code>body</code>.
+									</p>
+								</li>
+								<li>
+									<p>
+									Dans l'élément <code>head</code>, conservez 
+									l'indication d'encodage du fichier et le 
+									lien relatif vers la feuille css. 
+									Adaptez le <code>title</code>.
+									</p>
+								</li>
+								<li>
+									<p>
+									Dans l'élément <code>body</code>, conservez 
+									les fils <code>header</code> et <code>footer</code>,
+									avec leurs contenus.
+									</p>
+									<p>
+									Conservez aussi le fils <code>main</code>, mais 
+									en réduisant son contenu pour ne garder 
+									qu'une seule <code>section</code>, 
+									avec un titre <code>h1</code>
+									et un seul <code>article</code>. 
+									</p>
+									<p>
+									Adaptez le titre dans chaque fichier.
+									</p>
+								</li>
+								<li>
+									Vous avez à présent <strong>deux</strong> fichiers 
+									avec la structure html de base en place. 
+									Validez-les. Visualisez-les. (Il sera peut-être 
+									plus pratique d'avoir un onglet <em>Firefox</em>
+									pour chaque page).
+								</li>
+							</ol>
+						</li>
+
+					</ol>
+				</li>
+
+				<!-- Exercice -->
+				<li> Tableau
+					<p>
+						Dans la suite, pour remplir le contenu 
+						affichable,	vous pouvez utiliser votre 
+						imagination	ou du 
+						<a href="https://www.lipsum.com/">Lorem Ipsum</a>
+						(extrayant au besoin, des phrases ou seulement
+						des mots).
+						Ceci dit, un remplissage habile des cases
+						avec une numérotation explicite
+						peut vous aider à visualiser et débuguer 
+						(<a href="#tableau_preview">exemple</a>).
+					</p>
+					<ol> 
+						<!-- Question -->
+						<li> Base de la structure HTML
+							<ol>
+								<!-- Item -->
+								<li>
+									<p>
+										Dans le fichier <code>tableau.html</code>,
+										ajoutez un fils <code>table</code>
+										à l'élément <code>article</code>. 
+									</p>
+								</li>
+								<!-- Item -->
+								<li>
+									<p>
+										Ajouter, dans l'ordre requis,
+										les quatre fils prévus en <em>html</em>
+										pour un élément <code>table</code>.
+									</p>
+								</li>
+								<!-- Item -->
+								<li>
+									<p>
+										Le corps du tableau sera 
+										constitué du numéro de ligne, 
+										suivi de 7 "vraies" données.
+										Il faudra donc 8 colonnes 
+										pour une ligne standard.
+									</p>
+									<p>
+										Rajoutez 15 lignes sur ce modèle,
+										pour constituer le corps du tableau.
+									</p>
+									<p>
+										Remarque : Ne gaspillez pas inutilement 
+										votre temps. Des copier/coller et 
+										des remplacements habiles accélèreront 
+										le processus.	
+									</p>
+								</li>
+								<!-- Item -->
+								<li>
+									<p>
+										Nous allons utiliser le pied du tableau 
+										pour ajouter une ligne qui contiendra
+										des agrégations par colonnes.
+										Dans un cas réel, cela pourrait être par exemple 
+										la somme ou la moyenne sur une colonne. 
+									</p>
+									<p>
+										Pour cet excercice, vous remplirez librement 
+										les 7 cases correspondantes aux colonnes 
+										des données.
+									</p>
+									<p>
+										La case située dans la colonne correspondante 
+										aux numéros de ligne sera utilisée 
+										pour annoncer les agrégations.
+									</p>
+								</li>
+								<!-- Item -->
+								<li>
+									<p>
+										Au niveau de l'entête, nous allons placer 
+										les noms des colonnes.
+									</p>
+									<p>
+										La première case restera vide, 
+										car nous avons	décidé d'utiliser 
+										cette colonne pour les numéros de ligne, 
+										et le titre des agrégations.
+									</p>
+									<p>
+										Pour les colonnes des données, nous allons étoffer
+										en créant des noms structurés sur deux lignes.
+									</p>
+								</li>
+							</ol>
+						</li>
+						<li> Quelques fusions de cases en plus
+							<p>
+							Comme présenté dans la 
+							<a href="#tableau_preview">capture d'écran</a>,
+							nous allons aussi utiliser la fusion 
+							de lignes ou/et de colonnes,
+							pour les titres, et pour les données.
+							Pensez à adapter les contenus affichés 
+							pour faciliter le debug.
+							</p>
+							<p>
+							Attention&nbsp;: dans ce qui suit, les numéros
+							de colonne mentionnés ne tiennent pas compte 
+							de la colonne contenant les numéros de ligne.
+							</p>
+							<ol>
+								<li>
+									<p> 
+										Au niveau des <strong>titres</strong>&nbsp;:
+										<ol>
+											<li>
+												Sur la première ligne fusionnez 
+												les cases des colonnes 2 et 3
+											</li>
+											<li>
+												De même, fusionnez celles 
+												des colonnes 6 et 7 
+												(les deux dernières donc)
+											</li>
+											<li> 
+												Sur la seconde ligne, 
+												fusionnez les cases des colonnes 
+												4 et 5
+											</li>
+										</ol>
+									</p>
+								</li>
+								<li>
+									<p>
+										Au niveau des <strong>numéros de lignes</strong>,
+										fusionnez les cases&nbsp;:
+										<ol>
+											<li>lignes 4 et 5</li>
+											<li>lignes 8, 9 et 10</li>
+											<li>lignes 13 et 14</li>
+										</ol>
+									</p>
+								</li>
+								<li>
+									<p>
+										Enfin pour ce qui correspond aux
+										<strong>données</strong>,
+										fusionnez&nbsp;:
+										<ol>
+											<li>
+												ligne 2, 
+												les cases des colonnes 4 et 5
+											</li>
+											<li>
+												ligne 4/5, 
+												les deux cases de la colonne 2
+											</li>
+											<li>
+												ligne 8/9/10, 
+												les six cases des colonnes 4 et 5
+											</li>
+											<li>
+												ligne 13/14, 
+												les quatre cases des colonnes 6 et 7
+											</li>
+										</ol>
+									</p>
+								</li>
+							</ol>
+						</li>
+						<!-- Question -->
+						<li> Habillage
+							<p>
+								L'objectif principal est de rendre le tableau 
+								plus lisible. Cela nous aidera en particulier
+								à vérifier que nous avons bien créé la 
+								structure voulue.
+								L'esthétique des couleurs sera l'affaire 
+								de la charte de l'entreprise et de son graphiste.
+							</p>
+							<ol>
+								<!-- Item -->
+								<li> premier debug
+									<ol>
+									<li>
+										<p>
+										Ajoutez brutalement une
+										bordure et un léger padding à 
+										<em>toutes</em> les cases
+										</p>
+									</li>
+									<li>
+										<p>
+										Vérifiez à l'oeil que l'affichage 
+										correspond à la structure imaginée, 
+										et	corrigez les erreurs
+										</p>
+									</li>
+									<li>
+										<p>
+										Enlevez ces vilaines bordures
+										</p>
+									</li>
+									</ol>
+								</li>
+								<!-- Item -->
+								<li>
+									<p>
+										Donnez un style bien distinguable aux noms
+										de colonnes, ainsi qu'à l'annonce des
+										agrégations. Par exemple&nbsp;:
+									</p>
+									<pre>
+	background  : black;
+	color       : white;
+	font-weight : bold;
+</pre>
+								</li>
+								<li>
+									<p>
+										Choisissez un style à part pour les 
+										cases des agrégations
+									</p>
+								</li>
+								<li>
+									<p>
+										Choisissez deux styles pas trop agressifs
+										pour les lignes du corps, et alternez-les.
+										(qqchose avec <code>odd</code> et <code>even</code>
+										&hellip;)
+									</p>
+								</li>
+								<li>
+									<p>
+										Differenciez les numeros de lignes du reste
+										de la ligne (en les passant en gras 
+										par exemple).
+									</p>
+								</li>
+								<li>
+									<p>
+										Les alternances ne collent pas bien avec
+										les fusions de cases, et c'est plutôt 
+										logique.
+									</p>
+									<p>
+										Choisissez des styles particuliers pour
+										les cases résultantes de fusions.
+										(des selecteurs tenant compte des attributs
+										de fusion seront les bienvenus)
+									</p>
+								</li>
+								<li>
+									<p>
+										Centrez les contenus des cases (horizontalement
+										et verticalement)
+									</p>
+								</li>
+								<li>
+									<p>
+										Placez le <code>caption</code> en bas du tableau, 
+										avec une écriture différenciée.
+									</p>
+								</li>
+								<li>
+									<p>
+										Centrez horizontalement le tableau dans
+										la page (c'est-à-dire avec le même espacement 
+										à sa gauche et à sa droite ; 
+										faites une recherche sur <code>margin auto</code>)
+									</p>
+								</li>
+							</ol>
+						</li>
+					</ol>
+					<img id="tableau_preview" style="display:block; margin:0 auto;" src="tableau.png" alt="tableau" />
+				</li>
+
+				<!-- Exercice -->
+				<li> Formulaire
+					<p>
+						Notre formulaire a pour but d'explorer 
+						les principaux outils à notre disposition.
+						Il va simuler un ajout de fichier.
+						Rien ne va réellement se produire, puisque 
+						nous n'implémentons pas le côté serveur.
+						Cependant, nous allons tout de même 
+						tester ce que le serveur comprend de notre requête.
+					</p>
+					<ol> 
+						<!-- Question -->
+						<li> Structure HTML
+							<ol>
+								<!-- Item -->
+								<li>
+									<p>
+										Dans le fichier <em>formulaire.html</em>,
+										ajoutez un fils <code>form</code>
+										à l'élément <code>article</code>. 
+									</p>
+									<p>
+										Renseignez l'attribut <code>action</code>
+										avec l'url 
+										<code>https://webdev.iut-orsay.fr/r102/tests/formulaire/test_formulaire.php</code>
+										Celle-ci contient un script côté serveur 
+										qui annoncera ce qui a été reçu.
+									</p>
+									<p>
+										Utilisez la méthode <code>post</code> pour
+										l'envoi, puisqu'on prévoit d'envoyer un
+										fichier.
+									</p>
+									<p>
+										Rajoutez deux fils <code>input</code>,
+										l'un du <code>type</code> adéquat pour 
+										provoquer l'envoi, et l'autre pour la 
+										réinitialisation.
+									</p>
+								</li>									
+									<p>
+										Nous allons à présent garnir le formulaire,
+										en ajoutant des éléments entre la balise
+										d'ouvrante de l'élément <code>form</code>,
+										et les deux boutons précédents,
+										de façon à maintenir ces boutons à la fin
+										du formulaire.
+									</p>
+								<!-- Item -->
+								<li>
+									<p>
+										Ajoutez une première paire d'éléments
+										<code>label</code> et <code>input</code>
+										pour permettre la saisie du nom de 
+										la personne qui utilise le formulaire.
+										le paramètre envoyé devra s'appeler
+										<em>nom_utilisateur</em>
+									</p>
+									<p>
+										Pour les besoins didactiques de l'exercice,
+										utilisez un identifiant html différent,
+										par exemple <em>u_name</em>
+									</p>
+									<p>
+										Combiner l'exploitation de l'élément
+										<code>label</code> et de l'attribut 
+										<code>placeholder</code>
+										afin d'aiguiller la saisie de 
+										l'utilisateur&nbsp;: indiquez par 
+										exemple <em>Utilisateur</em> dans
+										le premier et <em>nom</em> dans le second
+									</p>
+									<p>
+										Testez l'envoi : vérifiez que le bon nom
+										de paramètre et la bonne valeur sont
+										reçus
+									</p>
+								</li>
+								<li>
+									<p>
+										Suivant la même logique,
+										ajoutez une paire <code>label</code> /
+										<code>input</code> pour permettre la
+										saisie du prénom
+									</p>
+								</li>
+								<li>
+									<p>
+										Ajoutez une paire <code>label</code> /
+										<code>input</code> pour permettre la
+										saisie du mot de passe
+									</p>
+								</li>
+								<li>
+									<p>
+										Ajoutez une paire <code>label</code> /
+										<code>input</code> pour permettre la
+										saisie d'un nom de sauvegarde pour le
+										document, au format suivant&nbsp;:
+										2 lettres majuscules, suivies de 3 chiffres,
+										puis de 2 lettres minuscules, 
+										puis de 3 chiffres,
+										et n'acceptant comme extension 
+										que <em>.pdf</em> ou <em>.csv</em>
+									</p>
+								</li>
+								<li>
+									<p>
+										Ajoutez une paire <code>label</code> /
+										<code>input</code> pour permettre la
+										saisie du type de document
+									</p>
+									<p>
+										Pour ce champ, permettez une complétion, 
+										par <code>datalist</code>
+										avec les choix suivants&nbsp;:
+										"comptable payé", "comptable à payer",
+										"technique informatique",
+										"technique mécanique",
+										"marketing mensonger",
+										"marketing nocif",
+										"syndical",
+										"top secret",
+										"top inutile"
+									</p>
+								</li>
+								<li>
+									<p>
+										Ajoutez une paire <code>label</code> /
+										<code>input</code> avec le type dédié
+										pour permettre la saisie de la date de
+										dernière mise à jour du document soumis
+									</p>
+								</li>
+								<li>
+									<p>
+										Ajoutez une paire <code>label</code> /
+										<code>input</code> avec le type dédié
+										pour permettre la saisie du numéro de 
+										version (un entier entre 1 et 20)
+									</p>
+								</li>
+								<li>
+									<p>
+										Ajoutez une paire <code>label</code> /
+										<code>input</code> 
+										pour permettre la saisie du fichier.
+										Filtrez les fichiers pour ne 
+										proposer que ceux des types
+										autorisés
+									</p>
+								</li>
+								<li>
+									<p>
+										Tout de suite après la zone de saisie,
+										ajoutez une paire <code>label</code> /
+										<code>input</code> avec une checkbox
+										de confirmation,
+										en inversant l'ordre de façon à ce que
+										la checkbox apparaisse d'abord et le label 
+										ensuite
+									</p>
+								</li>
+
+								<li>
+									<p>
+										Ajoutez un choix par radio bouton pour
+										le niveau d'urgence parmi :
+										"top priorité", "ça va", "procrastinable".
+										Encadrez avec un <code>fieldset</code>
+									</p>
+								</li>
+								<li>
+									<p>
+										Ajoutez une paire <code>label</code> /
+										<code>input</code> avec un bouton à 
+										coulisse	pour permettre d'indiquer 
+										le degré de confiance 
+										dans la procédure (entre 1 et 100)
+									</p>
+								</li>
+								<li>
+									<p>
+										Ajoutez une paire <code>label</code> /
+										<code>input</code> pour choisir dans 
+										un menu déroulant parmi : 
+										"merci", "super", "bravo"
+									</p>
+								</li>
+								<li>
+									<p>
+										Ajoutez enfin un champ caché, pour 
+										permettre le pistage de l'utilisateur.
+										Il envera un paramètre nommé
+										<em>je_te_connais</em> de valeur
+										<em>ton_numero_est_24254</em>
+									</p>
+								</li>
+							</ol>
+						</li>
+						<!-- Question -->
+						<li> Habillage en CSS
+							<p>
+								On veut obtenir la mise en page ci-dessous,
+								en <em>bricolant</em> un peu les positionnements,
+								mais sans modifier la structure html.
+								(on ne vous demande pas un positionnement
+								<em>propre</em>, ce sera l'objet d'un prochain
+								sujet de tp).
+							</p>
+							<img src="formulaire.png" />
+							<p>
+								Voici quelques guides pour vous aider.
+							</p>
+							<ol>
+								<!-- Item -->
+								<li>
+									<p>
+										Au niveau des polices, il semble que tous
+										les labels soient en gras, sauf ceux des
+										radiobox (dans le
+										<code>fieldset</code> &hellip;).
+										La légende du <code>fieldset</code>
+										et les deux boutons 
+										semblent aussi être en gras
+									</p>
+								</li>
+								<!-- Item -->
+								<li>
+									<p>
+										Le formulaire a une couleur de fond.
+										La légende du fieldset et le champ
+										de saisie du fichier ont un fond un 
+										peu plus accentué
+									</p>
+								</li>
+								<!-- Item -->
+								<li>
+									<p>
+										Tous les angles sont arrondis.
+										Seul le fieldset et les deux boutons 
+										finaux ont une bordure
+										(plus accentuée pour les boutons)
+									</p>
+								</li>
+								<li>
+									<p>
+										Pour obtenir les alignements,
+										vous pouvez jouer sur 
+										des pourcentages de width et de margin-left, 
+										de façon à forcer périodiquement 
+										des passages à la ligne.
+										Cela signifie qu'il faut 
+										être dans un flot similaire à celui de 
+										l'écriture ; pensez à la valeur 
+										<code>inline-block</code>.
+										(c'est ce genre de technique
+										de positionnement n'est pas
+										très <em>propre</em>)
+									</p>
+								</li>
+								<li>
+									<p>
+										Attention, le travail de retaillage 
+										des longueurs ci-dessus ne doit pas 
+										s'appliquer à tout les <code>label</code>
+										et tout les <code>input</code> 
+										brutalement.
+										En particulier, on voit que pour la 
+										checkbox de confirmation, ou les
+										radiobox,
+										les tailles ne doivent pas être les
+										mêmes que pour les premiers
+										<code>input</code>.
+										Idem avec les <code>label</code>
+										qui s'y réfèrent.
+									</p>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+
+				<!-- Exercice -->
+				<li> Navigation
+					<p>
+						Le but de ce dernier exercice est de rajouter une
+						navigation simple pour permettre de circuler 
+						entre <code>index.html</code>,
+						<code>tableau.html</code>, 
+						et <code>formulaire.html</code>.
+						Elle va prendre la forme d'une barre placée sous 
+						la zone <code>header</code>.
+						On doit retrouver cette navigation sur les trois 
+						pages ; avec un style cohérent.
+					</p>
+					<ol> 
+						<!-- Question -->
+						<li> 	Liens de Base
+							<ol>
+								<!-- Item -->
+								<li> 
+									<p>
+										Dans le fichier <code>index.html</code>,
+										insérer un élément <code>nav</code>, 
+										entre les éléments <code>header</code>
+										et <code>aside</code>.
+									</p>
+								</li>
+								<!-- Item -->
+								<li> 
+									<p>
+										Ajoutez trois liens commes fils de 
+										<code>nav</code> 
+										(tags <code>a</code>)&nbsp;:
+										<em>Acceuil</em>, <em>Tableau</em>,
+										et <em>Formulaire</em>
+									</p>
+								</li>
+								<li>
+									<p>
+										Pour chaque lien, utilisez des urls
+										relatives.
+										<span class="hint"> 
+											<em>
+											<span>
+												&iquest;plus de détails?
+											</span>
+											<span>
+												
+												Comme on est déjà
+												dans le fichier <em>index.html</em>,
+												 pour <em>Acceuil</em> on reste sur
+												place avec l'url "<code>./index.html</code>".
+												Pour <em>Tableau</em>, on utilise
+												l'url "<code>./tableau.html</code>".
+												Et de même pour <em>Formulaire</em>,
+												on utilise "<code>./formulaire.html</code>".
+											</span>
+											</em>
+										</span>
+									</p>
+								</li>
+							</ol>
+						</li>
+						<!-- Question -->
+						<li> Habillage
+							<ol>
+								<!-- Item -->
+								<li> 
+									<p>
+										Désactivez les styles par défaut,
+										et choisissez un style
+										<code>css</code> pour les
+										éléments <code>a</code> de 
+										<code>nav</code>,
+										de façon à avoir une jolie barre 
+										(jouez sur les tailles)
+									</p>
+								</li>
+								<!-- Item -->
+								<li> 
+									<p>
+									  Rendez le lien qui correspond à
+									  rester sur place
+									  différent des autres (une inversion 
+									  de couleur par exemple).
+									  Pour cela, il est préférable
+									  d'ajouter une 
+									  <code>class</code> à cet élément.
+									</p>
+								</li>
+								<li>
+									<p>
+										Comme il est de coutume, rajoutez un
+										changement de style lors du survol
+										des liens (voir <code>:hover</code>)
+									</p>
+								</li>
+							</ol>
+						</li>
+						<!-- Question -->
+						<li> Propager
+							<ol>
+								<!-- Item -->
+								<li> 
+									<p>
+										Recopiez la barre de navigation 
+										construite dans les deux autres fichiers
+									</p>
+								</li>
+								<li>
+									<p>
+										Adaptez ce qui doit l'être
+									</p>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+
+
+				<!-- Validation -->
+				<li> Validez vos fichiers html et css
+				</li>
+
+				<!-- Exercice -->
+				<!-- li> exo
+					<ol> 
+						<!-- Question -- >
+						<li> quest
+							<ol>
+								<!-- Item -- >
+								<li> item
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+								</li>
+								<!-- Item -- >
+								<li> item
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+								</li>
+							</ol>
+						</li>
+						<!-- Question -- >
+						<li> quest
+							<ol>
+								<!-- Item -- >
+								<li> item
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+								</li>
+								<!-- Item -- >
+								<li> item
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+									<p>
+										...
+									</p>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li -->
+
+			</ol>
+		</main>
+
+	</body>
+</html>

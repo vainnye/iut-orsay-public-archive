@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../../css/tp.css" />
+		<title>R4A10 - TP 1</title>
+    </head>
+	<body>
+
+		<header>
+			<h1>R4A10 - Javascript / DOM - TP 1</h1>
+		</header>
+
+		<aside>
+			<p>
+				Dans cette suite de TPs, 
+				nous allons faire des essais
+				concernant les plus communes techniques
+				de javascript dans le <code>dom</code>.
+			</p>
+			<p>
+				Pour cela, nous allons reconstruire les quatre pages 
+				issues du tp4 de r102.
+			</p>
+		</aside>
+
+		<main>
+			<ol class="avec_exo_zero">
+
+				<!-- Exercice -->
+				<li> Mise en place
+					<ol> 
+						<li> Fichiers disponibles
+							<ol>
+								<li>
+									<p>
+Créez votre répertoire de travail, et récupérez la <a href="./base.zip">base</a>
+issue du tp4 de r102 (pour récupérer le fichier <strong>.zip</strong>,
+utilisez le clic-droit + <em>save link As...</em>)
+									</p>
+								</li>
+								<li>
+									<p>
+Dans votre navigateur de prédilection, créez les signets des 
+utilitaires <code>html</code>/<code>css</code> de base, 
+à savoir&nbsp;:
+									</p>
+									<ol>
+										<!--li>
+											<p>
+												Indentation d'un
+												<a href="https://www.freeformatter.com/html-formatter.html#before-output">
+													document html
+												</a>
+											</p>
+										</li-->
+										<li>
+											<p>
+Validation du
+<a href="https://validator.w3.org/#validate_by_upload">dom</a>
+											</p>
+										</li>
+										<li>
+
+											<p>
+Validation du
+<a href="https://jigsaw.w3.org/css-validator/#validate_by_upload">css</a>
+											</p>
+										</li>
+									</ol>	
+								</li>
+								<li>
+									<p>
+Gardez aussi un signet vers un interpréteur
+<a href="https://www.programiz.com/javascript/online-compiler/">javascript</a>
+(pour le cas où vous devriez tester un mini bout de code)
+									</p>
+								</li>
+								<li>
+									<p>
+Historisez votre production :
+pour chaque tp, pour chaque exercice, créez <em>un sous-répertoire</em>
+ou bien, utilisez un logiciel de <em>versionning</em>, comme par exemple 
+<code>git</code>
+									</p>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+
+				<!-- Exercice -->
+
+				<li> L'événement archétype : clic sur bouton
+					<ol> 
+						<li>
+							<p>
+Créez votre nouvelle copie du squelette précédemment récupéré. 
+Renommez-la. Ajustez les titres et footer qui doivent l'être
+(sauf si vous êtes jacques ales bianchetti, auquel cas, vous avez 
+l'air bien fatigué, prenez donc une retraite bien méritée&hellip;).
+							</p>
+						</li>
+						<li> <strong>V1</strong> 
+							<p>
+Dans le <code>aside</code>, ajoutez un premier <code>p</code>,
+et placez-y un bouton. Donnez un <code>id</code> au bouton, 
+et faites en sorte qu'il affichage initialement 
+<code class="texte_vert">Hello !</code>
+							</p>
+							<img src="./ex1.2.png" />
+							<p>
+En utilisant l'attribut <code>onclick</code> de l'élément <code>button</code>,
+associez l'appel de la fonction <code>rajoute_un_clic</code>
+à l'événement de clic sur ce bouton.
+							</p>
+						</li>
+						<li>
+							<p>
+Dans le fichier <code>index.js</code>, définissez la fonction 
+<code>rajoute_un_clic</code>. Cette fonction doit :
+							</p>
+							<ol>
+								<li>
+									<p>
+Récupérer le bouton grâce à <code>getElementById</code>
+<br>
+(dans le code de la fonction, utilisez directement l'<code>id</code> 
+que vous avez choisi à la question précédente) 
+									</p>
+								</li>
+								<li>
+									<p>
+Récupérer la string affichée par le bouton grâce à son <code>.innerText</code>
+									</p>
+								</li>
+								<li>
+									<p>
+Si cette valeur n'a pas encore été modifiée, changez-la,
+et saluez l'utilisateur  
+(voir  : <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/alert">alert</a>)
+									</p>
+									<img src="./ex1.3_a.png" />
+									<img src="./ex1.3_b.png" />
+								</li>
+								<li>
+									<p>
+Si cette valeur a déjà été modifiée, affichez une salutation différente.
+									</p>
+									<img src="./ex1.3_c.png" />
+								</li>
+							</ol>
+						</li>
+						<li> <strong>V2</strong> 
+							<p>
+A la suite du premier bouton, rajoutez-en un second , 
+sans identifiant, mais avec le même texte. 
+							</p>
+							<img src="./ex1.4.png" />
+						</li>
+						<li>
+							<p>
+Dans le fichier <code>index.js</code>, définissez une seconde version
+de la fonction réagissant au clic :
+<br>
+<code>function rajoute_un_clic_alt(that){...}</code>
+<br>
+Cette fonction attend une référence au bouton qui est cliqué 
+(le paramètre <code>that</code>)
+							</p>
+							<p>
+ Dans le <code>html</code>, 
+associez l'appel de cette fonction au clic sur le second bouton,
+en passant <strong>ce bouton</strong> comme premier argument : 
+<br>
+<code>rajoute_un_clic_alt(this)</code>
+<br>Remarque : ici <em>this</em> suit la même convention 
+qu'en <code>c++</code> ou en <code>java</code>
+(voir cours)
+							</p>
+							<p>
+La fonction reçoit le bouton sur lequel le clic a eu lieu :
+plus besoin d'utiliser <code>getElementById</code> donc.
+Adaptez le code de la v1
+							</p>
+						</li>
+						<!--li>
+							<p>
+								En cas de besoin, définissez
+								le <code>css</code> spécifique
+								à cet exercice dans une feuille
+								supplémentaire :
+								<code>./styles/ex1.css</code>
+								et ajoutez le lien.
+							</p>
+							<p>
+								Dans la suite des tps, vous ferez
+								de même à chaque fois qu'un peu 
+								de mise en page est nécessaire.
+							</p>
+						</li -->
+					</ol>
+				</li>
+
+				<!-- Exercice -->
+
+				<li> Clic sur un élément quelconque du <code>DOM</code>
+					<ol> 
+						<li>
+							<p>
+(Rappel) Historisez : créez votre nouveau sous-répertoire,
+et préparez-le (en particulier, débarassez-vous des deux précédents boutons)
+							</p>
+						</li>
+						<li>
+							<ol>
+								<li>
+									<p>
+Dans le	<code>aside</code>, avant les paragraphes, ajoutez un tableau
+contenant quatre noms de couleurs (choisissez des noms de couleurs 
+<code>css</code> valides)
+									</p>
+									<img src="./ex2.2.png" />
+								</li>
+							</ol>
+						</li>
+						<li>
+							<p>
+Dans le fichier <code>index.js</code>, on veut associer les clics se produisant
+sur sous-arbre <code>table</code> avec <em>une</em> fonction qui change
+la couleur de tous les paragraphes dans le <code>aside</code>.
+							</p>
+							<ol>
+								<li>
+									<p>
+Récupérez le tableau grâce à <code>querySelector('table')</code>
+<br>
+(cela suppose qu'il n'y a qu'un tableau, 
+sinon il faudrait un sélecteur plus précis)
+									</p>
+								</li>
+								<li>
+									<p>
+Associez au tableau une fonction <em>callback</em> <code>change_couleur</code>
+pour l'événement clic grâce à :
+<br>
+<code>.addEventListener('click',<em>change_couleur</em>)</code>
+									</p>
+								</li>
+								<li>
+									<p>
+Pour que ces instructions aient un sens, il faut que le tableau soit construit.
+Un manière est d'attendre pour faire ce travailler 
+que l'événement <code>DOMContentLoaded</code> se soit produit. 
+									</p>
+									<p>
+Placez donc les instructions que l'on veut faire sur le tableau
+dans une callback qui associée à <code>DOMContentLoaded</code> 
+avec le code suivant :
+<br>
+<code>document.addEventListener("DOMContentLoaded", (event) => { &hellip; })</code>
+									</p>
+									<p>
+Ce code peut être placé directement dans le fichier <code>index.js</code>,
+sans besoin de <em>main</em> ni d'autre artifice
+									</p>
+								</li>
+							</ol>
+						</li>
+						<li>
+							<p>
+Définissez maintenant la fonction <code>change_couleur</code> ; elle doit :
+							</p>
+							<ol>
+								<li>
+									<p>
+Recevoir l'événement en paramètre
+									</p>
+								</li>
+								<li>
+									<p>
+Accéder à la case cliquée grâce à attribut <code>.target</code> de l'événement
+<br>
+(remarque : s'il n'y a pas de <em>trous</em> dans l'affichage de votre 
+tableau, on est sûr de cliquer sur une case ; 
+sinon, il faudrait vérifier&hellip;)
+									</p>
+								</li>
+								<li>
+									<p>
+Récupérer le nom de couleur que la case contient (<code>.innerText</code>)
+									</p>
+								</li>
+								<li>
+									<p>
+Récupérer les paragraphes de texte en utilisant <code>.querySelectorAll</code>
+et le sélecteur adapté
+									</p>
+								</li>
+								<li>
+									<p>
+Itérez sur les paragraphes visés, grâce à la méthode <code>forEach</code>
+utilisable sur le résultat de <code>.querySelectorAll</code> :
+									</p>
+									<p>
+Pour modifier la couleur, <code>forEach</code> reçoit 
+une <strong>fonction</strong>. C'est elle qui modifie l'attribut
+<code>.style.color</code> de l'élément du <code>dom</code>
+en cours de traitement dans <em>une</em> itération de la boucle
+(voir <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll#accessing_the_matches">exemple mdn</a>)
+									</p>
+								</li>
+							</ol>
+							<p>
+								Remarque : 
+								aidez-vous pendant le codage
+								par l'utilisation	de 
+								<code>console.log( '...' )</code>
+								&rarr; affichage dans l'inspecteur, 
+								onglet <code>Console</code>
+							</p>
+							<img src="./ex2.4_a.png" />
+							<img src="./ex2.4_b.png" />
+							<img src="./ex2.4_c.png" />
+						</li>
+					</ol>
+				</li>
+
+				<!-- Exercice -->
+
+				<li> Ajout d'un élément
+					<ol> 
+						<li>
+							<p>
+(Rappel) Historisez : copier tout l'exercice précédent comme sous-répertoire
+initial pour cet exercice. 
+<br>
+<strong>Conservez tout :</strong> nous allons compléter ce qui a été fait 
+durant l'exercice précédent
+							</p>
+						</li>
+						<li>
+							<ol>
+								<li>
+									<p>
+Ajoutez un <code>span</code> avant le <code>table</code>
+									</p>
+								</li>
+								<li>
+									<p>
+Placez dedans deux <code>input</code> de <code>color</code>,
+ayant chacun son propre <code>id</code>
+									</p>
+								</li>
+								<li>
+									<p>
+Rajoutez un bouton associé à une callback sur clic ;
+appelez-la par exemple <code>ajouter_deux_couleurs</code>
+									</p>
+								</li>
+								<img src="./ex3.2.png" />
+							</ol>
+						</li>
+						<li>
+							<p>
+Dans le fichier <code>javascript</code>, définissez la callback. Elle doit :
+							</p>
+							<ol>
+								<li>
+									<p>
+Récupérer chacun des deux <code>input</code> pour en extraire les couleurs 
+sélectionnées (attributs <code>.value</code>)
+									</p>
+								</li>
+								<li>
+									<p>
+Créer un élément de contenu textuel pour chacune des <code>string</code>
+obtenues, avec <code>createTextNode</code>
+									</p>
+								</li>
+								<li>
+									<p>
+Ces <code>TextNode</code> doivent être ajoutés à deux nouvelles
+cases, que l'on placera ensuite dans le tableau.
+									</p><p>
+Pour créer les cases, utilisez <code>.createElement</code>
+et le tag voulu (<code>td</code>). 
+									</p><p>
+Les textes sont rattachés aux cases en indiquant que leurs <em>textnodes</em>
+sont des fils des <code>td</code>, grâce à <code>.appendChild</code>
+									</p>
+								</li>
+								<li>
+									<p>
+A leur tour, les deux cases doivent être placées dans une ligne (<code>tr</code>)
+									</p>
+								</li>
+								<li>
+									<p>
+Enfin, cette nouvelle ligne doit être ajoutée au corps (<code>tbody</code>)
+du tableau (<code>table</code>)
+									</p>
+									<p>
+Pour cela, il faut d'abord le <em>retrouver</em>, avec <code>.querySelector</code>
+									</p>
+								</li>
+							</ol>
+							<img src="./ex3.4.png" />
+						</li>
+						<li>
+							<ol>
+								<li>
+									<p>
+Testez l'ajout des deux cases
+									</p>
+								</li>
+								<li>
+									<p>
+Testez le changement de couleur avec ces deux nouvelles cases
+									</p>
+								</li>
+								<li>
+									<p>
+Peut-on faire des ajouts multiples ?
+									</p>
+								</li>
+								<li>
+									<p>
+Que se passe-t-il si on recharge la page ?
+									</p>
+								</li>
+								<!-- li>
+									<p>
+										(question ouverte) 
+										Ce n'est peut-être pas joli 
+										l'affichage des codes 
+										<code>rgb</code>.
+										Que pourrait-on faire pour 
+										améliorer cela ?
+									</p>
+								</li -->
+							</ol>
+						</li>
+						<li> [Hors Sujet] Plus joli
+							<p>
+Nettoyer la version que nous allons conserver (choix parmi 4 couleurs prédéfinies)
+							</p>
+							<p>
+Vous pouvez utiliser des
+<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes">attributs custom</a>,
+et voici les images des <a href="boutons_translucides.zip">boutons</a>
+								
+							</p>
+							<img src="./ex3.5_a.png" />
+							<img src="./ex3.5_b.png" />
+						</li>
+					</ol>
+				</li>
+
+				<!-- Exercice -->
+
+				<li> Evénement clavier
+					<p>
+Nous allons proposer une recherche dans les paragraphes de l'élément 
+<code>main</code>, au fur et à mesure que l'utilisateur tape dans 
+une barre de recherche
+					</p>
+					<p>
+Remarque : Il existait un événement 
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/keypress_event"><code>keypress</code></a>
+qui a malheureusement été déclaré obsolète.
+Nous utiliserons donc soit <code>keyup</code>, soit <code>keydown</code>
+					</p>
+					<ol> 
+						<li>
+							<p>
+Ajoutez un élément 
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search"><code>search</code></a>,
+entre les éléments <code>aside</code> et <code>main</code>.
+A l'intérieur, placez un <code>input</code> de <code>type</code> recherche,
+et retouchez un peu la mise en page si vous avez le temps 
+(<a href="loupe.jpg">loupe</a>)
+							</p>
+							<img src="./ex4.1.png" />
+							<p>
+En utilisant l'attribut <code>onkeyup</code> de l'<code>input</code>
+spécifiez la callback <code>cherche_dans_paragraphes_de_main(this)</code>
+							</p>
+						</li>
+						<li>
+							<p>
+Définissez la fonction, qui doit :
+							</p>
+							<ol>
+								<li>
+									<p>
+Récupérer la <code>string</code> correspondant à la recherche
+en accédant à l'attribut <code>.value</code> de l'<code>input</code> reçu
+									</p>
+									<img src="./ex4.2_a1.png" />
+									<p>
+Conseil : rajoutez un <code>console.log</code> et vérifiez que tout va bien
+jusque-là
+									</p>
+									<img src="./ex4.2_a2.png" />
+								</li>
+								<li>
+									<p>
+Pour chercher dans le texte d'un paragraphe, javascript a ce qu'il
+nous faut parmi les méthode de 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes">string</a>
+									</p>
+									<p>
+Utilisez la technique déjà vue combinant <code>querySelectorAll</code>
+et une itération de callback via <code>.forEach</code>
+									</p>
+									<p>
+Dans un premier temps, simplifions le problème. Si la chaine recherchée
+est présente dans un paragraphe, on donne a tout ce paragraphe un 
+style prédéfini. Pour cela, créez une <code>class</code> et 
+affectez-la aux <code>p</code> voulus
+(voir <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList">ajout/retrait de classe css</a>)
+									</p>
+									<img src="./ex4.2_b.png" />
+									<p>
+<strong>Attention :</strong> il faut aussi penser à <em>retirer</em> la classe 
+des paragraphes non voulus ; en particulier, si la chaine recherchée est 
+modifiée, voir vidée
+									</p>
+								</li>
+								<li>
+									<p>
+Pour indiquer les cas où la recherche a échoué (sur l'ensemble 
+des paragraphes de <code>main</code>), vous pouvez exploiter la
+fonctionnalité de validation offerte par <code>html5</code>
+<br>
+(voir <code>.setCustomValidity</code> ; à combiner avec les 
+pseudo-classes <code>:valid</code>, <code>:invalid</code>,
+et éventuellement <code>:focus</code> )
+									</p>
+									<img src="./ex4.2_c1.png" />
+									<img src="./ex4.2_c2.png" />
+								</li>
+							</ol>
+						</li>
+						<li>
+							<p>
+La présentation précédente a un gros défaut : quand on trouve la sous-chaine,
+il est souvent difficile de voir où elle apparaît. Nous allons donc 
+surligner ses occurrences en les plaçant dans des <code>span</code> 
+(vous pourrez réutiliser la classe précédente pour surligner)
+							</p>
+							<img src="./ex4.3.png" />
+							<ol>
+								<li>
+									<p>
+Créez une seconde callback <code>cherche_dans_paragraphes_de_main_v2</code>.
+Son travail est similaire à celui de la première version, sauf au moment de 
+colorier les <em>hit</em> de la recherche. Cette fois-ci, vous pouvez par 
+exemple utiliser la méthode <code>.replace</code> des <code>string</code> 
+pour ajouter autour  des <em>hit</em>, les balises <code>span</code>
+(et la <code>class</code> css)
+									</p>
+								</li>
+								<li>
+									<p>
+Et là, c'est le drame ! 
+<br>
+Si à chaque <em>hit</em> vous rajoutez des <code>span</code>, les recherches 
+ne se comportent plus correctement, et les <code>span</code> s'accumulent 
+dans le document
+									</p>
+									<p>
+Nous allons utiliser une solution simpliste : dès le chargement du document,
+sauvegardons les textes originaux en ajoutant un attribut 
+<code>data-text_orig="..."</code>. Vous pouvez automatiser cela avec 
+l'événement <code>DOMContentLoaded</code> et <code>querySelectorAll</code>
+									</p>
+									<p>
+La callback <code>cherche_dans_paragraphes_de_main_v2</code> utilisera 
+cette sauvegarde du texe original pour faire ses recherche/comparaison 
+<strong>et</strong> pour remettre dans un état <em>propre</em>
+les paragraphes quand les <code>span</code> deviennent inutiles/génants
+									</p>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+
+				<!-- Exercice -->
+
+				<li> Déplacer un élément (à l'affichage)
+					<ol>
+						<li>
+							<p>
+Dans la page <em>images</em>, nous allons ajouter quelques cadres et filtre, 
+applicables aux photos de l'album :
+							</p>
+							<img src="./ex5.png" />
+							<img src="./ex5.z.png" />
+							<p>
+Vous pouvez utiliser <a href="./filtres_et_cadres.zip">ces images</a>,
+ou rechercher les vôtres (en veillant à ce qu'elles aient une certaine 
+transparence, ou bien la superposition ne fonctionnera pas)
+							</p>
+							<ol>
+								<li>
+									<p>
+Disposez les images dans un <code>aside</code>, avant le <code>main</code> 
+contenant l'album. Pour la technique que nous allons utiliser, manipuler 
+des <code>img</code> ne va pas être le plus simple. Créez donc des 
+<code>div</code>. Donnez-leur un <code>id</code> à chacun. Utilisez 
+les <em>cadres</em> et <em>filtres</em> comme images de fond de ces 
+<code>div</code>. Retravailler le <code>css</code> pour obtenir des tailles 
+et une disposition convenable
+									</p>
+								</li>
+								<li>
+									<p>
+Pour modifier facilement la position de chaque <code>div</code>, passez les en 
+<code>position:relative;</code> au niveau du <code>css</code>.
+Forcez l'initialisation du déplacement, en ajoutant <code>top:1px;</code>
+et <code>left:1px;</code> (<code>0px</code> riquerait d'être ignoré par 
+certaines optimisations des navigateurs)
+									</p>
+								</li>
+								<li>
+									<p>
+Dans le fichier <code>javascript</code>, une fois le chargement de la page 
+terminé (événement <code>DOMContentLoaded</code>), associez la 
+callback <code>move_img</code> à l'événement <code>mousemove</code>
+de chacun des <code>div</code>.
+									</p>
+									<p>
+Conseil : on pourra se simplifier le codage en initialisation aussi une structure 
+qui associe à chaque identifiant des <code>div</code>, la paire de valeurs
+correspondant à la translation qui lui est appliquée
+									</p>
+								</li>
+								<li>
+									<p>
+Définissez la callback <code>mousemove</code> qui va mettre à jour la position 
+d'un <code>div</code> : 
+									</p>
+									<ol>
+										<li>
+											<p>
+Elle reçoit en paramètre un objet décrivant l'évenement <em>mousemove</em>
+qui indique : 
+											</p>
+											<ul>
+												<li>
+													<p>
+sur quel élément du <code>dom</code> il a lieu (<code>.target</code>)
+													</p>
+												</li>
+												<li>
+													<p>
+quel(s) bouton est enfoncé (<code>.buttons</code>)
+													</p>
+												</li>
+												<li>
+													<p>
+de combien la souris vient de se déplacer(<code>.movementX</code>
+et <code>.movementY</code>)
+													</p>
+												</li>
+											</ul>
+											<p>
+Pour plus de détails, voir la doc
+											</p>
+										</li>
+										<li>
+											<p>
+Elle doit contrôler que le bouton gauche de la souris est enfoncé,
+et si c'est le cas, 
+											</p>
+										</li>
+										<li>
+											<p>
+Elle doit récupérer l'élément sur lequel a lieu l'événement
+(ou son <code>id</code>, selon ce qui vous arrange le plus)
+											</p>
+										</li>
+										<li>
+											<p>
+Elle doit déterminer quel déplacement s'est produit
+											</p>
+										</li>
+										<li>
+											<p>
+Elle doit mettre à jour le déplacement total depuis le chargement de la page
+											</p>
+										</li>
+										<li>
+											<p>
+Et enfin mettre à jour les valeurs des propriétés css correspondantes
+<code>.style.left</code> et <code>.style.top</code>
+											</p>
+										</li>
+									</ol>
+									<p>
+Attention : Il y a 4 cadres/filtres ; il faut donc gérer séparément le déplacement total
+de chacun d'entre eux
+									</p>
+									<p>
+Remarque : n'hésitez pas à vous aider de <code>console.log</code>
+									</p>
+									<!--p>
+										Remarque :
+										vous obtiendrez un meilleur
+										comportement près des bords
+										en placant 
+										<code>overflow:hidden;</code>
+										sur l'élément
+										<code>html</code>
+									</p-->
+									<p>
+Remarque : Le navigateur n'est pas vraiment adapté à ce genre d'utilisation.
+Si la souris bouge trop vite, il aura du mal à suivre
+									</p>
+									<p>
+Remarque : On pourrait améliorer la taille des cadres pour mieux correspondre 
+aux images, mais ce n'est pas aussi trivial
+									</p>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+
+				<!-- Exercice -->
+
+				<li> Déplacer un élément (dans le <code>dom</code>)
+					<p>
+Nous allons permettre de modifier les places des photos de l'album.
+Cette fois-ci, il ne s'agit plus de provoquer une <em>translation</em>
+par du <code>css</code>, mais de modifier les positions des éléments 
+dans le <code>dom</code> (ce qui impliquera une modification du rendu)
+					</p>
+					<ol>
+						<li>
+							<p>
+Ajoutez une checkbox pour activer le mode <em>échange de place entre 
+de deux photos</em>
+							</p>
+							<img src="./ex6.png" />
+						</li>
+						</li>
+						<li>
+							<ol>
+								<li>
+									<p>
+Une fois le document <code>html</code> chargé, associez la callback 
+<code>echange_images</code> à l'événement <code>click</code>
+de chaque photo
+									</p>
+								</li>
+								<li>
+									<p>
+Définissez la callback de façon à :
+									</p>
+									<ol>
+										<li>
+											<p>
+Vérifier que la checkbox est active
+											</p>
+										</li>
+										<li>
+											<p>
+Si aucune photo n'est encore sélectionnée, marquer la photo cliquée :
+ce sera la première des deux à échanger
+											</p>
+											<img src="./ex6.b.png" />
+										</li>
+										<li>
+											<p>
+S'il s'agit de la seconde sélection, échanger les deux photos
+(et retirez le marquage de la première)
+											</p>
+											<img src="./ex6.c.png" />
+											<p>
+Pour réaliser l'échange, chaque élément dispose de l'attribut 
+<code>.nextSibling</code> et de la méthode 
+<code>.insertBefore(<em>_a_</em>,<em>_b_</em>)</code>.
+Cette méthode doit être invoquée sur l'élément parent de <em>_b_</em>,
+pour placer <em>_a_</em>. L'attribut <code>.parentNode</code> 
+est donc aussi utile (consultez la documentation).
+Votre algorithme peut donc :
+											</p>
+											<ol>
+												<li>
+													<p>
+Rechercher le père des photos
+													</p>
+												</li>
+												<li>
+													<p>
+Déterminer qui précède <em>_a_</em>, <strong>avant</strong> de le déplacer
+													</p>
+												</li>
+												<li>
+													<p>
+Déplacer <em>_a_</em>
+													</p>
+												</li>
+												<li>
+													<p>
+Déplacer <em>_b_</em>
+													</p>
+												</li>
+											</ol>
+											<p>
+Petite vérification : Est-ce que cela marche bien lorsque 
+<em>_a_</em> | <em>_b_</em> est en <em>première</em> | 
+<em>dernière</em> place ?
+											</p>
+										</li>
+									</ol>
+								</li>
+								<li>
+									<p>
+Pour être propre, il reste pas mal de choses à contrôler et nettoyer.
+Ainsi, nous avons déjà mentionné le fait de désélectionner la première 
+photo après l'échange. Il faut aussi penser à décocher la case. De plus,
+si jamais l'utilisateur décoche case avant de sélectionner une seconde
+photo, il faut aussi procéder à la désélection de la première.
+									</p>
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+			
+			</ol>
+		</main>
+
+	</body>
+</html>

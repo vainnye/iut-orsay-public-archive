@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../../css/tp.css" />
+		<title>R4A10 - TP 3</title>
+    </head>
+	<body>
+
+		<header>
+			<h1>R4A10 - Javascript / DOM - TP 3</h1>
+		</header>
+
+		<aside>
+			<p>
+Dans ce TP vous utiliserez vos connaissances en <code>php</code> pour articuler 
+le <code>javascript</code> côté client avec des informations fournies par 
+le serveur. Ainsi, c'est à présent le serveur <code>webdev</code> qui nous fournit
+les informations nécessaires pour construire le tableau de notes des magiciens.
+			</p>
+			<p>
+Pour éviter d'avoir à traiter le problème 
+<a href="https://fr.javascript.info/fetch-crossorigin">cors</a>,
+vous poserez vos documents <code>html</code> sur <code>webdev</code>.
+Chacun de vos documents reste un simple fichier texte, contenant du 
+<code>html</code>, du <code>css</code>, ou du <code>javascript</code>.
+Le navigateur ira les chercher sur le serveur, le même vers lequel 
+il fera ensuite les requêtes pour obtenir les données du tableau.
+			</p>
+		</aside>
+
+		<main>
+
+			<ol>
+
+				<!-- Exercice -->
+				<li> Tableau fourni par le serveur
+					<p>
+Dans ce premier exercice, le serveur nous fournit les données pour remplir un 
+tableau au <em>bon</em> format, c'est-à-dire rangées de la même façon que nous 
+l'avons fait lors du tp2, quand nous avons procédé aux extractions de données
+					</p>
+					<ol> 
+						<li> Mise en place
+							<ol>
+								<li>
+									<p>
+Videz le tableau initialement présent dans votre document <code>html</code>, 
+pour ne plus conserver que la balise <code>table</code>, avec son identifiant,
+et le <code>caption</code> (qui disparaîtra par la suite, par simplification,
+mais qui va nous permettre de confirmer que nous faisons bien les nettoyages
+nécessaires)
+									</p>
+									<p>
+Modifiez les deux boutons pour qu'ils affichent des messages adéquats, 
+et qu'ils invoquent respectivement 
+<code>get_table_in_desktop_view('table_unique')</code> et 
+<code>get_table_in_mobile_view('table_unique')</code>
+									</p>
+									<img src="ex1.1a.png">
+									<p>
+Déposez tous vos documents sur <code>webdev</code> dans un répertoire de travail,
+et visualisez. Profitez-en pour vérifier que vos contributions aux pages 
+<code>index.html</code> et <code>images.html</code> fonctionnent correctement.
+Désactivez les fonctionnalités issues du tp2 (notes en dessous de la moyenne,
+moyennes par discipline, tri des colonnes)
+									</p>
+								</li>
+								<li>
+									<p>
+Nous allons repartir des données telles qu'extraites lors de 
+l'<a href="../tp2/index.html#ex2_1">exercice 2.1</a>.
+Ecrivez un script <code>php</code> qui, à base de <code>echo</code>,
+produit un affichage correct :
+pour une liste de disciplines fixée, des notes aléatroires (entiers, entre 0 et 20),
+pour un nombre aléatoire de mages (entre 5 et 15)
+									</p>
+									<p>
+Appelez ce script <code>notes_v1.php</code>. Placez le sur <code>webdev</code>.
+Testez-le. (attention : dans votre navigateur, regardez le code source de 
+la réponse)
+									</p>
+								</li>
+							</ol>
+						</li>
+						<li> Fetch et contruction
+							<ol>
+								<li>
+									<p>
+Commençons par la fonction <code></code>. En premier lieu, 
+faites une requête <code>fetch</code> pour récupérer le json (voir cours),
+et contentez-vous d'afficher le json obtenu avec <code>console.log</code>. 
+Vérifiez/Corrigez.
+									</p>
+								</li>
+								<li>
+									<p>
+Terminez en construisant le tableau, grâce au code correspondant déjà 
+développé au tp2
+									</p>
+									<img src="./ex1.2b.png" />
+									<p>
+Vérifiez qu'un second clic charge de <em>nouvelles</em> données
+									</p>
+								</li>
+								<li>
+									<p>
+Faites de même pour la présentation <em>smartphone</em>
+									</p>
+									<img src="./ex1.2c.png" />
+								</li>
+							</ol>
+						</li>
+					</ol>
+				</li>
+
+
+				<!-- Exercice -->
+				<li> Tableau à partir d'une <em>liste d'objets</em> fournie par le serveur
+					<p>
+Le serveur n'est a priori pas sensé nous préparer le travail. Ce sera d'autant 
+moins probable si nous ne sommes pas en charge de son développement.
+Supposons donc à présent que les données à partir desquelles nous allons 
+travailler sont '<em>cachées</em>' dans un format que le serveur a choisi 
+pour des raisons qui lui sont propres.
+					</p>
+					<ol> 
+						<li> 
+							<p>
+Pour nous simplifier la tâche, utilisons un générateur aléatoire déjà écrit 
+<a href="https://www.jsongenerator.io/">https://www.jsongenerator.io/</a>
+(mais vous pouvez coder le vôtre en php, sur votre temps libre)
+							</p>
+							<p>
+Générez une liste de quelques objets, suffisamment <em>étoffés</em>,
+puis copiez-la dans un fichier <code>.json</code>. 
+Posez ce fichier sur <code>webdev</code>, et vérifiez que votre navigateur
+y accède correctement.
+							</p>
+							<p>
+Les exemples du tp utilisent <a href="objects.json">ce fichier</a>, 
+issu de ce template de génération aléatoire :
+							</p>
+<pre>
+{
+  "disciplines" : [
+    "Autodiscipline", "Elementalisme", "Naturalisme", "Divination", "Prètrise", 
+    "Altération", "Conscience", "Guerrier", "Artisant"
+  ],
+  "premiere_annee": [
+    "repeat(5,15)",
+    {
+      "nom": "firstName() lastName()",
+      "phoneNumber": "phoneNumber()",
+      "username": "this.name.first-this.name.last",
+      "email": "email(abralka.zam)",
+      "notes": [
+        "repeat(9)",
+        "int(0,20)"
+      ]
+    }
+  ]
+}
+</pre>
+						</li>
+						<li>
+							<p>
+Nous voulons réutiliser le maximum de code de 
+l'exercice précédent. Pour cela, écrivez une fonction 
+<code>adpatateur_contenu(json)</code>, qui :
+							</p>
+							<ul>
+								<li>
+									<p>
+Reçoit un paramètre contenant le json que vous avez généré et 
+posé sur <code>webdev</code>
+									</p>
+								</li>
+								<li>
+									<p>
+Retourne un <em>nouvel</em> objet manipulable comme celui attendu par les 
+fonctions de l'exercice précédent, c'est-à-dire qui saura répondre quand 
+le code lui demandera un <code>.colonnes</code>, ou un <code>.lignes</code>
+, etc (du pur <em>ducktyping</em> en somme)
+									</p>
+								</li>
+							</ul>
+							<p>
+La façon la plus simple pour <code>adpatateur_contenu</code> est 
+de <em>réellement</em> construire un nouvel objet au format voulu,
+dans lequel seront placées/recopiées les informations provenant du 
+<code>json</code>. Dans un premier temps, testez cette approche.
+							</p>
+						</li>
+						<li>
+							<p>
+Dans ce dernier exercice, définir une seconde version de la fonction :
+<code>adpatateur_contenu_vproxy(json)</code>. Celle-ci ne va ni modifier
+l'objet <code>json</code> reçu, ni dupliquer les données qu'il contient.
+Au lieu de cela, elle va intercepter les accès aux données et simuler 
+le comportement de l'objet créé par la précédente version.
+							</p>
+							<p>
+La première étape consiste à répertorier toutes les accès que nous voulons
+simuler. Il s'agit de :
+							</p>
+							<ul>
+								<li>
+									<p>
+<code>.colonnes.length</code>
+									</p>
+								</li>
+								<li>
+									<p>
+<code>.colonnes[i]</code>  (pour tout <code>i</code> un indice valide)
+									</p>
+								</li>
+								<li>
+									<p>
+<code>.lignes.length</code>
+									</p>
+								</li>
+								<li>
+									<p>
+<code>.lignes[i]</code>
+									</p>
+								</li>
+								<li>
+									<p>
+<code>.lignes[i][j]</code>
+									</p>
+								</li>
+							</ul>
+							<ol>
+								<li>
+									<p>
+La fonction <code>adpatateur_contenu_vproxy(json)</code> doit donc retourner un
+objet qui intercepte les  accès en lecture pour les propriétés
+<code>.colonnes</code> et <code>.lignes</code>. Définissez un objet qui
+utilise 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get"><code>get</code></a>
+sur ces noms de propriétés et testez le avec des <code>console.log</code>
+									</p>
+								</li>
+								<li>
+									<p>
+On serait tenté d'utiliser la même technique pour intercepter les accès issus
+de <code>.colonnes</code>, c'est-à-dire <code>.colonnes.length</code> et
+<code>.colonnes[i]</code>. Malheureusement, il peut y avoir un nombre
+arbitrairement grand d'indices. On ne pourrait donc pas écrire les interceptions
+in extenso. L'accès à <code>.colonnes</code> doit donc retourner un 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"><code>Proxy</code></a>.
+									</p>
+									<p>
+Lors d'un accès en lecture à un <code>Proxy</code>, sa méthode <code>get</code>
+reçoit le nom de la propriété accédée. Utilisez ce paramètre pour répondre :
+									</p>
+									<ul>
+										<li>
+											<p>
+Soit le <code>.disciplines.length</code> de l'objet <code>json</code>,
+quand <code>.length</code> est demandée
+											</p>
+										</li>
+										<li>
+											<p>
+Soit le <code>.disciplines[idx]</code> de l'objet <code>json</code>,
+quand <code>[idx]</code> est demandée
+											</p>
+										</li>
+									</ul>
+									<p>
+A nouveau, testez abondamment avec la console
+									</p>
+								</li>
+								<li>
+									<p>
+Pour traiter les accès issus de <code>.lignes</code>, vous répéterez cette 
+dernière technique. Vous obtiendrez un <code>Proxy</code> qui crée
+des <code>Proxy</code> !&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9992;&#10160&#9992;
+									</p>
+								</li>
+							</ol>
+							<p>
+
+							</p>
+						</li>
+					</ol>
+				</li>
+				<li> Vous débordez d'énergie ? (optionnel)
+				  <p>
+				    Reprenez la <em>mise en jambe</em> du TP précédent
+				    pour ajouter des animations (et des temporisations)
+				    à chaque étape de calcul
+				  </p>
+				  <p>
+				    Vous pouvez aborder le problème avec uniquement des <code>Promises</code>.
+				    Ou vous pouvez obtenir un code plus lisible avec <code>await/async</code>.
+				  </p>
+				  <p>
+				    Voici ce que l'on veut obtenir :
+				    <img src="./Animation_tableau.gif" />
+				  </p>
+				</li>
+			</ol>
+		</main>
+
+	</body>
+</html>

@@ -1,0 +1,245 @@
+<html>
+	<head>
+		<title>Exemples tableaux</title>
+	</head>
+	<body>
+
+		<div style="height:100vh;padding:5%;">
+		
+			<h1 id="base" >Exemple basique</h1>
+		
+			<p>Utilisez l'inspecteur pour y voir quelquechose</p>
+		
+			<table>
+				<caption> Notes groupe 3p </caption>
+				<thead>
+					<tr>
+						<th> Etudiant </th>
+						<td> Algo </td>
+						<td> Bd </td>
+						<td> System </td>
+						<td> Gestion </td>
+						<td> Management </td>
+						<td> Anglais </td>
+						<td> Expression </td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th> Raoul </th>
+						<td> .. </td>
+						<td> 13.1 </td>
+						<td> .. </td>
+						<td> 10.5 </td>
+						<td> 11.5 </td>
+						<td> .. </td>
+						<td> 11.0 </td>
+					</tr>
+						<tr>
+						<th> Ginette </th>
+						<td> .. </td>
+						<td> 10.0 </td>
+						<td> 12.5 </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> 10.5 </td>
+					</tr>
+					<tr>
+						<th> Popol </th>
+						<td> 11.2 </td>
+						<td> .. </td>
+						<td> 11.5 </td>
+						<td> 10.0 </td>
+						<td> .. </td>
+						<td> 13.1 </td>
+						<td> 10 </td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th> Moyennes </th>
+						<td> .. </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> 10 </td>
+					</tr>
+				</tfoot>
+			</table>
+		
+		</div>
+		<div style="height:100vh;padding:5%;">
+		
+			<h1 id="regroupement_th">Exemple regroupement de titres de colonnes (thead et tfoot)</h1>
+		
+			<table>
+				<caption> Notes groupe 3p </caption>
+				<thead>
+					<tr>
+						<th> Etudiant </th>
+						<td colspan="3" > Informatique </td>
+
+
+						<td colspan="2" > Economie </td>
+
+						<td colspan="2" > Langues </td>
+
+					</tr>
+					<tr>
+						<td> </td>
+						<td> Algo </td>
+						<td> Bd </td>
+						<td> System </td>
+						<td> Gestion </td>
+						<td> Management </td>
+						<td> Anglais </td>
+						<td> Expression </td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th> Raoul </th>
+						<td> .. </td>
+						<td> 13.1 </td>
+						<td> .. </td>
+						<td> 10.5 </td>
+						<td> 11.5 </td>
+						<td> .. </td>
+						<td> 11.0 </td>
+					</tr>
+						<tr>
+						<th> Ginette </th>
+						<td> .. </td>
+						<td> 10.0 </td>
+						<td> 12.5 </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> 10.5 </td>
+					</tr>
+					<tr>
+						<th> Popol </th>
+						<td> 11.2 </td>
+						<td> .. </td>
+						<td> 11.5 </td>
+						<td> 10.0 </td>
+						<td> .. </td>
+						<td> 13.1 </td>
+						<td> 10 </td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th> Moyennes </th>
+						<td> .. </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> 10 </td>
+					</tr>
+					<tr>
+						<th> Globales </th>
+						<td colspan="3" > .. </td>
+
+
+						<td colspan="2" > .. </td>
+
+						<td colspan="2" > .. </td>
+
+					</tr>
+				</tfoot>
+			</table>
+			
+		</div>
+		<div style="height:100vh;padding:5%;">
+
+			<h1 id="regroupement_td">Exemple regroupement cases</h1>
+		
+			<table>
+				<caption> Notes groupe 3p </caption>
+				<thead>
+					<tr>
+						<th> Etudiant </th>
+						<td colspan="3" > Informatique </td>
+
+
+						<td colspan="2" > Economie </td>
+
+						<td colspan="2" > Langues </td>
+
+					</tr>
+					<tr>
+						<td> </td>
+						<td> Algo </td>
+						<td> Bd </td>
+						<td> System </td>
+						<td> Gestion </td>
+						<td> Management </td>
+						<td> Anglais </td>
+						<td> Expression </td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th> Raoul </th>
+						<td rowspan="2"> .. </td>
+						<td> 13.1 </td>
+						<td> .. </td>
+						<td> 10.5 </td>
+						<td> 11.5 </td>
+						<td rowspan="2"> .. </td>
+						<td> 11.0 </td>
+					</tr>
+						<tr>
+						<th> Ginette </th>
+						
+						<td> 10.0 </td>
+						<td> 12.5 </td>
+						<td> .. </td>
+						<td rowspan="2"> .. </td>
+						
+						<td> 10.5 </td>
+					</tr>
+					<tr>
+						<th> Popol </th>
+						<td> 11.2 </td>
+						<td> .. </td>
+						<td> 11.5 </td>
+						<td> 10.0 </td>
+						
+						<td> 13.1 </td>
+						<td> 10 </td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th> Moyennes </th>
+						<td> .. </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> .. </td>
+						<td> 10 </td>
+					</tr>
+					<tr>
+						<th> Globales </th>
+						<td colspan="3" > .. </td>
+
+
+						<td colspan="2" > .. </td>
+
+						<td colspan="2" > .. </td>
+
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+		
+	</body>
+</html>
