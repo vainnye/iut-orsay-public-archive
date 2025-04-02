@@ -1,0 +1,151 @@
+{
+  "disciplines": [
+    "Autodiscipline",
+    "Elementalisme",
+    "Naturalisme",
+    "Divination",
+    "Prètrise",
+    "Altération",
+    "Conscience",
+    "Guerrier",
+    "Artisant"
+  ],
+  "premiere_annee": [
+    {
+      "nom": "Olga Konopelski",
+      "phoneNumber": "501-421-7308 x2117",
+      "username": "this.name.first-this.name.last",
+      "email": "Linwood45@abralka.zam",
+      "notes": [
+        "4",
+        "12",
+        "15",
+        "15",
+        "2",
+        "7",
+        "0",
+        "4",
+        "14"
+      ]
+    },
+    {
+      "nom": "Dolly Tromp",
+      "phoneNumber": "1-887-629-8054",
+      "username": "this.name.first-this.name.last",
+      "email": "Jason11@abralka.zam",
+      "notes": [
+        "7",
+        "2",
+        "0",
+        "4",
+        "15",
+        "17",
+        "16",
+        "7",
+        "20"
+      ]
+    },
+    {
+      "nom": "Yessenia Willms",
+      "phoneNumber": "956.876.9314 x1395",
+      "username": "this.name.first-this.name.last",
+      "email": "Lina.Wolf@abralka.zam",
+      "notes": [
+        "17",
+        "17",
+        "11",
+        "7",
+        "2",
+        "8",
+        "9",
+        "15",
+        "17"
+      ]
+    },
+    {
+      "nom": "Abe Ritchie",
+      "phoneNumber": "1-713-415-2622 x36515",
+      "username": "this.name.first-this.name.last",
+      "email": "Itzel.Becker@abralka.zam",
+      "notes": [
+        "8",
+        "7",
+        "18",
+        "8",
+        "4",
+        "5",
+        "16",
+        "5",
+        "15"
+      ]
+    },
+    {
+      "nom": "Kitty Rath",
+      "phoneNumber": "582-934-3588 x0203",
+      "username": "this.name.first-this.name.last",
+      "email": "Corrine92@abralka.zam",
+      "notes": [
+        "8",
+        "9",
+        "14",
+        "17",
+        "5",
+        "14",
+        "4",
+        "17",
+        "14"
+      ]
+    },
+    {
+      "nom": "Deja Goldner",
+      "phoneNumber": "(590) 615-3868 x413",
+      "username": "this.name.first-this.name.last",
+      "email": "Cyrus12@abralka.zam",
+      "notes": [
+        "1",
+        "3",
+        "18",
+        "13",
+        "18",
+        "6",
+        "13",
+        "18",
+        "12"
+      ]
+    },
+    {
+      "nom": "Katarina Farrell",
+      "phoneNumber": "1-579-905-2656 x48359",
+      "username": "this.name.first-this.name.last",
+      "email": "Drew.Macejkovic@abralka.zam",
+      "notes": [
+        "19",
+        "15",
+        "15",
+        "9",
+        "18",
+        "12",
+        "17",
+        "19",
+        "17"
+      ]
+    },
+    {
+      "nom": "Evangeline Wolf",
+      "phoneNumber": "(473) 990-8417",
+      "username": "this.name.first-this.name.last",
+      "email": "Kolby_Corwin@abralka.zam",
+      "notes": [
+        "17",
+        "7",
+        "15",
+        "7",
+        "5",
+        "12",
+        "7",
+        "6",
+        "13"
+      ]
+    }
+  ]
+}
